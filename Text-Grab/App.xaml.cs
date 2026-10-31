@@ -37,6 +37,7 @@ public partial class App : System.Windows.Application
     private static readonly Settings _defaultSettings = AppUtilities.TextGrabSettings;
     private static RegistryMonitor? _themeRegistryMonitor;
     private static RegistryKey? _themeRegistryKey;
+    private bool _diagnosticMode;
 
     #endregion Fields
 
@@ -578,6 +579,9 @@ public partial class App : System.Windows.Application
 
     private void appExit(object sender, ExitEventArgs e)
     {
+        if (_diagnosticMode)
+            return;
+
         AutomationDiagnostics.Record("exit", new { e.ApplicationExitCode });
         TextGrabIcon?.Close();
 
@@ -593,6 +597,17 @@ public partial class App : System.Windows.Application
 
     private async void appStartup(object sender, StartupEventArgs e)
     {
+        // Explicit diagnostic mode exits before registering hotkeys, opening UI or saving settings.
+        if (e.Args.Length >= 2 && e.Args[0] == "--diagnose-windows-ai")
+        {
+            _diagnosticMode = true;
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            int exitCode = await WindowsAiDiagnostics.WriteReportAsync(
+                e.Args[1], e.Args.Length >= 3 ? e.Args[2] : null);
+            Shutdown(exitCode);
+            return;
+        }
+
         if (_automationProfile is not null)
         {
             AutomationDiagnostics.Initialize(_automationProfile);
