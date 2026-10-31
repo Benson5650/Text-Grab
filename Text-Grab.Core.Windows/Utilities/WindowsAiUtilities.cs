@@ -51,10 +51,9 @@ public static class WindowsAiUtilities
         if (!PackageIdentity.IsPackaged() || OSInterop.IsWindows10())
             return false;
 
-        // Copilot+ PCs can be ARM64 or x64. The feature API checks the actual hardware/model.
+        // Today, Windows AI features are only supported on ARM64 unless overridden for debugging.
         Architecture arch = RuntimeInformation.ProcessArchitecture;
-        if (arch != Architecture.Arm64 && arch != Architecture.X64
-            && !SettingsAccess.Current.OverrideAiArchCheck)
+        if (arch != Architecture.Arm64 && !SettingsAccess.Current.OverrideAiArchCheck)
             return false;
 
         return true;

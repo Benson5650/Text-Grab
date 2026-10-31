@@ -82,12 +82,8 @@ public partial class LanguageSettings : Page
             }
             else
             {
-                var state = Microsoft.Windows.AI.Imaging.TextRecognizer.GetReadyState();
-                bool ready = state == Microsoft.Windows.AI.AIFeatureReadyState.Ready;
-                StatusTextBlock.Text = ready ? "Ready" : state.ToString();
-                ReasonTextBlock.Text = ready
-                    ? "Windows AI is supported on this system."
-                    : "Windows AI is supported, but the OCR model is not ready yet. It may need preparation on first use.";
+                StatusTextBlock.Text = "Ready";
+                ReasonTextBlock.Text = "Windows AI is supported on this system.";
                 return;
             }
         }
