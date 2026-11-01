@@ -350,7 +350,7 @@ public partial class QuickSimpleLookup : Wpf.Ui.Controls.FluentWindow
         {
             // Set filter for file extension and default file extension 
             DefaultExt = ".csv",
-            Filter = "Comma Separated Values File (.csv)|*.csv",
+            Filter = "逗號分隔值檔案 (.csv)|*.csv",
             CheckFileExists = true
         };
 
@@ -409,25 +409,25 @@ public partial class QuickSimpleLookup : Wpf.Ui.Controls.FluentWindow
 
     private void PopulateSampleData()
     {
-        LookupItem sampleItem1 = new("This is the key", "This is the value you want to copy quickly")
+        LookupItem sampleItem1 = new("這是索引鍵", "這是你想快速複製的值")
         {
             Kind = LookupItemKind.Simple
         };
         ItemsDictionary.Add(sampleItem1);
 
-        LookupItem sampleItem2 = new("Import data", "From a copied Excel table, or import from a CSV File")
+        LookupItem sampleItem2 = new("匯入資料", "從複製的 Excel 表格匯入，或匯入 CSV 檔案")
         {
             Kind = LookupItemKind.Simple
         };
         ItemsDictionary.Add(sampleItem2);
 
-        LookupItem sampleItem3 = new("You can change save location", "Putting the data store location in OneDrive it will sync across devices")
+        LookupItem sampleItem3 = new("你可以變更儲存位置", "將資料儲存位置設為 OneDrive，即可在裝置間同步")
         {
             Kind = LookupItemKind.Simple
         };
         ItemsDictionary.Add(sampleItem3);
 
-        LookupItem sampleItem4 = new("Delete these initial rows", "and add your own manually if you like.")
+        LookupItem sampleItem4 = new("刪除這些初始資料列", "並可依需要手動新增自己的資料。")
         {
             Kind = LookupItemKind.Simple
         };
@@ -1070,7 +1070,7 @@ public partial class QuickSimpleLookup : Wpf.Ui.Controls.FluentWindow
         }
         catch (Exception ex)
         {
-            System.Windows.Forms.MessageBox.Show($"Failed to save csv file. {ex.Message}");
+            System.Windows.Forms.MessageBox.Show($"無法儲存 CSV 檔案。{ex.Message}");
         }
     }
 

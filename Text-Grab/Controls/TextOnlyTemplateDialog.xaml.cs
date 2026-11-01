@@ -32,8 +32,8 @@ public partial class TextOnlyTemplateDialog : FluentWindow
     {
         if (EditingTemplate is not null)
         {
-            Title = "Edit Text-Only Template";
-            TitleBarControl.Title = "Edit Text-Only Template";
+            Title = "編輯純文字範本";
+            TitleBarControl.Title = "編輯純文字範本";
         }
 
         TemplateNameBox.Focus();
@@ -136,7 +136,7 @@ public partial class TextOnlyTemplateDialog : FluentWindow
 
         if (string.IsNullOrWhiteSpace(name))
         {
-            ErrorText.Text = "Template name is required.";
+            ErrorText.Text = "必須輸入範本名稱。";
             ErrorText.Visibility = Visibility.Visible;
             TemplateNameBox.Focus();
             return;
@@ -144,7 +144,7 @@ public partial class TextOnlyTemplateDialog : FluentWindow
 
         if (string.IsNullOrWhiteSpace(outputTemplate))
         {
-            ErrorText.Text = "Output template is required.";
+            ErrorText.Text = "必須輸入輸出範本。";
             ErrorText.Visibility = Visibility.Visible;
             OutputTemplateBox.Focus();
             return;

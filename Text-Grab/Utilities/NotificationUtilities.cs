@@ -74,7 +74,7 @@ internal static class NotificationUtilities
         new ToastContentBuilder()
             .AddArgument("windowId", windowId.ToString())
             .AddText("Text Grab")
-            .AddText($"Transcription complete: {fileDescription}")
+            .AddText($"轉錄完成：{fileDescription}")
             .Show();
     }
 
@@ -103,7 +103,7 @@ internal static class NotificationUtilities
         new ToastContentBuilder()
             .AddArgument("windowId", windowId.ToString())
             .AddText("Text Grab")
-            .AddText($"\"{modelName}\" model ready")
+            .AddText($"\"{modelName}\" 模型已就緒")
             .Show();
     }
 

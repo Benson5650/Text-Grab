@@ -340,8 +340,8 @@ public static partial class WindowUtilities
             _ = new Wpf.Ui.Controls.MessageBox
             {
                 Title = ex.Message,
-                Content = "An error occurred while trying to open a new window. Please try again.",
-                CloseButtonText = "OK"
+                Content = "嘗試開啟新視窗時發生錯誤。請再試一次。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
 
@@ -371,8 +371,8 @@ public static partial class WindowUtilities
             _ = new Wpf.Ui.Controls.MessageBox
             {
                 Title = ex.Message,
-                Content = "An error occurred while trying to open a new window. Please try again.",
-                CloseButtonText = "OK"
+                Content = "嘗試開啟新視窗時發生錯誤。請再試一次。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return null;
         }
@@ -403,8 +403,8 @@ public static partial class WindowUtilities
             _ = new Wpf.Ui.Controls.MessageBox
             {
                 Title = ex.Message,
-                Content = "An error occurred while trying to open a new window. Please try again.",
-                CloseButtonText = "OK"
+                Content = "嘗試開啟新視窗時發生錯誤。請再試一次。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         return newWindow;

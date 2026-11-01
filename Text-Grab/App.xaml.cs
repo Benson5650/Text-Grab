@@ -92,7 +92,7 @@ public partial class App : System.Windows.Application
         OpenFileDialog openFileDialog = new()
         {
             Filter = FileUtilities.GetOpenDocumentFilter(),
-            Title = "Open File",
+            Title = "開啟檔案",
             CheckFileExists = true,
             InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
         };

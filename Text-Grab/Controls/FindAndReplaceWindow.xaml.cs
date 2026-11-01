@@ -155,19 +155,19 @@ public partial class FindAndReplaceWindow : FluentWindow
         }
         catch (RegexMatchTimeoutException)
         {
-            MatchesText.Text = "Regex timeout - pattern too complex";
+            MatchesText.Text = "規則運算式逾時－模式過於複雜";
             Wpf.Ui.Controls.MessageBox messageBox = new()
             {
-                Title = "Regex Timeout",
-                Content = "The regular expression took too long to execute (>5 seconds). Please simplify your pattern or reduce the amount of text being searched.",
-                CloseButtonText = "OK"
+                Title = "規則運算式逾時",
+                Content = "規則運算式執行時間過長（超過 5 秒）。請簡化模式或縮短搜尋文字。",
+                CloseButtonText = "確定"
             };
             _ = messageBox.ShowDialogAsync();
             return;
         }
         catch (Exception ex)
         {
-            MatchesText.Text = "Error searching: " + ex.GetType().ToString();
+            MatchesText.Text = "搜尋時發生錯誤：" + ex.GetType().ToString();
             return;
         }
 
@@ -313,7 +313,7 @@ public partial class FindAndReplaceWindow : FluentWindow
             if (regex is null) { MatchesText.Text = "0 Matches"; return; }
 
             try { results = textEditWindow.SearchSpreadsheetCells(regex); }
-            catch (RegexMatchTimeoutException) { MatchesText.Text = "Regex timeout"; return; }
+            catch (RegexMatchTimeoutException) { MatchesText.Text = "規則運算式逾時"; return; }
         }
 
         FindResults.AddRange(results);
@@ -720,7 +720,7 @@ public partial class FindAndReplaceWindow : FluentWindow
 
         if (IsSpreadsheetSearch)
         {
-            menu.Items.Add(DisabledMenuItem("Not available in spreadsheet mode"));
+            menu.Items.Add(DisabledMenuItem("試算表模式中無法使用"));
             menu.IsOpen = true;
             return;
         }
@@ -732,7 +732,7 @@ public partial class FindAndReplaceWindow : FluentWindow
 
         if (textOnlyTemplates.Count == 0)
         {
-            menu.Items.Add(DisabledMenuItem("No text-only templates found"));
+            menu.Items.Add(DisabledMenuItem("找不到純文字範本"));
             menu.IsOpen = true;
             return;
         }
@@ -753,7 +753,7 @@ public partial class FindAndReplaceWindow : FluentWindow
         }
 
         if (!hasMatches)
-            menu.Items.Add(DisabledMenuItem("Run a search to find matches first"));
+            menu.Items.Add(DisabledMenuItem("請先執行搜尋以找出符合項目"));
 
         menu.IsOpen = true;
     }

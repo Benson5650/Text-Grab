@@ -15,7 +15,7 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Language Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="語言設定" />
 
         <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Windows AI OCR" />
         <Grid>
@@ -29,7 +29,7 @@
                 Margin="0,2,6,0"
                 FontWeight="Black"
                 Style="{StaticResource TextBodyNormal}"
-                Text="STATUS" />
+                Text="狀態" />
             <TextBlock
                 Name="ReasonTextBlock"
                 AutomationProperties.AutomationId="Settings.Languages.WindowsAiReason"
@@ -37,25 +37,25 @@
                 Margin="0,2,6,0"
                 FontStyle="Italic"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Reason"
+                Text="原因"
                 TextWrapping="Wrap" />
         </Grid>
         <ui:HyperlinkButton
             Name="StoreLink"
             Click="HyperlinkButton_Click"
-            Content="Such as Text Grab in the Microsoft Store"
+            Content="例如 Microsoft Store 中的 Text Grab"
             NavigateUri="https://www.microsoft.com/en-us/p/text-grab/9mznkqj7sl0b?cid=WindowsAICheck"
             Visibility="Collapsed" />
         <TextBlock
             Margin="0,8,0,8"
             Style="{StaticResource TextBodyNormal}"
             TextWrapping="Wrap">
-            Windows AI OCR is a new state-of-the-art OCR engine first introduced on Copilot+ PCs. It supports a wide range of styles and languages, as well as being more accurate.
+            Windows AI OCR 是全新的先進 OCR 引擎，最早於 Copilot+ PC 推出。它支援多種樣式與語言，辨識準確度也更高。
         </TextBlock>
 
         <controls:SettingsCard
-            Description="When enabled, Text Grab can use Windows AI to generate a description of an image instead of extracted OCR text."
-            HeaderText="Show Windows AI Description as a language option"
+            Description="啟用後，Text Grab 可使用 Windows AI 產生圖片描述，取代擷取 OCR 文字。"
+            HeaderText="將 Windows AI 描述列為語言選項"
             Icon="{ui:SymbolIcon BrainCircuit24}">
             <ui:ToggleSwitch
                 x:Name="WindowsAiDescriptionEnabledToggle"
@@ -65,14 +65,14 @@
         </controls:SettingsCard>
         <ui:HyperlinkButton
             Click="HyperlinkButton_Click"
-            Content="Learn more about Windows AI Foundry"
+            Content="深入了解 Windows AI Foundry"
             NavigateUri="https://learn.microsoft.com/en-us/windows/ai/apis/" />
 
         <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Japanese &amp; Chinese (CJK) text" />
 
         <controls:SettingsExpander
-            Description="Remove the small kana readings printed above kanji so they don't clutter OCR results."
-            HeaderText="Remove furigana (ruby text) from Japanese and Chinese OCR"
+            Description="移除漢字上方的小型假名讀音，避免 OCR 結果過於雜亂。"
+            HeaderText="從日文與中文 OCR 結果移除振假名（注音標記）"
             Icon="{ui:SymbolIcon LocalLanguage24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch
@@ -87,10 +87,7 @@
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     TextWrapping="Wrap">
-                    Furigana are the small kana readings printed above kanji in Japanese (and similar ruby
-                    annotations in Chinese). The OCR engine reads them as extra text, which clutters the
-                    result. When enabled, Text Grab detects those small ruby lines by their size and position
-                    and removes them, keeping only the main text.
+                    振假名是日文漢字上方的小型假名讀音（中文也有類似的注音標記）。OCR 引擎會將這些讀音一併辨識為文字，使結果變得雜亂。啟用後，Text Grab 會依字體大小與位置找出這些小字行並移除，只保留主要文字。
                 </TextBlock>
                 <Border
                     Padding="12"
@@ -99,22 +96,18 @@
                     BorderThickness="1"
                     CornerRadius="6">
                     <TextBlock Style="{StaticResource TextBodyNormal}" TextWrapping="Wrap">
-                        This is a work in progress. Furigana detection is based on a size-and-position
-                        heuristic, so it can occasionally miss a reading or remove text it shouldn't. I'm
-                        actively trying to improve how Text Grab handles Japanese and Chinese. If you have
-                        experience with CJK text, OCR, or furigana and would be willing to help, please email
-                        me at
-                        <Hyperlink NavigateUri="mailto:joe@joefinapps.com" RequestNavigate="Hyperlink_RequestNavigate">joe@joefinapps.com</Hyperlink>. Thank you!
+                        這項功能仍在開發中。振假名偵測依據字體大小與位置的推測規則，因此偶爾可能漏掉讀音或誤刪文字。我正持續改善 Text Grab 對日文與中文的處理方式。如果您熟悉 CJK 文字、OCR 或振假名並願意協助，請寄電子郵件給我：
+                        <Hyperlink NavigateUri="mailto:joe@joefinapps.com" RequestNavigate="Hyperlink_RequestNavigate">joe@joefinapps.com</Hyperlink>。謝謝！
                     </TextBlock>
                 </Border>
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Windows installed languages" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Windows 已安裝的語言" />
         <!--  auto pull and parse which Windows Languages are installed  -->
         <ui:HyperlinkButton
             Click="HyperlinkButton_Click"
-            Content="How to install OCR languages with PowerShell"
+            Content="如何使用 PowerShell 安裝 OCR 語言"
             NavigateUri="https://learn.microsoft.com/en-us/windows/powertoys/text-extractor#how-to-query-for-ocr-language-packs" />
         <!--  Show the commands to execute to add other languages  -->
         <ui:ListView
@@ -135,7 +128,7 @@
             d:Visibility="Visible"
             Orientation="Vertical"
             Visibility="Collapsed">
-            <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Tesseract languages" />
+            <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Tesseract 語言" />
             <!--  auto pull and parse which Tesseract Languages are installed  -->
             <!--  if Tesseract wasn't found, don't show these options  -->
             <!--  Link to the GitHub Repo to download other languages  -->
@@ -146,7 +139,7 @@
                 Click="OpenPathButton_Click">
                 <StackPanel Margin="4,0" Orientation="Horizontal">
                     <ui:SymbolIcon Margin="0,0,6,0" Symbol="OpenFolder24" />
-                    <TextBlock Text="Open Tesseract Language Data Folder" />
+                    <TextBlock Text="開啟 Tesseract 語言資料資料夾" />
                 </StackPanel>
             </ui:HyperlinkButton>
             <ui:ListView
@@ -164,7 +157,7 @@
             </ui:ListView>
 
             <TextBlock Margin="0,20,0,0" Style="{StaticResource TextBodyNormal}">
-                Download and install languages from Tesseract GitHub<LineBreak />
+                從 Tesseract GitHub 下載並安裝語言<LineBreak />
                 <Hyperlink NavigateUri="https://github.com/tesseract-ocr/tessdata" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/tesseract-ocr/tessdata</Hyperlink>
             </TextBlock>
             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
@@ -184,7 +177,7 @@
                 <Button AutomationProperties.AutomationId="Settings.Languages.InstallTesseractLanguageButton" Margin="12,0,0,0" Click="InstallButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <ui:SymbolIcon Symbol="Shield24" />
-                        <TextBlock Margin="6,0,0,0" Text="Install" />
+                        <TextBlock Margin="6,0,0,0" Text="安裝" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -195,11 +188,11 @@
                 Style="{StaticResource TextBodyNormal}" />
         </StackPanel>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Direct Text (Beta)" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Direct Text（測試版）" />
 
         <controls:SettingsExpander
-            Description="Try to read native accessibility text from live application controls before falling back to OCR."
-            HeaderText="Show Direct Text (Beta) as a language option"
+            Description="在改用 OCR 前，先嘗試讀取即時應用程式控制項中的原生輔助使用文字。"
+            HeaderText="將 Direct Text（測試版）列為語言選項"
             Icon="{ui:SymbolIcon Beaker24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch
@@ -218,7 +211,7 @@
                     CornerRadius="6">
                     <TextBlock
                         Style="{StaticResource TextBodyNormal}"
-                        Text="Beta feature: Direct Text captures live accessibility text instead of performing normal OCR. It is off by default in this release and should be enabled only when you want to test this experimental path."
+                        Text="測試版功能：Direct Text 會直接擷取即時輔助使用文字，不執行一般 OCR。此版本預設關閉，僅在您想測試這項實驗功能時啟用。"
                         TextWrapping="Wrap" />
                 </Border>
                 <StackPanel x:Name="UiAutomationAdvancedOptionsPanel">
@@ -227,7 +220,7 @@
                         AutomationProperties.AutomationId="Settings.Languages.DirectTextFallbackToggle"
                         Checked="UiAutomationFallbackToggle_Checked"
                         Unchecked="UiAutomationFallbackToggle_Checked">
-                        <TextBlock Text="Fall back to OCR when UI Automation returns no text" TextWrapping="Wrap" />
+                        <TextBlock Text="UI Automation 未傳回文字時改用 OCR" TextWrapping="Wrap" />
                     </ui:ToggleSwitch>
                     <ui:ToggleSwitch
                         x:Name="UiAutomationPreferFocusedToggle"
@@ -235,7 +228,7 @@
                         Margin="0,8,0,0"
                         Checked="UiAutomationPreferFocusedToggle_Checked"
                         Unchecked="UiAutomationPreferFocusedToggle_Checked">
-                        <TextBlock Text="Prefer the focused UI element before scanning the rest of the window" TextWrapping="Wrap" />
+                        <TextBlock Text="先讀取目前焦點的 UI 元素，再掃描視窗其他部分" TextWrapping="Wrap" />
                     </ui:ToggleSwitch>
                     <ui:ToggleSwitch
                         x:Name="UiAutomationIncludeOffscreenToggle"
@@ -243,24 +236,30 @@
                         Margin="0,8,0,0"
                         Checked="UiAutomationIncludeOffscreenToggle_Checked"
                         Unchecked="UiAutomationIncludeOffscreenToggle_Checked">
-                        <TextBlock Text="Include offscreen Direct Text elements" TextWrapping="Wrap" />
+                        <TextBlock Text="包含畫面外的 Direct Text 元素" TextWrapping="Wrap" />
                     </ui:ToggleSwitch>
                     <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock
                             Margin="0,0,12,0"
                             VerticalAlignment="Center"
-                            Text="Traversal mode" />
+                            Text="走訪模式" />
                         <ComboBox
                             x:Name="UiAutomationTraversalModeComboBox"
                             AutomationProperties.AutomationId="Settings.Languages.DirectTextTraversalMode"
                             Width="180"
-                            SelectionChanged="UiAutomationTraversalModeComboBox_SelectionChanged" />
+                            SelectionChanged="UiAutomationTraversalModeComboBox_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource UiEnumDisplayConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                     <TextBlock
                         Margin="0,4,0,0"
                         FontSize="12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Fast focuses on the closest useful elements, Balanced scans the visible subtree, and Thorough walks deeper through the automation tree."
+                        Text="「快速」聚焦於最近的實用元素；「平衡」掃描可見的子樹；「完整」則深入走訪自動化樹。"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </StackPanel>

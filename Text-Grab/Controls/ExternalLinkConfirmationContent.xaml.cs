@@ -14,11 +14,11 @@ public partial class ExternalLinkConfirmationContent : UserControl
         InitializeComponent();
         bool isEmail = uri.Scheme == Uri.UriSchemeMailto;
         ActionDescription.Text = isEmail
-            ? "This opens your email app. Review all recipients and message details before sending."
-            : "This opens your calling app and may start a call. Charges may apply.";
+            ? "這會開啟電子郵件應用程式。寄出前請確認所有收件者與訊息內容。"
+            : "這會開啟通話應用程式，並可能開始通話。可能產生費用。";
         DontWarnAgainCheckBox.Content = isEmail
-            ? "Don't warn me again about email links"
-            : "Don't warn me again about telephone links";
+            ? "不再提醒我電子郵件連結"
+            : "不再提醒我電話連結";
         TargetTextBox.Text = Uri.UnescapeDataString(uri.AbsoluteUri);
         TargetTextBox.ToolTip = uri.AbsoluteUri;
     }

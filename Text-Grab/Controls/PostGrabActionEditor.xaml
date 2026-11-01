@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Post-Grab Actions Settings"
+    Title="擷取後動作設定"
     AutomationProperties.AutomationId="PostGrabActionsDialog"
     Width="900"
     Height="700"
@@ -35,7 +35,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Post-Grab Actions Settings"
+            Title="擷取後動作設定"
             Grid.ColumnSpan="3"
             Height="32"
             Margin="2,2,2,0"
@@ -57,13 +57,13 @@
                 Margin="0,0,0,8"
                 FontSize="18"
                 FontWeight="SemiBold"
-                Text="Available Actions" />
+                Text="可用動作" />
             <TextBlock
                 x:Name="AvailableActionsHint"
                 Grid.Row="1"
                 Margin="0,0,0,4"
                 Opacity="0.7"
-                Text="Actions that can be added to the enabled list"
+                Text="可新增至已啟用清單的動作"
                 TextWrapping="Wrap" />
             <Border
                 Grid.Row="2"
@@ -82,8 +82,8 @@
                             <GridView>
                                 <GridViewColumn
                                     Width="346"
-                                    DisplayMemberBinding="{Binding ButtonText}"
-                                    Header="Action Name" />
+                                    DisplayMemberBinding="{Binding DisplayText}"
+                                    Header="動作名稱" />
                             </GridView>
                         </ListView.View>
                     </ui:ListView>
@@ -94,7 +94,7 @@
                         VerticalAlignment="Center"
                         FontSize="14"
                         Opacity="0.6"
-                        Text="All actions are currently enabled"
+                        Text="目前已啟用所有動作"
                         Visibility="Collapsed" />
                 </Grid>
             </Border>
@@ -113,10 +113,10 @@
                 Margin="0,0,0,8"
                 HorizontalAlignment="Center"
                 Click="AddButton_Click"
-                ToolTip="Add selected action to enabled list">
+                ToolTip="將選取的動作新增至已啟用清單">
                 <StackPanel Orientation="Horizontal">
                     <ui:SymbolIcon FontSize="14" Symbol="ArrowRight16" />
-                    <TextBlock Margin="4,0,0,0" Text="Add" />
+                    <TextBlock Margin="4,0,0,0" Text="新增" />
                 </StackPanel>
             </ui:Button>
             <ui:Button
@@ -126,10 +126,10 @@
                 Margin="0,0,0,8"
                 HorizontalAlignment="Center"
                 Click="RemoveButton_Click"
-                ToolTip="Remove selected action from enabled list">
+                ToolTip="從已啟用清單移除選取的動作">
                 <StackPanel Orientation="Horizontal">
                     <ui:SymbolIcon FontSize="14" Symbol="ArrowLeft16" />
-                    <TextBlock Margin="4,0,0,0" Text="Remove" />
+                    <TextBlock Margin="4,0,0,0" Text="移除" />
                 </StackPanel>
             </ui:Button>
             <Separator Margin="0,8" />
@@ -140,10 +140,10 @@
                 Margin="0,0,0,8"
                 HorizontalAlignment="Center"
                 Click="MoveUpButton_Click"
-                ToolTip="Move selected action up in order">
+                ToolTip="將選取的動作上移">
                 <StackPanel Orientation="Horizontal">
                     <ui:SymbolIcon FontSize="14" Symbol="ArrowUp16" />
-                    <TextBlock Margin="4,0,0,0" Text="Up" />
+                    <TextBlock Margin="4,0,0,0" Text="上移" />
                 </StackPanel>
             </ui:Button>
             <ui:Button
@@ -152,10 +152,10 @@
                 Width="100"
                 HorizontalAlignment="Center"
                 Click="MoveDownButton_Click"
-                ToolTip="Move selected action down in order">
+                ToolTip="將選取的動作下移">
                 <StackPanel Orientation="Horizontal">
                     <ui:SymbolIcon FontSize="14" Symbol="ArrowDown16" />
-                    <TextBlock Margin="4,0,0,0" Text="Down" />
+                    <TextBlock Margin="4,0,0,0" Text="下移" />
                 </StackPanel>
             </ui:Button>
         </StackPanel>
@@ -174,12 +174,12 @@
                     Margin="0,0,0,8"
                     FontSize="18"
                     FontWeight="SemiBold"
-                    Text="Enabled Actions" />
+                    Text="已啟用的動作" />
                 <TextBlock
                     Grid.Row="1"
                     Margin="0,0,0,4"
                     Opacity="0.7"
-                    Text="Actions that will appear in the post-grab menu"
+                    Text="會顯示在擷取後動作選單中的動作"
                     TextWrapping="Wrap" />
                 <Border
                     Grid.Row="2"
@@ -197,15 +197,15 @@
                             <GridView>
                                 <GridViewColumn
                                     Width="226"
-                                    DisplayMemberBinding="{Binding ButtonText}"
-                                    Header="Action Name" />
-                                <GridViewColumn Width="120" Header="Default">
+                                    DisplayMemberBinding="{Binding DisplayText}"
+                                    Header="動作名稱" />
+                                <GridViewColumn Width="120" Header="預設">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <ComboBox Width="110" SelectedIndex="{Binding Path=DefaultCheckState, Mode=TwoWay, Converter={StaticResource EnumToIntConverter}}">
-                                                <ComboBoxItem Content="Off" />
-                                                <ComboBoxItem Content="Last Used" />
-                                                <ComboBoxItem Content="On" />
+                                                <ComboBoxItem Content="關閉" />
+                                                <ComboBoxItem Content="上次使用" />
+                                                <ComboBoxItem Content="開啟" />
                                             </ComboBox>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -221,8 +221,8 @@
                     AutomationProperties.AutomationId="PostGrabActions.StayOpenToggle"
                     Grid.Row="3"
                     Margin="0,16,0,0"
-                    Content="Keep menu open after clicking an action"
-                    ToolTip="When enabled, the post-grab menu stays open after clicking an action, allowing multiple actions to be selected" />
+                    Content="按下動作後保持選單開啟"
+                    ToolTip="啟用後，按下動作時擷取後動作選單會保持開啟，方便選取多個動作" />
             </Grid>
         </Grid>
 
@@ -255,7 +255,7 @@
                             <TextBlock
                                 FontSize="16"
                                 FontWeight="SemiBold"
-                                Text="Grab Templates" />
+                                Text="擷取範本" />
                             <Button
                                 x:Name="TemplateInfoButton"
                                 Width="22"
@@ -265,7 +265,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Click="TemplateInfoButton_Click"
-                                ToolTip="About Grab Templates">
+                                ToolTip="關於擷取範本">
                                 <ui:SymbolIcon FontSize="14" Symbol="Info24" />
                             </Button>
                             <Popup
@@ -282,7 +282,7 @@
                                     <TextBlock
                                         MaxWidth="360"
                                         FontSize="12"
-                                        Text="Templates extract structured data from fixed-layout documents. Click 'New Template from Image' to pick a reference image, then use Ctrl+drag to draw regions and save. Add a template to the Enabled Actions list to use it during a Fullscreen Grab."
+                                        Text="範本可從固定版面的文件擷取結構化資料。按一下「從影像新增範本」選取參考影像，再按住 Ctrl 並拖曳以繪製區域並儲存。將範本加入「已啟用的動作」清單，即可在全螢幕擷取時使用。"
                                         TextWrapping="Wrap" />
                                 </Border>
                             </Popup>
@@ -298,10 +298,10 @@
                             AutomationProperties.AutomationId="PostGrabActions.NewImageTemplateButton"
                             Margin="0,0,6,0"
                             Click="NewTemplateFromImageButton_Click"
-                            ToolTip="Pick an image to use as reference for a new grab template">
+                            ToolTip="選取影像作為新擷取範本的參考">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon FontSize="14" Symbol="ImageAdd24" />
-                                <TextBlock Margin="4,0,0,0" Text="New from Image" />
+                                <TextBlock Margin="4,0,0,0" Text="從影像新增" />
                             </StackPanel>
                         </ui:Button>
                         <ui:Button
@@ -309,10 +309,10 @@
                             AutomationProperties.AutomationId="PostGrabActions.NewTextTemplateButton"
                             Margin="0,0,6,0"
                             Click="NewTextOnlyTemplateButton_Click"
-                            ToolTip="Create a new template with a name and output template, without a reference image">
+                            ToolTip="不使用參考影像，建立含名稱與輸出範本的新範本">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon FontSize="14" Symbol="Add24" />
-                                <TextBlock Margin="4,0,0,0" Text="New Text-Only" />
+                                <TextBlock Margin="4,0,0,0" Text="新增純文字範本" />
                             </StackPanel>
                         </ui:Button>
                         <ui:Button
@@ -320,20 +320,20 @@
                             AutomationProperties.AutomationId="PostGrabActions.EditTemplateButton"
                             Margin="0,0,6,0"
                             Click="EditTemplateRegionsButton_Click"
-                            ToolTip="Open the selected template in a Grab Frame to edit its regions">
+                            ToolTip="在擷取框中開啟選取的範本並編輯區域">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon FontSize="14" Symbol="Edit24" />
-                                <TextBlock Margin="4,0,0,0" Text="Edit Grab Template" />
+                                <TextBlock Margin="4,0,0,0" Text="編輯擷取範本" />
                             </StackPanel>
                         </ui:Button>
                         <ui:Button
                             x:Name="DeleteTemplateButton"
                             AutomationProperties.AutomationId="PostGrabActions.DeleteTemplateButton"
                             Click="DeleteTemplateButton_Click"
-                            ToolTip="Delete the selected Grab Template">
+                            ToolTip="刪除選取的擷取範本">
                             <StackPanel Orientation="Horizontal">
                                 <ui:SymbolIcon FontSize="14" Symbol="Delete24" />
-                                <TextBlock Margin="4,0,0,0" Text="Delete" />
+                                <TextBlock Margin="4,0,0,0" Text="刪除" />
                             </StackPanel>
                         </ui:Button>
                     </StackPanel>
@@ -352,8 +352,8 @@
                                 <GridViewColumn
                                     Width="220"
                                     DisplayMemberBinding="{Binding Name}"
-                                    Header="Template Name" />
-                                <GridViewColumn Width="70" Header="Regions">
+                                    Header="範本名稱" />
+                                <GridViewColumn Width="70" Header="區域">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Regions.Count}" TextAlignment="Center" />
@@ -363,8 +363,8 @@
                                 <GridViewColumn
                                     Width="300"
                                     DisplayMemberBinding="{Binding OutputTemplate}"
-                                    Header="Output Template" />
-                                <GridViewColumn Width="140" Header="Last Used">
+                                    Header="輸出範本" />
+                                <GridViewColumn Width="140" Header="上次使用">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Opacity="0.7" Text="{Binding LastUsedDate, StringFormat={}{0:g}}" />
@@ -380,7 +380,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Opacity="0.6"
-                        Text="No templates defined yet. Click 'Open Grab Frame', use Ctrl+drag to draw regions, then click the Save as Template button in the Grab Frame."
+                        Text="尚未定義範本。按一下「開啟擷取框」，按住 Ctrl 並拖曳以繪製區域，然後按一下擷取框中的「另存為範本」。"
                         TextWrapping="Wrap"
                         Visibility="Collapsed" />
                 </Grid>
@@ -409,7 +409,7 @@
                             Grid.Row="0"
                             Margin="0,0,8,4"
                             VerticalAlignment="Center"
-                            Text="Name:" />
+                            Text="名稱：" />
                         <TextBox
                             x:Name="EditTemplateNameBox"
                             Grid.Row="0"
@@ -422,7 +422,7 @@
                             Grid.Row="1"
                             Margin="0,0,8,4"
                             VerticalAlignment="Center"
-                            Text="Output Template:" />
+                            Text="輸出範本：" />
                         <TextBox
                             x:Name="EditOutputTemplateBox"
                             Grid.Row="1"
@@ -431,7 +431,7 @@
                             Padding="4,2"
                             VerticalContentAlignment="Center"
                             FontFamily="Consolas"
-                            ToolTip="Use {1}, {2}, etc. for region values. Use {1:trim}, {1:upper}, {1:lower} for formatting. Use \n for newline." />
+                            ToolTip="使用 {1}、{2} 等代表區域值。使用 {1:trim}、{1:upper}、{1:lower} 設定格式。使用 \n 換行。" />
 
                         <StackPanel
                             Grid.Row="2"
@@ -444,11 +444,11 @@
                                 Margin="0,0,8,0"
                                 Appearance="Primary"
                                 Click="ApplyTemplateEdit_Click"
-                                Content="Apply Changes" />
+                                Content="套用變更" />
                             <ui:Button
                                 x:Name="CancelTemplateEditButton"
                                 Click="CancelTemplateEdit_Click"
-                                Content="Cancel" />
+                                Content="取消" />
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -468,22 +468,22 @@
                 AutomationProperties.AutomationId="PostGrabActions.ResetButton"
                 Margin="0,0,8,0"
                 Click="ResetButton_Click"
-                Content="Reset to Defaults"
-                ToolTip="Reset to default post-grab actions" />
+                Content="重設為預設值"
+                ToolTip="將擷取後動作重設為預設值" />
             <ui:Button
                 x:Name="SaveButton"
                 AutomationProperties.AutomationId="PostGrabActions.SaveButton"
                 Margin="0,0,8,0"
                 Appearance="Primary"
                 Click="SaveButton_Click"
-                Content="Save"
-                ToolTip="Save changes and close" />
+                Content="儲存"
+                ToolTip="儲存變更並關閉" />
             <ui:Button
                 x:Name="CancelButton"
                 AutomationProperties.AutomationId="PostGrabActions.CancelButton"
                 Click="CancelButton_Click"
-                Content="Cancel"
-                ToolTip="Close without saving" />
+                Content="取消"
+                ToolTip="關閉而不儲存" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

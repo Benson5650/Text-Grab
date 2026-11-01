@@ -440,13 +440,13 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
         if (contextMenu.Items.Count > 0)
             return;
 
-        contextMenu.Items.Add(NewContextMenuItem("Copy Text", CopyWordMenuItem_Click));
-        contextMenu.Items.Add(NewContextMenuItem("Try To Make _Numbers", TryToNumberMenuItem_Click));
-        contextMenu.Items.Add(NewContextMenuItem("Try To Make _Letters", TryToAlphaMenuItem_Click));
-        contextMenu.Items.Add(NewContextMenuItem("Make Text _Single Line", MakeSingleLineMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("複製文字", CopyWordMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("轉換為_數字", TryToNumberMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("轉換為_字母", TryToAlphaMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("轉為_單行文字", MakeSingleLineMenuItem_Click));
         contextMenu.Items.Add(new Separator());
 
-        MenuItem translateMenuItem = NewContextMenuItem("Translate to System Language", TranslateWordMenuItem_Click);
+        MenuItem translateMenuItem = NewContextMenuItem("翻譯成系統語言", TranslateWordMenuItem_Click);
         translateMenuItem.Name = "TranslateWordMenuItem";
         translateMenuItem.Visibility = Visibility.Collapsed;
         contextMenu.Items.Add(translateMenuItem);
@@ -458,13 +458,13 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
 
         contextMenu.Items.Add(new MenuItem()
         {
-            Header = "_Merge Selected Word Borders",
+            Header = "_合併選取的文字區塊",
             HorizontalAlignment = HorizontalAlignment.Left,
             Command = MergeWordsCommand,
             InputGestureText = "Ctrl + M"
         });
-        contextMenu.Items.Add(NewContextMenuItem("_Break into words", BreakIntoWordsMenuItem_Click));
-        contextMenu.Items.Add(NewContextMenuItem("_Search for similar text", SearchForSimilarMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("_拆分為單字", BreakIntoWordsMenuItem_Click));
+        contextMenu.Items.Add(NewContextMenuItem("_搜尋相似文字", SearchForSimilarMenuItem_Click));
         contextMenu.Items.Add(new Separator());
         contextMenu.Items.Add(NewContextMenuItem("_Delete", DeleteWordMenuItem_Click));
 
@@ -507,7 +507,7 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
 
                 // Get system language for the menu item header
                 string systemLanguage = GetSystemLanguageName();
-                translateMenuItem.Header = $"Translate to {systemLanguage}";
+                translateMenuItem.Header = $"翻譯成{systemLanguage}";
             }
 
             translateSeparator?.Visibility = Visibility.Visible;
@@ -697,9 +697,9 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Translation Not Available",
-                Content = reason ?? "Windows AI is not available on this device.",
-                CloseButtonText = "OK"
+                Title = "無法使用翻譯功能",
+                Content = reason ?? "此裝置無法使用 Windows AI。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -719,9 +719,9 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
             {
                 await new Wpf.Ui.Controls.MessageBox
                 {
-                    Title = result.Failure is TranslationFailure.NotNeeded ? "Nothing to Translate" : "Translation Failed",
-                    Content = result.Message ?? "The word could not be translated.",
-                    CloseButtonText = "OK"
+                    Title = result.Failure is TranslationFailure.NotNeeded ? "沒有可翻譯的內容" : "翻譯失敗",
+                    Content = result.Message ?? "無法翻譯此文字。",
+                    CloseButtonText = "確定"
                 }.ShowDialogAsync();
                 return;
             }
@@ -742,9 +742,9 @@ public partial class WordBorder : UserControl, INotifyPropertyChanged
             Debug.WriteLine($"Translation failed: {ex.Message}");
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Translation Error",
-                Content = $"Translation failed: {ex.Message}",
-                CloseButtonText = "OK"
+                Title = "翻譯錯誤",
+                Content = $"翻譯失敗：{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }

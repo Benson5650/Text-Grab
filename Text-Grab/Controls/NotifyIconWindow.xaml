@@ -26,7 +26,7 @@
         <WpfUiIcon:NotifyIcon
             x:Name="NotifyIcon"
             AutomationProperties.AutomationId="NotifyIcon"
-            AutomationProperties.Name="Text Grab notification icon"
+            AutomationProperties.Name="Text Grab 通知圖示"
             Icon="/Images/TealSelect40.png"
             IsVisibleChanged="NotifyIcon_IsVisibleChanged"
             LeftClick="NotifyIcon_LeftClick"
@@ -37,7 +37,7 @@
                         x:Name="SettingsMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.Settings"
                         Click="SettingsMenuItem_Click"
-                        Header="Settings">
+                        Header="設定">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="Settings24" />
                         </MenuItem.Icon>
@@ -47,7 +47,7 @@
                         x:Name="OpenFileMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.OpenFile"
                         Click="OpenFileMenuItem_Click"
-                        Header="Open File...">
+                        Header="開啟檔案...">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="Document24" />
                         </MenuItem.Icon>
@@ -56,7 +56,7 @@
                         x:Name="OpenClipboardImageGrabFrame"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.PasteGrabFrame"
                         Click="OpenClipboardImageGrabFrame_Click"
-                        Header="Paste in Grab Frame"
+                        Header="貼上至擷取框"
                         IsEnabled="False">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="ImageEdit24" />
@@ -66,7 +66,7 @@
                         x:Name="LastGrabMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.EditLastGrab"
                         Click="LastGrabMenuItem_Click"
-                        Header="Edit Last Grab">
+                        Header="編輯上次擷取">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="ImageEdit24" />
                         </MenuItem.Icon>
@@ -75,7 +75,7 @@
                         x:Name="LookupMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.QuickLookup"
                         Click="LookupMenuItem_Click"
-                        Header="Quick Simple Lookup">
+                        Header="快速查詢">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="TextBulletListSquareSearch20" />
                         </MenuItem.Icon>
@@ -84,7 +84,7 @@
                         x:Name="PreviousRegionMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.PreviousRegion"
                         Click="PreviousRegionMenuItem_Click"
-                        Header="Grab Previous Region">
+                        Header="再次擷取上一個區域">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="History24" />
                         </MenuItem.Icon>
@@ -94,7 +94,7 @@
                         x:Name="FullscreenGrabMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.FullscreenGrab"
                         Click="FullscreenGrabMenuItem_Click"
-                        Header="Fullscreen Grab">
+                        Header="全螢幕擷取">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="SlideAdd24" />
                         </MenuItem.Icon>
@@ -103,7 +103,7 @@
                         x:Name="GrabFrameMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.GrabFrame"
                         Click="GrabFrameMenuItem_Click"
-                        Header="Grab Frame">
+                        Header="擷取框">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="PanelBottom20" />
                         </MenuItem.Icon>
@@ -112,7 +112,7 @@
                         x:Name="LastEditWindow"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.LastEditText"
                         Click="LastEditWindow_Click"
-                        Header="Last Edit Text Window">
+                        Header="上次文字編輯視窗">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="History20" />
                         </MenuItem.Icon>
@@ -121,7 +121,7 @@
                         x:Name="EditWindowMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.EditText"
                         Click="EditWindowMenuItem_Click"
-                        Header="Edit Text Window">
+                        Header="文字編輯視窗">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="WindowEdit20" />
                         </MenuItem.Icon>
@@ -131,7 +131,7 @@
                         x:Name="CloseMenuItem"
                         AutomationProperties.AutomationId="NotifyIcon.Menu.Close"
                         Click="Exit_Click"
-                        Header="Close Text Grab">
+                        Header="關閉 Text Grab">
                         <MenuItem.Icon>
                             <wpfui:SymbolIcon Symbol="Dismiss24" />
                         </MenuItem.Icon>

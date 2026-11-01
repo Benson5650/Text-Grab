@@ -44,19 +44,19 @@
                 AutomationProperties.AutomationId="QrCode.SaveButton"
                 Margin="12,0,0,0"
                 ButtonSymbol="Save24"
-                ButtonText="PNG..."
+                ButtonText="PNG…"
                 Click="SaveButton_Click" />
             <local:CollapsibleButton
                 x:Name="SvgButton"
                 AutomationProperties.AutomationId="QrCode.SaveSvgButton"
                 ButtonSymbol="Save24"
-                ButtonText="Svg..."
+                ButtonText="SVG…"
                 Click="SvgButton_Click" />
             <local:CollapsibleButton
                 x:Name="CopyButton"
                 AutomationProperties.AutomationId="QrCode.CopyButton"
                 ButtonSymbol="ImageCopy24"
-                ButtonText="Copy PNG to clipboard"
+                ButtonText="複製 PNG 至剪貼簿"
                 Click="CopyButton_Click" />
         </StackPanel>
         <StackPanel
@@ -66,7 +66,7 @@
             <TextBlock
                 Margin="12,0"
                 VerticalAlignment="Center"
-                Text="Error Correction Level" />
+                Text="錯誤更正層級" />
             <ComboBox
                 x:Name="ErrorCorrectionComboBox"
                 AutomationProperties.AutomationId="QrCode.ErrorCorrection"
@@ -74,12 +74,12 @@
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                 SelectionChanged="ErrorCorrectionComboBox_SelectionChanged">
                 <ComboBoxItem
-                    Content="Low, up to 7%"
+                    Content="低，最高 7%"
                     IsSelected="True"
                     Tag="L" />
-                <ComboBoxItem Content="Medium, up to 15%" Tag="M" />
-                <ComboBoxItem Content="Quality, up to 25%" Tag="Q" />
-                <ComboBoxItem Content="High, up to 30%" Tag="H" />
+                <ComboBoxItem Content="中，最高 15%" Tag="M" />
+                <ComboBoxItem Content="高品質，最高 25%" Tag="Q" />
+                <ComboBoxItem Content="最高，最高 30%" Tag="H" />
             </ComboBox>
         </StackPanel>
         <TextBlock
@@ -93,7 +93,7 @@
             TextAlignment="Center"
             TextWrapping="Wrap"
             Visibility="Collapsed">
-            ⚠️ The text has been trimmed to the maximum allowable length of QR Codes.
+            ⚠️ 文字已修剪至 QR Code 允許的最大長度。
         </TextBlock>
         <Image
             Name="CodeImage"

@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Edit Regex Pattern"
+    Title="編輯規則運算式"
     AutomationProperties.AutomationId="RegexEditorDialog"
     Width="600"
     Height="400"
@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Edit Regular Expression"
+            Title="編輯規則運算式"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -33,14 +33,14 @@
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="12">
-                <TextBlock Margin="0,0,0,4" Text="Name:" />
+                <TextBlock Margin="0,0,0,4" Text="名稱：" />
                 <TextBox
                     x:Name="NameTextBox"
                     AutomationProperties.AutomationId="RegexEditor.Name"
                     Margin="0,0,0,12"
                     TextChanged="ValidateInput" />
 
-                <TextBlock Margin="0,0,0,4" Text="Pattern:" />
+                <TextBlock Margin="0,0,0,4" Text="模式：" />
                 <TextBox
                     x:Name="PatternTextBox"
                     AutomationProperties.AutomationId="RegexEditor.Pattern"
@@ -51,7 +51,7 @@
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto" />
 
-                <TextBlock Margin="0,0,0,4" Text="Description:" />
+                <TextBlock Margin="0,0,0,4" Text="描述：" />
                 <TextBox
                     x:Name="DescriptionTextBox"
                     AutomationProperties.AutomationId="RegexEditor.Description"
@@ -69,7 +69,7 @@
                     Text=""
                     Visibility="Collapsed" />
 
-                <Expander Header="Regex Quick Reference" IsExpanded="False">
+                <Expander Header="規則運算式快速參考" IsExpanded="False">
                     <ItemsControl x:Name="RegexReferenceList" Margin="0,4,0,0">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -96,7 +96,7 @@
                                                         Click="InsertToken_Click"
                                                         FontFamily="Consolas"
                                                         Tag="{Binding Token}"
-                                                        ToolTip="Click to insert into the pattern">
+                                                        ToolTip="按一下以插入規則運算式">
                                                         <TextBlock Text="{Binding Token}" />
                                                     </ui:Button>
                                                     <TextBlock
@@ -127,9 +127,9 @@
                 Margin="0,0,6,0"
                 Appearance="Primary"
                 Click="SaveButton_Click"
-                Content="Save"
+                Content="儲存"
                 IsEnabled="False" />
-            <ui:Button AutomationProperties.AutomationId="RegexEditor.CancelButton" Click="CancelButton_Click" Content="Cancel" />
+            <ui:Button AutomationProperties.AutomationId="RegexEditor.CancelButton" Click="CancelButton_Click" Content="取消" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

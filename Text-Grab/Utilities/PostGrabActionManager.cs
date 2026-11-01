@@ -238,9 +238,9 @@ public class PostGrabActionManager
                     && translation.Failure is not TranslationFailure.NotNeeded and not TranslationFailure.Unavailable)
                     await new Wpf.Ui.Controls.MessageBox
                     {
-                        Title = "Translation Failed",
-                        Content = translation.Message ?? "The text could not be translated.",
-                        CloseButtonText = "OK"
+                        Title = "翻譯失敗",
+                        Content = translation.Message ?? "無法翻譯此文字。",
+                        CloseButtonText = "確定"
                     }.ShowDialogAsync();
                 break;
 

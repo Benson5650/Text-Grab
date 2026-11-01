@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Text_Grab.Pages"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Text Grab Settings"
+    Title="Text Grab 設定"
     Width="800"
     Height="700"
     MinWidth="200"
@@ -46,7 +46,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Text Grab Settings"
+            Title="Text Grab 設定"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -65,7 +65,7 @@
                     <ui:NavigationViewItem.Content>
                         <TextBlock
                             Style="{StaticResource NavMenuContent}"
-                            Text="General"
+                            Text="一般"
                             TextWrapping="Wrap" />
                     </ui:NavigationViewItem.Content>
                     <ui:NavigationViewItem.Icon>
@@ -79,7 +79,7 @@
                     TargetPageType="{x:Type pages:FullscreenGrabSettings}">
                     <ui:NavigationViewItem.Content>
                         <TextBlock Style="{StaticResource NavMenuContent}" TextWrapping="Wrap">
-                            <Run>Fullscreen</Run>
+                            <Run>全螢幕</Run>
                             <LineBreak />
                             <Run>Grab</Run>
                         </TextBlock>
@@ -95,7 +95,7 @@
                     TargetPageType="{x:Type pages:GrabFrameSettings}">
                     <ui:NavigationViewItem.Content>
                         <TextBlock Style="{StaticResource NavMenuContent}" TextWrapping="Wrap">
-                            <Run>Grab Frame</Run>
+                            <Run>擷取框</Run>
                         </TextBlock>
                     </ui:NavigationViewItem.Content>
                     <ui:NavigationViewItem.Icon>
@@ -109,7 +109,7 @@
                     TargetPageType="{x:Type pages:QuickLookupSettings}">
                     <ui:NavigationViewItem.Content>
                         <TextBlock Style="{StaticResource NavMenuContent}" TextWrapping="Wrap">
-                            <Run>Quick Simple</Run>
+                            <Run>快速查詢</Run>
                             <LineBreak />
                             <Run>Lookup</Run>
                         </TextBlock>
@@ -125,7 +125,7 @@
                     TargetPageType="{x:Type pages:EditTextWindowSettings}">
                     <ui:NavigationViewItem.Content>
                         <TextBlock Style="{StaticResource NavMenuContent}" TextWrapping="Wrap">
-                            <Run>Edit Text</Run>
+                            <Run>文字編輯</Run>
                             <LineBreak />
                             <Run>Window</Run>
                         </TextBlock>
@@ -142,7 +142,7 @@
                     <ui:NavigationViewItem.Content>
                         <TextBlock
                             Style="{StaticResource NavMenuContent}"
-                            Text="Languages"
+                            Text="語言"
                             TextWrapping="Wrap" />
                     </ui:NavigationViewItem.Content>
                     <ui:NavigationViewItem.Icon>
@@ -204,7 +204,7 @@
                     <ui:NavigationViewItem.Content>
                         <TextBlock
                             Style="{StaticResource NavMenuContent}"
-                            Text="Models"
+                            Text="模型"
                             TextWrapping="Wrap" />
                     </ui:NavigationViewItem.Content>
                     <ui:NavigationViewItem.Icon>
@@ -222,7 +222,7 @@
                     <ui:NavigationViewItem.Content>
                         <TextBlock
                             Style="{StaticResource NavMenuContent}"
-                            Text="Danger"
+                            Text="進階風險選項"
                             TextWrapping="Wrap" />
                     </ui:NavigationViewItem.Content>
                     <ui:NavigationViewItem.Icon>

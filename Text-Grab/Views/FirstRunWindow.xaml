@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Welcome to Text Grab"
+    Title="歡迎使用 Text Grab"
     AutomationProperties.AutomationId="FirstRunWindow"
     Width="1120"
     Height="820"
@@ -143,7 +143,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Welcome to Text Grab"
+            Title="歡迎使用 Text Grab"
             Height="36"
             Margin="2,2,2,0"
             Padding="10,2"
@@ -166,21 +166,21 @@
                                 <TextBlock
                                     FontSize="40"
                                     FontWeight="SemiBold"
-                                    Text="Welcome to Text Grab"
+                                    Text="歡迎使用 Text Grab"
                                     TextWrapping="Wrap" />
 
                                 <TextBlock
                                     Margin="0,14,0,0"
                                     FontSize="17"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="Grab text from anywhere on screen, launch the mode that fits the moment, and keep the app ready exactly how you like it."
+                                    Text="從螢幕任何位置擷取文字，依情境啟動適合的模式，並依照你的習慣讓應用程式隨時待命。"
                                     TextWrapping="Wrap" />
 
                                 <TextBlock
                                     Margin="0,22,0,0"
                                     FontSize="15"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="Choose a default mode, try each experience live, and dial in the startup options that make Text Grab feel like part of Windows."
+                                    Text="選擇預設模式、實際體驗各種功能，並調整啟動選項，讓 Text Grab 融入 Windows 使用流程。"
                                     TextWrapping="Wrap" />
 
                                 <StackPanel Margin="0,28,0,0" Orientation="Horizontal">
@@ -192,7 +192,7 @@
                                         Style="{StaticResource TealColor}">
                                         <StackPanel Orientation="Horizontal">
                                             <ui:SymbolIcon Margin="0,0,8,0" Symbol="Play24" />
-                                            <TextBlock Foreground="White" Text="Start with selected mode" />
+                                            <TextBlock Foreground="White" Text="以選取的模式開始" />
                                         </StackPanel>
                                     </Button>
 
@@ -205,7 +205,7 @@
                                         Style="{StaticResource WelcomeSecondaryButton}">
                                         <StackPanel Orientation="Horizontal">
                                             <ui:SymbolIcon Margin="0,0,8,0" Symbol="Settings24" />
-                                            <TextBlock Text="Open Settings" />
+                                            <TextBlock Text="開啟設定" />
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
@@ -218,11 +218,11 @@
                                                 Margin="0,12,0,0"
                                                 FontSize="16"
                                                 FontWeight="SemiBold"
-                                                Text="Four focused modes" />
+                                                Text="四種專注模式" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Pick one default and still jump into the others instantly." />
+                                                Text="選擇一種預設模式，也能隨時快速切換至其他模式。" />
                                         </StackPanel>
                                     </Border>
 
@@ -233,11 +233,11 @@
                                                 Margin="0,12,0,0"
                                                 FontSize="16"
                                                 FontWeight="SemiBold"
-                                                Text="Clipboard-first flow" />
+                                                Text="以剪貼簿為核心" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Capture text, paste fast, and open edit tools only when you need them." />
+                                                Text="快速擷取並貼上文字，只在需要時開啟編輯工具。" />
                                         </StackPanel>
                                     </Border>
 
@@ -248,11 +248,11 @@
                                                 Margin="0,12,0,0"
                                                 FontSize="16"
                                                 FontWeight="SemiBold"
-                                                Text="Private by design" />
+                                                Text="以隱私為優先" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Built on the OCR engine in Windows so your captured text stays local." />
+                                                Text="使用 Windows 內建的 OCR 引擎，讓擷取的文字留在本機。" />
                                         </StackPanel>
                                     </Border>
                                 </UniformGrid>
@@ -284,12 +284,12 @@
                                         Margin="0,18,0,0"
                                         FontSize="22"
                                         FontWeight="SemiBold"
-                                        Text="Ready in a minute" />
+                                        Text="一分鐘快速上手" />
 
                                     <TextBlock
                                         Margin="0,10,0,0"
                                         Style="{StaticResource SectionBody}"
-                                        Text="Start with one mode, then grow into the rest as you go." />
+                                        Text="先從一種模式開始，再逐步探索其他功能。" />
 
                                     <Border
                                         Margin="0,18,0,0"
@@ -302,11 +302,11 @@
                                             <TextBlock
                                                 FontSize="15"
                                                 FontWeight="SemiBold"
-                                                Text="1. Pick a default launch" />
+                                                Text="1. 選擇預設啟動模式" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Fullscreen, Grab Frame, Edit Text, or Quick Lookup." />
+                                                Text="全螢幕擷取、擷取框、文字編輯或快速查詢。" />
                                         </StackPanel>
                                     </Border>
 
@@ -321,11 +321,11 @@
                                             <TextBlock
                                                 FontSize="15"
                                                 FontWeight="SemiBold"
-                                                Text="2. Try each mode live" />
+                                                Text="2. 實際體驗各種模式" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Every preview card below can launch its mode immediately." />
+                                                Text="下方每張預覽卡片都能立即啟動對應模式。" />
                                         </StackPanel>
                                     </Border>
 
@@ -340,11 +340,11 @@
                                             <TextBlock
                                                 FontSize="15"
                                                 FontWeight="SemiBold"
-                                                Text="3. Keep it ready" />
+                                                Text="3. 讓應用程式隨時待命" />
                                             <TextBlock
                                                 Margin="0,6,0,0"
                                                 Style="{StaticResource CardBody}"
-                                                Text="Turn on notifications, background mode, and startup if that matches your workflow." />
+                                                Text="可依照你的工作流程啟用通知、背景執行與開機啟動。" />
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -359,11 +359,11 @@
                         Opacity="0.8" />
 
                     <StackPanel Margin="0,22,0,0">
-                        <TextBlock Style="{StaticResource SectionTitle}" Text="Pick the mode that should launch by default" />
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="選擇預設啟動模式" />
                         <TextBlock
                             Margin="0,10,0,0"
                             Style="{StaticResource SectionBody}"
-                            Text="Each mode is built for a different kind of text work. Choose the one you want fastest access to, then try the others anytime."
+                            Text="每種模式都適合不同的文字處理情境。先選擇最常使用的模式，也能隨時體驗其他模式。"
                             TextWrapping="Wrap" />
                     </StackPanel>
 
@@ -384,12 +384,12 @@
                                             Margin="0,2,10,0"
                                             FontSize="22"
                                             Symbol="SlideAdd20" />
-                                        <TextBlock Style="{StaticResource CardTitle}" Text="Full Screen" />
+                                        <TextBlock Style="{StaticResource CardTitle}" Text="全螢幕擷取" />
                                     </StackPanel>
                                     <TextBlock
                                         Margin="0,10,0,0"
                                         Style="{StaticResource CardBody}"
-                                        Text="Like a screenshot tool for text. Draw once, copy fast, and send the result straight to the clipboard." />
+                                        Text="就像專為文字設計的截圖工具。框選後即可快速複製，並將結果直接送到剪貼簿。" />
                                 </StackPanel>
 
                                 <Border
@@ -410,7 +410,7 @@
                                     Grid.Row="2"
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Best for quick one-off captures anywhere on screen." />
+                                    Text="適合快速擷取螢幕上的單段文字。" />
 
                                 <Button
                                     x:Name="TryFullscreen"
@@ -421,7 +421,7 @@
                                     Style="{StaticResource ModePreviewButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Play24" />
-                                        <TextBlock Text="Try it now" />
+                                        <TextBlock Text="立即試用" />
                                     </StackPanel>
                                 </Button>
 
@@ -432,7 +432,7 @@
                                     Margin="0,18,0,0"
                                     Checked="RadioButton_Checked"
                                     GroupName="DefaultLaunch">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Use Full Screen as my default launch" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="將全螢幕擷取設為預設啟動模式" />
                                 </RadioButton>
                             </Grid>
                         </Border>
@@ -453,12 +453,12 @@
                                             Margin="0,2,10,0"
                                             FontSize="22"
                                             Symbol="PanelBottom20" />
-                                        <TextBlock Style="{StaticResource CardTitle}" Text="Grab Frame" />
+                                        <TextBlock Style="{StaticResource CardTitle}" Text="擷取框" />
                                     </StackPanel>
                                     <TextBlock
                                         Margin="0,10,0,0"
                                         Style="{StaticResource CardBody}"
-                                        Text="Keep an OCR frame floating on top, inspect text in place, and work with images or PDFs without leaving the app." />
+                                        Text="讓 OCR 擷取框保持在最上層，就地檢視文字，並在應用程式中處理圖片或 PDF。" />
                                 </StackPanel>
 
                                 <Border
@@ -479,7 +479,7 @@
                                     Grid.Row="2"
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Best for repeated grabs, overlays, PDFs, and tighter control." />
+                                    Text="適合重複擷取、畫面覆疊、PDF 與需要精細控制的情境。" />
 
                                 <Button
                                     x:Name="TryGrabFrame"
@@ -490,7 +490,7 @@
                                     Style="{StaticResource ModePreviewButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Play24" />
-                                        <TextBlock Text="Show Grab Frame" />
+                                        <TextBlock Text="顯示擷取框" />
                                     </StackPanel>
                                 </Button>
 
@@ -501,7 +501,7 @@
                                     Margin="0,18,0,0"
                                     Checked="RadioButton_Checked"
                                     GroupName="DefaultLaunch">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Use Grab Frame as my default launch" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="將擷取框設為預設啟動模式" />
                                 </RadioButton>
                             </Grid>
                         </Border>
@@ -522,12 +522,12 @@
                                             Margin="0,2,10,0"
                                             FontSize="22"
                                             Symbol="Window20" />
-                                        <TextBlock Style="{StaticResource CardTitle}" Text="Edit Text Window" />
+                                        <TextBlock Style="{StaticResource CardTitle}" Text="文字編輯視窗" />
                                     </StackPanel>
                                     <TextBlock
                                         Margin="0,10,0,0"
                                         Style="{StaticResource CardBody}"
-                                        Text="Clean up OCR results in a focused plain-text workspace with tools for casing, trimming, regex, and fast corrections." />
+                                        Text="在專注的純文字工作區整理 OCR 結果，使用大小寫、修剪、規則運算式與快速校正等工具。" />
                                 </StackPanel>
 
                                 <Border
@@ -548,7 +548,7 @@
                                     Grid.Row="2"
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Best when you want OCR plus lightweight cleanup in one place." />
+                                    Text="適合想在同一處完成 OCR 與簡易文字整理的情境。" />
 
                                 <Button
                                     x:Name="TryEditWindow"
@@ -559,7 +559,7 @@
                                     Style="{StaticResource ModePreviewButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Play24" />
-                                        <TextBlock Text="Open Edit Window" />
+                                        <TextBlock Text="開啟文字編輯視窗" />
                                     </StackPanel>
                                 </Button>
 
@@ -570,7 +570,7 @@
                                     Margin="0,18,0,0"
                                     Checked="RadioButton_Checked"
                                     GroupName="DefaultLaunch">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Use Edit Text Window as my default launch" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="將文字編輯視窗設為預設啟動模式" />
                                 </RadioButton>
                             </Grid>
                         </Border>
@@ -591,12 +591,12 @@
                                             Margin="0,2,10,0"
                                             FontSize="22"
                                             Symbol="SlideSearch20" />
-                                        <TextBlock Style="{StaticResource CardTitle}" Text="Quick Simple Lookup" />
+                                        <TextBlock Style="{StaticResource CardTitle}" Text="快速查詢" />
                                     </StackPanel>
                                     <TextBlock
                                         Margin="0,10,0,0"
                                         Style="{StaticResource CardBody}"
-                                        Text="Store your own reusable snippets, search them instantly, and copy the right text without doing a new OCR pass." />
+                                        Text="儲存可重複使用的文字片段，即時搜尋並複製所需文字，不必再次執行 OCR。" />
                                 </StackPanel>
 
                                 <Border
@@ -617,7 +617,7 @@
                                     Grid.Row="2"
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Best for personal text libraries, templates, and rapid copy/paste workflows." />
+                                    Text="適合管理個人文字庫、範本，以及快速複製貼上的工作流程。" />
 
                                 <Button
                                     x:Name="TryQuickLookup"
@@ -628,7 +628,7 @@
                                     Style="{StaticResource ModePreviewButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Play24" />
-                                        <TextBlock Text="Launch Quick Lookup" />
+                                        <TextBlock Text="啟動快速查詢" />
                                     </StackPanel>
                                 </Button>
 
@@ -639,18 +639,18 @@
                                     Margin="0,18,0,0"
                                     Checked="RadioButton_Checked"
                                     GroupName="DefaultLaunch">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Use Quick Lookup as my default launch" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="將快速查詢設為預設啟動模式" />
                                 </RadioButton>
                             </Grid>
                         </Border>
                     </UniformGrid>
 
                     <StackPanel Margin="0,8,0,0">
-                        <TextBlock Style="{StaticResource SectionTitle}" Text="Set up the experience around that launch" />
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="設定啟動後的使用體驗" />
                         <TextBlock
                             Margin="0,10,0,0"
                             Style="{StaticResource SectionBody}"
-                            Text="These quick choices mirror the settings most people touch first. Everything else stays available in the full Settings window."
+                            Text="這些快速選項涵蓋最常調整的設定。其他選項仍可在完整的設定視窗中使用。"
                             TextWrapping="Wrap" />
                     </StackPanel>
 
@@ -661,18 +661,18 @@
                                 <TextBlock
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardTitle}"
-                                    Text="Notifications" />
+                                    Text="通知" />
                                 <TextBlock
                                     Margin="0,10,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Open copied text in an Edit Text Window straight from the toast notification." />
+                                    Text="直接從通知開啟文字編輯視窗，查看已複製的文字。" />
                                 <ui:ToggleSwitch
                                     x:Name="NotificationsCheckBox"
                                     AutomationProperties.AutomationId="FirstRun.NotificationsToggle"
                                     Margin="0,20,0,0"
                                     Checked="NotificationsCheckBox_Checked"
                                     Unchecked="NotificationsCheckBox_Checked">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Enable notifications" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="啟用通知" />
                                 </ui:ToggleSwitch>
                             </StackPanel>
                         </Border>
@@ -683,13 +683,13 @@
                                 <TextBlock
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardTitle}"
-                                    Text="Background mode" />
+                                    Text="背景執行" />
                                 <TextBlock
                                     Margin="0,10,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Keep Text Grab running in the background so hotkeys and faster relaunch are ready when you need them." />
+                                    Text="讓 Text Grab 在背景執行，以便隨時使用快捷鍵並快速重新啟動。" />
                                 <ui:ToggleSwitch x:Name="BackgroundCheckBox" AutomationProperties.AutomationId="FirstRun.BackgroundToggle" Margin="0,20,0,0">
-                                    <TextBlock Style="{StaticResource CardBody}" Text="Run Text Grab in the background" />
+                                    <TextBlock Style="{StaticResource CardBody}" Text="在背景執行 Text Grab" />
                                 </ui:ToggleSwitch>
                             </StackPanel>
                         </Border>
@@ -700,11 +700,11 @@
                                 <TextBlock
                                     Margin="0,14,0,0"
                                     Style="{StaticResource CardTitle}"
-                                    Text="Startup" />
+                                    Text="啟動" />
                                 <TextBlock
                                     Margin="0,10,0,0"
                                     Style="{StaticResource CardBody}"
-                                    Text="Launch Text Grab when Windows starts so your preferred mode is always close at hand." />
+                                    Text="Windows 啟動時一併啟動 Text Grab，讓偏好的模式隨時可用。" />
                                 <ui:ToggleSwitch
                                     x:Name="StartupCheckbox"
                                     AutomationProperties.AutomationId="FirstRun.StartupToggle"
@@ -715,7 +715,7 @@
                                         x:Name="StartupTextblock"
                                         AutomationProperties.AutomationId="FirstRun.StartupStatus"
                                         Style="{StaticResource CardBody}"
-                                        Text="Start Text Grab on startup" />
+                                        Text="開機時啟動 Text Grab" />
                                 </ui:ToggleSwitch>
                             </StackPanel>
                         </Border>
@@ -732,11 +732,11 @@
                             Margin="0,0,12,0"
                             Style="{StaticResource SurfaceCard}">
                             <StackPanel>
-                                <TextBlock Style="{StaticResource SectionTitle}" Text="Why Text Grab feels different" />
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="Text Grab 的特色" />
                                 <TextBlock
                                     Margin="0,12,0,0"
                                     Style="{StaticResource SectionBody}"
-                                    Text="Text Grab is designed to be fast, practical, and privacy-friendly without turning OCR into a bloated workflow."
+                                    Text="Text Grab 著重速度、實用性與隱私，讓 OCR 流程保持簡潔。"
                                     TextWrapping="Wrap" />
 
                                 <Border
@@ -750,11 +750,11 @@
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="SemiBold"
-                                            Text="Built for speed" />
+                                            Text="快速好用" />
                                         <TextBlock
                                             Margin="0,6,0,0"
                                             Style="{StaticResource CardBody}"
-                                            Text="Capture text, send it to the clipboard, and move on without fighting a heavy interface." />
+                                            Text="擷取文字並送到剪貼簿，透過簡潔介面快速完成工作。" />
                                     </StackPanel>
                                 </Border>
 
@@ -769,11 +769,11 @@
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="SemiBold"
-                                            Text="Built for privacy" />
+                                            Text="重視隱私" />
                                         <TextBlock
                                             Margin="0,6,0,0"
                                             Style="{StaticResource CardBody}"
-                                            Text="The app leans on the OCR engine built into Windows instead of shipping captured text off-device." />
+                                            Text="使用 Windows 內建的 OCR 引擎，不會將擷取的文字傳送到裝置以外。" />
                                     </StackPanel>
                                 </Border>
 
@@ -788,29 +788,29 @@
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="SemiBold"
-                                            Text="Built to fit into Windows" />
+                                            Text="融入 Windows" />
                                         <TextBlock
                                             Margin="0,6,0,0"
                                             Style="{StaticResource CardBody}"
-                                            Text="Jump lists, the clipboard manager, startup, and background hotkeys all work together so Text Grab feels native." />
+                                            Text="跳躍清單、剪貼簿管理員、開機啟動與背景快捷鍵協同運作，帶來原生的 Windows 體驗。" />
                                     </StackPanel>
                                 </Border>
 
                                 <TextBlock Margin="0,20,0,0" Style="{StaticResource CardBody}">
-                                    Need help, want to file feedback, or just want to see what's new?<LineBreak />
+                                    需要協助、提供意見回饋，或想看看最新資訊嗎？<LineBreak />
                                     <LineBreak />
                                     <Hyperlink
                                         Foreground="DeepSkyBlue"
                                         NavigateUri="https://github.com/TheJoeFin/Text-Grab/"
                                         RequestNavigate="Hyperlink_RequestNavigate">
-                                        Visit the GitHub project
+                                        前往 GitHub 專案
                                     </Hyperlink>
                                     <LineBreak />
                                     <Hyperlink
                                         Foreground="DeepSkyBlue"
                                         NavigateUri="mailto:support@textgrab.net"
                                         RequestNavigate="Hyperlink_RequestNavigate">
-                                        Email support@TextGrab.net
+                                        寄信至 support@TextGrab.net
                                     </Hyperlink>
                                 </TextBlock>
                             </StackPanel>
@@ -821,34 +821,34 @@
                             Margin="12,0,0,0"
                             Style="{StaticResource SurfaceCard}">
                             <StackPanel>
-                                <TextBlock Style="{StaticResource SectionTitle}" Text="Need more detail?" />
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="想進一步了解？" />
                                 <TextBlock
                                     Margin="0,12,0,0"
                                     Style="{StaticResource SectionBody}"
-                                    Text="The essentials stay front and center. The rest is still here when you want a deeper tour."
+                                    Text="常用功能一目了然；想深入了解時，也能在此瀏覽其他說明。"
                                     TextWrapping="Wrap" />
 
-                                <Expander Margin="0,18,0,0" Header="How Full Screen works">
+                                <Expander Margin="0,18,0,0" Header="全螢幕擷取的運作方式">
                                     <TextBlock Margin="0,10,0,0" Style="{StaticResource CardBody}">
-                                        Draw around the text you want or click a single word. Text Grab reads the selection with Windows OCR, copies the result to the clipboard, and lets you paste it anywhere. If nothing is recognized, you can immediately try again.
+                                        框選要擷取的文字，或按一下單一文字。Text Grab 會使用 Windows OCR 讀取選取範圍，將結果複製到剪貼簿，讓你貼到任何位置。若未辨識到內容，可立即再試一次。
                                     </TextBlock>
                                 </Expander>
 
-                                <Expander Margin="0,12,0,0" Header="How Grab Frame works">
+                                <Expander Margin="0,12,0,0" Header="擷取框的運作方式">
                                     <TextBlock Margin="0,10,0,0" Style="{StaticResource CardBody}">
-                                        Grab Frame stays on top, can be moved or resized, and reads text inside its border. You can select word borders, read everything in-frame, drop in images or PDFs, zoom in, and switch to table-oriented workflows.
+                                        擷取框會保持在最上層，可移動或調整大小，並讀取框內文字。你可以選取文字邊界、讀取框內所有內容、載入圖片或 PDF、放大檢視，或切換至表格處理流程。
                                     </TextBlock>
                                 </Expander>
 
-                                <Expander Margin="0,12,0,0" Header="What the Edit Text Window can do">
+                                <Expander Margin="0,12,0,0" Header="文字編輯視窗的功能">
                                     <TextBlock Margin="0,10,0,0" Style="{StaticResource CardBody}">
-                                        Edit Text is a plain-text workspace for fixing OCR output. It includes tools for trimming spaces, changing case, isolating selections, replacing reserved characters, running find and replace, and extracting regex matches.
+                                        文字編輯是用來修正 OCR 輸出的純文字工作區，提供修剪空白、變更大小寫、隔離選取內容、取代保留字元、尋找及取代，以及擷取規則運算式比對結果等工具。
                                     </TextBlock>
                                 </Expander>
 
-                                <Expander Margin="0,12,0,0" Header="Where Quick Simple Lookup fits in">
+                                <Expander Margin="0,12,0,0" Header="快速查詢的使用時機">
                                     <TextBlock Margin="0,10,0,0" Style="{StaticResource CardBody}">
-                                        Quick Simple Lookup is the non-OCR companion mode. Store reusable text items, search them instantly, hit Enter to copy, and paste the result wherever you need it.
+                                        快速查詢是搭配 OCR 使用的非 OCR 模式。你可以儲存可重複使用的文字項目、即時搜尋，按 Enter 複製，再將結果貼到需要的位置。
                                     </TextBlock>
                                 </Expander>
 
@@ -860,7 +860,7 @@
                                     BorderThickness="1"
                                     CornerRadius="14">
                                     <TextBlock Style="{StaticResource CardBody}">
-                                        You can always reopen this screen from Settings if you want the guided overview again later.
+                                        日後若想再次查看導覽總覽，可隨時從設定重新開啟此畫面。
                                     </TextBlock>
                                 </Border>
                             </StackPanel>
@@ -878,11 +878,11 @@
                                 <TextBlock
                                     FontSize="18"
                                     FontWeight="SemiBold"
-                                    Text="You're set." />
+                                    Text="設定完成。" />
                                 <TextBlock
                                     Margin="0,8,0,0"
                                     Style="{StaticResource SectionBody}"
-                                    Text="Start with the selected mode now, jump into Settings for the full control surface, or review the licenses that ship with the app."
+                                    Text="立即使用所選模式、前往設定調整完整選項，或查看應用程式隨附的授權資訊。"
                                     TextWrapping="Wrap" />
                             </StackPanel>
 
@@ -901,7 +901,7 @@
                                     Style="{StaticResource WelcomeSecondaryButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="DocumentText24" />
-                                        <TextBlock Text="Licenses" />
+                                        <TextBlock Text="授權" />
                                     </StackPanel>
                                 </Button>
 
@@ -912,7 +912,7 @@
                                     Style="{StaticResource WelcomeSecondaryButton}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Settings24" />
-                                        <TextBlock Text="Open Settings" />
+                                        <TextBlock Text="開啟設定" />
                                     </StackPanel>
                                 </Button>
 
@@ -922,7 +922,7 @@
                                     Style="{StaticResource TealColor}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:SymbolIcon Margin="0,0,8,0" Symbol="Checkmark24" />
-                                        <TextBlock Foreground="White" Text="Start with selected mode" />
+                                        <TextBlock Foreground="White" Text="以選取的模式開始" />
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

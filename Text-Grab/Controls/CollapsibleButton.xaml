@@ -36,7 +36,7 @@
             Grid.Column="1"
             Margin="8,0,0,0"
             VerticalAlignment="Center"
-            d:Text="Design Text"
+            d:Text="設計文字"
             Text="{Binding ElementName=CollapsibleButtonUserControl, Path=ButtonText, Mode=TwoWay}" />
 
     </Grid>
@@ -45,7 +45,7 @@
             <MenuItem
                 Name="ChangeButtonLayout"
                 Click="ChangeButtonLayout_Click"
-                Header="Change Style"
+                Header="變更樣式"
                 IsEnabled="{Binding ElementName=CollapsibleButtonUserControl, Path=CanChangeStyle}" />
         </ContextMenu>
     </Button.ContextMenu>

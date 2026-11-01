@@ -92,6 +92,6 @@ public partial class VoiceOutputSettings : Page
 
     private void PreviewVoiceButton_Click(object sender, RoutedEventArgs e)
     {
-        Singleton<TtsService>.Instance.Speak("Hello, this is a preview of the selected voice.");
+        Singleton<TtsService>.Instance.Speak("您好，這是所選語音的預覽。");
     }
 }

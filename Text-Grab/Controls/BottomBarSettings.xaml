@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Bottom Bar Settings"
+    Title="底部工具列設定"
     Width="950"
     Height="800"
     Background="{DynamicResource ApplicationBackgroundBrush}"
@@ -35,7 +35,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Bottom Bar Settings"
+            Title="底部工具列設定"
             Grid.ColumnSpan="3"
             Height="32"
             Margin="2,2,2,0"
@@ -60,7 +60,7 @@
                     MaxWidth="400"
                     Margin="0,4"
                     HorizontalAlignment="Stretch"
-                    PlaceholderText="Filter commands..."
+                    PlaceholderText="篩選命令..."
                     TextChanged="FilterSearchBox_TextChanged" />
                 <ui:ListView
                     x:Name="LeftListBox"
@@ -71,7 +71,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="46">
-                                <GridViewColumnHeader Content="Icon" />
+                                <GridViewColumnHeader Content="圖示" />
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Viewbox Height="32">
@@ -86,7 +86,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="72" Header="Icon Mode">
+                            <GridViewColumn Width="72" Header="圖示模式">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <ui:ToggleSwitch
@@ -97,7 +97,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="252" Header="Button Text">
+                            <GridViewColumn Width="252" Header="按鈕文字">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
@@ -106,7 +106,7 @@
                                             VerticalAlignment="Center"
                                             FontSize="16"
                                             Style="{StaticResource TextBodyNormal}"
-                                            Text="{Binding ButtonText}" />
+                                            Text="{Binding DisplayText}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -124,12 +124,12 @@
             <local:CollapsibleButton
                 x:Name="MoveRightButton"
                 ButtonSymbol="CaretRight24"
-                ButtonText="Add"
+                ButtonText="新增"
                 Click="MoveRightButton_Click" />
             <local:CollapsibleButton
                 x:Name="MoveLeftButton"
                 ButtonSymbol="CaretLeft24"
-                ButtonText="Remove"
+                ButtonText="移除"
                 Click="MoveLeftButton_Click" />
         </StackPanel>
         <Grid Grid.Row="1" Grid.Column="2">
@@ -143,12 +143,12 @@
                 <local:CollapsibleButton
                     x:Name="MoveUpButton"
                     ButtonSymbol="CaretUp24"
-                    ButtonText="Move Up"
+                    ButtonText="上移"
                     Click="MoveUpButton_Click" />
                 <local:CollapsibleButton
                     x:Name="MoveDownButton"
                     ButtonSymbol="CaretDown24"
-                    ButtonText="Move Down"
+                    ButtonText="下移"
                     Click="MoveDownButton_Click" />
             </StackPanel>
             <Border
@@ -166,7 +166,7 @@
                     ScrollViewer.VerticalScrollBarVisibility="Visible">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="46" Header="Icon">
+                            <GridViewColumn Width="46" Header="圖示">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Viewbox Height="32">
@@ -181,7 +181,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="72" Header="Icon Mode">
+                            <GridViewColumn Width="72" Header="圖示模式">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <ui:ToggleSwitch
@@ -192,7 +192,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="252" Header="Button Text">
+                            <GridViewColumn Width="252" Header="按鈕文字">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
@@ -200,7 +200,7 @@
                                             Margin="0,4,8,0"
                                             FontSize="16"
                                             Style="{StaticResource TextBodyNormal}"
-                                            Text="{Binding ButtonText}" />
+                                            Text="{Binding DisplayText}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -220,7 +220,7 @@
                     Margin="0,0,20,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Cursor/Selection Text
+                        顯示游標／選取文字
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -228,7 +228,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Transcribe
+                        顯示語音轉錄
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -236,7 +236,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Scrollbar
+                        顯示捲軸
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -244,7 +244,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Language picker
+                        顯示語言選擇器
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -252,7 +252,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Word Count
+                        顯示字數
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -260,7 +260,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Character Details
+                        顯示字元詳細資料
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -268,7 +268,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Match Count
+                        顯示符合項目數
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -276,7 +276,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Regex of Selection
+                        顯示選取內容的規則運算式
                     </TextBlock>
                 </ui:ToggleSwitch>
                 <ui:ToggleSwitch
@@ -284,7 +284,7 @@
                     Margin="0,12,0,0"
                     VerticalContentAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Show Similar Matches
+                        顯示相似符合項目
                     </TextBlock>
                 </ui:ToggleSwitch>
 
@@ -300,13 +300,13 @@
             <local:CollapsibleButton
                 x:Name="CloseBTN"
                 ButtonSymbol="Dismiss24"
-                ButtonText="Cancel"
+                ButtonText="取消"
                 Click="CloseBTN_Click" />
             <local:CollapsibleButton
                 x:Name="SaveBTN"
                 Background="DarkGreen"
                 ButtonSymbol="Save24"
-                ButtonText="Save and Close"
+                ButtonText="儲存並關閉"
                 Click="SaveBTN_Click" />
         </StackPanel>
     </Grid>

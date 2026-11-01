@@ -54,13 +54,13 @@
                 Grid.Column="1"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <ToggleButton x:Name="RecordingToggleButton" AutomationProperties.Name="Record shortcut" Click="RecordingToggleButton_Click">
+                <ToggleButton x:Name="RecordingToggleButton" AutomationProperties.Name="錄製快捷鍵" Click="RecordingToggleButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <ui:SymbolIcon Symbol="Record24" />
                         <TextBlock
                             Margin="6,0,0,0"
                             VerticalAlignment="Center"
-                            Text="Record" />
+                            Text="錄製" />
                     </StackPanel>
                 </ToggleButton>
                 <Border
@@ -154,7 +154,7 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 Margin="0,6,0,0"
-                d:Text="This is error message text"
+                d:Text="錯誤訊息文字"
                 Style="{StaticResource TextBodyNormal}"
                 TextWrapping="Wrap"
                 Visibility="Collapsed" />

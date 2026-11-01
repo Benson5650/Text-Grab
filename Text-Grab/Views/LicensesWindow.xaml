@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Third-Party Licenses"
+    Title="第三方授權"
     Width="1200"
     Height="760"
     MinWidth="900"
@@ -24,30 +24,30 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Third-Party Licenses"
+            Title="第三方授權"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
             Icon="{StaticResource TextGrabIcon}" />
         <ScrollViewer Grid.Row="1">
             <StackPanel Margin="14,12,14,8">
-                <TextBlock Style="{StaticResource TextHeader}" Text="Direct packages and license notices" />
+                <TextBlock Style="{StaticResource TextHeader}" Text="直接相依套件與授權聲明" />
                 <TextBlock
                     Margin="0,8,0,12"
                     Style="{StaticResource TextBodyNormal}"
                     TextWrapping="Wrap">
-                    This page lists the direct NuGet package references used by the Text Grab application and test projects. Common permissive licenses open the upstream repository license file, and package-specific Microsoft terms are included locally when the NuGet package ships its own license text.
+                    本頁列出 Text Grab 應用程式與測試專案使用的直接 NuGet 套件參照。常見的寬鬆授權會開啟上游儲存庫的授權檔；若 NuGet 套件附有自己的授權文字，則會在本機提供該套件專屬的 Microsoft 條款。
                 </TextBlock>
 
                 <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
                     <ui:Button
                         Margin="0,0,12,0"
                         Click="BuiltWithButton_Click"
-                        Content="Open BUILT-WITH.md"
+                        Content="開啟 BUILT-WITH.md"
                         Icon="{ui:SymbolIcon DocumentText24}" />
                     <ui:Button
                         Click="NoticesFolderButton_Click"
-                        Content="Open Third-Party Notices"
+                        Content="開啟第三方聲明資料夾"
                         Icon="{ui:SymbolIcon Folder24}" />
                 </StackPanel>
 
@@ -74,42 +74,42 @@
                             <DataGridTextColumn
                                 Width="2.4*"
                                 Binding="{Binding PackageId}"
-                                Header="Package" />
+                                Header="套件" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Version}"
-                                Header="Version" />
+                                Header="版本" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Scope}"
-                                Header="Scope" />
+                                Header="範圍" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding License}"
-                                Header="License" />
-                            <DataGridTemplateColumn Width="Auto" Header="Notice">
+                                Header="授權條款" />
+                            <DataGridTemplateColumn Width="Auto" Header="告知事項">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <ui:Button
                                             MinWidth="90"
                                             Padding="10,4"
                                             Click="NoticeButton_Click"
-                                            Content="Open" />
+                                            Content="開啟" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="Auto" Header="Project">
+                            <DataGridTemplateColumn Width="Auto" Header="專案">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <ui:Button
                                             MinWidth="90"
                                             Padding="10,4"
                                             Click="ProjectButton_Click"
-                                            Content="Open" />
+                                            Content="開啟" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="2.5*" Header="Notes">
+                            <DataGridTemplateColumn Width="2.5*" Header="備註">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
@@ -131,6 +131,6 @@
             HorizontalAlignment="Right"
             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
             Style="{StaticResource TextBodyNormal}"
-            Text="The app and tests currently reference 26 direct NuGet packages." />
+            Text="目前應用程式與測試直接參照 26 個 NuGet 套件。" />
     </Grid>
 </ui:FluentWindow>

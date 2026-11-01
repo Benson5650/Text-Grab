@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Join lines"
+    Title="合併行"
     Width="420"
     Height="430"
     Background="{DynamicResource ApplicationBackgroundBrush}"
@@ -41,7 +41,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Join Lines"
+            Title="合併行"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -55,7 +55,7 @@
                 Width="140"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Joining text" />
+                Text="合併文字" />
             <TextBox
                 x:Name="JoiningTextTextBox"
                 Width="220"
@@ -73,7 +73,7 @@
             Checked="PreviewInputChanged"
             Unchecked="PreviewInputChanged">
             <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                Trim line before joining
+                合併前修剪每一行
             </TextBlock>
         </ui:ToggleSwitch>
 
@@ -85,7 +85,7 @@
                 Width="140"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Text at beginning" />
+                Text="開頭文字" />
             <TextBox
                 x:Name="TextAtBeginningTextBox"
                 Width="220"
@@ -103,7 +103,7 @@
                 Width="140"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Text at end" />
+                Text="結尾文字" />
             <TextBox
                 x:Name="TextAtEndTextBox"
                 Width="220"
@@ -118,7 +118,7 @@
                 x:Name="PreviewHeaderTextBlock"
                 Margin="0,0,0,6"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Preview" />
+                Text="預覽" />
             <TextBox
                 x:Name="PreviewTextBox"
                 Height="120"
@@ -139,7 +139,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 ButtonSymbol="ArrowClockwise24"
-                ButtonText="Apply"
+                ButtonText="套用"
                 Command="{x:Static local:JoinLinesWindow.ApplyCmd}"
                 IsSymbol="True"
                 Visibility="Collapsed" />
@@ -148,7 +148,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 ButtonSymbol="Checkmark24"
-                ButtonText="Done"
+                ButtonText="完成"
                 Command="{x:Static local:JoinLinesWindow.JoinLinesCmd}" />
         </StackPanel>
     </Grid>

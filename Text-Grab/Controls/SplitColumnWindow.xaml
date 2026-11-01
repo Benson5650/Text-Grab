@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Split into Columns"
+    Title="分割成欄"
     Width="440"
     Height="520"
     Background="{DynamicResource ApplicationBackgroundBrush}"
@@ -42,7 +42,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Split into Columns"
+            Title="分割成欄"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -52,7 +52,7 @@
             <TextBlock
                 Margin="0,0,0,6"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Cell contents (select text to extract a pattern)" />
+                Text="儲存格內容（選取文字以擷取規則運算式）" />
             <TextBox
                 x:Name="SourceTextBox"
                 Height="60"
@@ -71,19 +71,19 @@
                 x:Name="DelimiterRadioButton"
                 Margin="0,0,12,0"
                 Checked="SplitModeRadioButton_Checked"
-                Content="Delimiter"
+                Content="分隔符號"
                 GroupName="SplitMode"
                 IsChecked="True" />
             <RadioButton
                 x:Name="RegexRadioButton"
                 Margin="0,0,12,0"
                 Checked="SplitModeRadioButton_Checked"
-                Content="Pattern (regex)"
+                Content="模式（規則運算式）"
                 GroupName="SplitMode" />
             <RadioButton
                 x:Name="FixedLengthRadioButton"
                 Checked="SplitModeRadioButton_Checked"
-                Content="Fixed length"
+                Content="固定長度"
                 GroupName="SplitMode" />
         </StackPanel>
 
@@ -97,7 +97,7 @@
                     Width="120"
                     VerticalAlignment="Center"
                     Style="{StaticResource TextBodyNormal}"
-                    Text="Split on" />
+                    Text="分割依據" />
                 <TextBox
                     x:Name="DelimiterTextBox"
                     Width="200"
@@ -113,14 +113,14 @@
                         Width="120"
                         VerticalAlignment="Center"
                         Style="{StaticResource TextBodyNormal}"
-                        Text="Split on" />
+                        Text="分割依據" />
                     <local:InlinePickerRichTextBox
                         x:Name="PatternPickerBox"
                         Width="200"
                         MinHeight="30"
                         VerticalAlignment="Center"
                         TextChanged="PatternInputChanged"
-                        ToolTip="Type { to pick a saved or smart pattern, or type a regex to split on." />
+                        ToolTip="輸入 { 以選取已儲存或智慧規則運算式，或輸入規則運算式作為分割依據。" />
                 </StackPanel>
                 <StackPanel
                     Margin="0,8,0,0"
@@ -131,7 +131,7 @@
                         Checked="SplitInputChanged"
                         Unchecked="SplitInputChanged">
                         <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                            Ignore case
+                            忽略大小寫
                         </TextBlock>
                     </ui:ToggleSwitch>
                     <local:CollapsibleButton
@@ -139,7 +139,7 @@
                         Margin="16,0,0,0"
                         VerticalAlignment="Center"
                         ButtonSymbol="Search24"
-                        ButtonText="Extract from selection"
+                        ButtonText="從選取內容擷取"
                         Click="ExtractButton_Click" />
                 </StackPanel>
             </StackPanel>
@@ -151,7 +151,7 @@
                         Width="120"
                         VerticalAlignment="Center"
                         Style="{StaticResource TextBodyNormal}"
-                        Text="Split after" />
+                        Text="分割位置" />
                     <TextBox
                         x:Name="LengthTextBox"
                         Width="80"
@@ -163,7 +163,7 @@
                         Margin="8,0,0,0"
                         VerticalAlignment="Center"
                         Style="{StaticResource TextBodyNormal}"
-                        Text="characters" />
+                        Text="字元" />
                 </StackPanel>
                 <ui:ToggleSwitch
                     x:Name="FromEndToggle"
@@ -172,7 +172,7 @@
                     Checked="SplitInputChanged"
                     Unchecked="SplitInputChanged">
                     <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                        Count from end
+                        從尾端計數
                     </TextBlock>
                 </ui:ToggleSwitch>
             </StackPanel>
@@ -187,24 +187,24 @@
                 Width="120"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Splitter" />
+                Text="分割符號" />
             <RadioButton
                 x:Name="SplitterRemoveRadio"
                 Margin="0,0,12,0"
                 Checked="SplitInputChanged"
-                Content="Remove"
+                Content="移除"
                 GroupName="SplitterHandling"
                 IsChecked="True" />
             <RadioButton
                 x:Name="SplitterLeftRadio"
                 Margin="0,0,12,0"
                 Checked="SplitInputChanged"
-                Content="Keep left"
+                Content="保留左側"
                 GroupName="SplitterHandling" />
             <RadioButton
                 x:Name="SplitterRightRadio"
                 Checked="SplitInputChanged"
-                Content="Keep right"
+                Content="保留右側"
                 GroupName="SplitterHandling" />
         </StackPanel>
 
@@ -212,7 +212,7 @@
             Grid.Row="5"
             Margin="12,8,12,6"
             Style="{StaticResource TextBodyNormal}"
-            Text="Preview" />
+            Text="預覽" />
 
         <TextBox
             x:Name="PreviewTextBox"
@@ -237,14 +237,14 @@
                 x:Name="ApplyButton"
                 VerticalAlignment="Center"
                 ButtonSymbol="ArrowClockwise24"
-                ButtonText="Apply"
+                ButtonText="套用"
                 Command="{x:Static local:SplitColumnWindow.ApplyCmd}" />
             <local:CollapsibleButton
                 x:Name="DoneButton"
                 Margin="8,0,0,0"
                 VerticalAlignment="Center"
                 ButtonSymbol="Checkmark24"
-                ButtonText="Done"
+                ButtonText="完成"
                 Command="{x:Static local:SplitColumnWindow.SplitCmd}" />
         </StackPanel>
     </Grid>

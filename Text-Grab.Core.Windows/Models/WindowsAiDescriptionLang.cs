@@ -6,7 +6,7 @@ namespace Text_Grab.Models;
 public class WindowsAiDescriptionLang : ILanguage
 {
     public const string Tag = "WinAI-Desc";
-    public const string DisplayLabel = "Windows AI Description";
+    public const string DisplayLabel = "Windows AI 描述";
 
     public string AbbreviatedName => "WinAI Desc";
 

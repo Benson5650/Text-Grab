@@ -75,16 +75,16 @@ public partial class NotifyIconWindow : Window
         switch (defaultLaunchSetting)
         {
             case TextGrabMode.Fullscreen:
-                toolTipText += " - Fullscreen Grab";
+                toolTipText += " - 全螢幕擷取";
                 break;
             case TextGrabMode.GrabFrame:
-                toolTipText += " - Grab Frame";
+                toolTipText += " - 擷取框";
                 break;
             case TextGrabMode.EditText:
-                toolTipText += " - Edit Text";
+                toolTipText += " - 文字編輯";
                 break;
             case TextGrabMode.QuickLookup:
-                toolTipText += " - Quick Lookup";
+                toolTipText += " - 快速查詢";
                 break;
             default:
                 break;

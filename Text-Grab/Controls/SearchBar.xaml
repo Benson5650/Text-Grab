@@ -75,7 +75,7 @@
                             BorderThickness="0"
                             Click="ChipClearButton_Click"
                             Foreground="White"
-                            ToolTip="Remove pattern">
+                            ToolTip="移除規則運算式">
                             <ui:SymbolIcon FontSize="12" Symbol="Dismiss24" />
                         </Button>
                     </StackPanel>
@@ -125,7 +125,7 @@
                         BorderThickness="0"
                         Click="ClearButton_Click"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        ToolTip="Clear search"
+                        ToolTip="清除搜尋"
                         Visibility="Collapsed">
                         <ui:SymbolIcon FontSize="14" Symbol="Dismiss24" />
                     </Button>
@@ -154,12 +154,12 @@
                                 x:Name="RegExToggleButton"
                                 Padding="7,4"
                                 VerticalAlignment="Stretch"
-                                AutomationProperties.Name="Use regular expression"
+                                AutomationProperties.Name="使用規則運算式"
                                 IsChecked="{Binding UseRegex,
                                                     ElementName=SearchBarRoot,
                                                     Mode=TwoWay}"
                                 Style="{StaticResource ToggleSplitSegment}"
-                                ToolTip="Search using Regular Expression syntax">
+                                ToolTip="使用規則運算式語法搜尋">
                                 <Viewbox Width="12" Height="12">
                                     <local:RegExIcon />
                                 </Viewbox>
@@ -169,10 +169,10 @@
                                 x:Name="PatternDropDownButton"
                                 Padding="3,4"
                                 VerticalAlignment="Stretch"
-                                AutomationProperties.Name="Find by pattern"
+                                AutomationProperties.Name="依規則運算式尋找"
                                 Click="PatternDropDownButton_Click"
                                 Style="{StaticResource PatternDropDownButtonStyle}"
-                                ToolTip="Find by pattern — a saved regex or a smart value (dates, numbers, emails, etc.)">
+                                ToolTip="依規則運算式尋找，支援已儲存的規則運算式或智慧值（日期、數字、電子郵件等）">
                                 <ui:SymbolIcon FontSize="11" Symbol="ChevronDown24" />
                                 <Button.ContextMenu>
                                     <ContextMenu
@@ -209,7 +209,7 @@
                                             ElementName=SearchBarRoot,
                                             Mode=TwoWay}"
                         Style="{StaticResource ToggleSymbolButton}"
-                        ToolTip="Match search exactly (case sensitive, literal text)"
+                        ToolTip="完全符合搜尋內容（區分大小寫，依文字字面比對）"
                         Visibility="{Binding ShowExactMatchToggle,
                                              ElementName=SearchBarRoot,
                                              Converter={StaticResource BoolToVis}}">

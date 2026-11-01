@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Text_Grab"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Edit Text"
+    Title="文字編輯"
     Width="800"
     Height="500"
     MinWidth="200"
@@ -40,36 +40,36 @@
             <MenuItem Command="ApplicationCommands.Paste" />
             <MenuItem
                 Command="{x:Static local:EditTextWindow.OcrPasteCommand}"
-                Header="OCR Paste"
+                Header="OCR 貼上"
                 InputGestureText="Ctrl + Shift + V" />
             <Separator />
             <MenuItem
                 Command="{x:Static local:EditTextWindow.IsolateSelectionCmd}"
-                Header="Isolate Selected Text"
+                Header="隔離選取文字"
                 InputGestureText="Ctrl + I" />
             <MenuItem
                 Click="SelectLineMenuItem_Click"
-                Header="Select Line"
+                Header="選取行"
                 InputGestureText="Ctrl + L" />
             <MenuItem
                 Click="SelectAllMenuItem_Click"
-                Header="Select All"
+                Header="全選"
                 InputGestureText="Ctrl + A" />
             <MenuItem
                 Command="{x:Static local:EditTextWindow.ToggleCaseCmd}"
-                Header="Toggle Case"
+                Header="切換大小寫"
                 InputGestureText="Shift + F3" />
-            <MenuItem Click="DeleteSelectedTextMenuItem_Click" Header="Delete Selected Text" />
+            <MenuItem Click="DeleteSelectedTextMenuItem_Click" Header="刪除選取文字" />
             <Separator />
             <MenuItem
                 Click="MoveLineUpMenuItem_Click"
-                Header="Move Selection Up"
+                Header="上移選取項目"
                 InputGestureText="Alt + Up" />
             <MenuItem
                 Click="MoveLineDownMenuItem_Click"
-                Header="Move Selection Down"
+                Header="下移選取項目"
                 InputGestureText="Alt + Down" />
-            <MenuItem Click="ShuffleLinesMenuItem_Click" Header="Shuffle Lines" />
+            <MenuItem Click="ShuffleLinesMenuItem_Click" Header="隨機排列行" />
         </ContextMenu>
         <ContextMenu x:Key="MarkdownContextMenu">
             <MenuItem Command="ApplicationCommands.Undo" />
@@ -82,9 +82,9 @@
             <MenuItem Command="ApplicationCommands.SelectAll" />
         </ContextMenu>
         <ContextMenu x:Key="SpreadsheetContextMenu" Opened="SpreadsheetContextMenu_Opened">
-            <MenuItem Click="AddSpreadsheetRowMenuItem_Click" Header="Add Row Below" />
-            <MenuItem Click="AddSpreadsheetColumnMenuItem_Click" Header="Add Column Right" />
-            <MenuItem Click="SplitSpreadsheetCellsMenuItem_Click" Header="Split into Columns…" />
+            <MenuItem Click="AddSpreadsheetRowMenuItem_Click" Header="在下方新增資料列" />
+            <MenuItem Click="AddSpreadsheetColumnMenuItem_Click" Header="在右側新增欄" />
+            <MenuItem Click="SplitSpreadsheetCellsMenuItem_Click" Header="分割為多欄…" />
             <Separator />
             <MenuItem Command="ApplicationCommands.Cut" />
             <MenuItem Command="ApplicationCommands.Copy" />
@@ -92,25 +92,25 @@
             <Separator />
             <MenuItem
                 Click="ToggleSpreadsheetWrapTextMenuItem_Click"
-                Header="Wrap Text"
+                Header="文字換行"
                 IsCheckable="True"
                 Tag="SpreadsheetWrapTextToggle" />
             <Separator />
-            <MenuItem Click="CopySpreadsheetRowsMenuItem_Click" Header="Copy Selected Rows" />
-            <MenuItem Click="CopySpreadsheetColumnMenuItem_Click" Header="Copy Current Column" />
-            <MenuItem Click="CopySpreadsheetAsMarkdownMenuItem_Click" Header="Copy as Markdown Table" />
+            <MenuItem Click="CopySpreadsheetRowsMenuItem_Click" Header="複製選取的資料列" />
+            <MenuItem Click="CopySpreadsheetColumnMenuItem_Click" Header="複製目前欄" />
+            <MenuItem Click="CopySpreadsheetAsMarkdownMenuItem_Click" Header="複製為 Markdown 表格" />
         </ContextMenu>
         <ContextMenu x:Key="SpreadsheetRowHeaderContextMenu">
-            <MenuItem Click="MoveSpreadsheetRowUpMenuItem_Click" Header="Move Row Up" />
-            <MenuItem Click="MoveSpreadsheetRowDownMenuItem_Click" Header="Move Row Down" />
+            <MenuItem Click="MoveSpreadsheetRowUpMenuItem_Click" Header="上移資料列" />
+            <MenuItem Click="MoveSpreadsheetRowDownMenuItem_Click" Header="下移資料列" />
             <Separator />
-            <MenuItem Click="DeleteSpreadsheetRowMenuItem_Click" Header="Delete Row" />
+            <MenuItem Click="DeleteSpreadsheetRowMenuItem_Click" Header="刪除資料列" />
         </ContextMenu>
         <ContextMenu x:Key="SpreadsheetColumnHeaderContextMenu">
-            <MenuItem Click="MoveSpreadsheetColumnLeftMenuItem_Click" Header="Move Column Left" />
-            <MenuItem Click="MoveSpreadsheetColumnRightMenuItem_Click" Header="Move Column Right" />
+            <MenuItem Click="MoveSpreadsheetColumnLeftMenuItem_Click" Header="左移欄" />
+            <MenuItem Click="MoveSpreadsheetColumnRightMenuItem_Click" Header="右移欄" />
             <Separator />
-            <MenuItem Click="DeleteSpreadsheetColumnMenuItem_Click" Header="Delete Column" />
+            <MenuItem Click="DeleteSpreadsheetColumnMenuItem_Click" Header="刪除欄" />
         </ContextMenu>
     </Window.Resources>
     <Window.CommandBindings>
@@ -192,7 +192,7 @@
         </Grid.RowDefinitions>
         <ui:TitleBar
             x:Name="UiTitleBar"
-            Title="Edit Text"
+            Title="文字編輯"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -215,11 +215,11 @@
                         x:Name="OpenFileMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.OpenFile"
                         Click="OpenFileMenuItem_Click"
-                        Header="_Open File..."
+                        Header="_開啟檔案..."
                         InputGestureText="Ctrl + O" />
-                    <MenuItem x:Name="OpenRecentMenuItem" Header="Recent" />
-                    <MenuItem x:Name="OpenRecentGrabsMenuItem" Header="Recent Grabs" />
-                    <MenuItem x:Name="OpenRecentPdfsMenuItem" Header="Recent PDFs" />
+                    <MenuItem x:Name="OpenRecentMenuItem" Header="最近使用" />
+                    <MenuItem x:Name="OpenRecentGrabsMenuItem" Header="最近擷取" />
+                    <MenuItem x:Name="OpenRecentPdfsMenuItem" Header="最近的 PDF" />
                     <MenuItem
                         x:Name="SaveFileMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.Save"
@@ -236,23 +236,23 @@
                         x:Name="CopyAndCloseMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.CopyAndClose"
                         Click="CopyCloseBTN_Click"
-                        Header="_Copy And Close" />
+                        Header="複製並關閉" />
                     <MenuItem
                         x:Name="CloseAndInsertMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.CloseAndInsert"
                         Click="CopyClosePasteBTN_Click"
-                        Header="Close and I_nsert" />
+                        Header="關閉並插入" />
                     <Separator />
                     <MenuItem
                         x:Name="SettingsMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.OpenSettings"
                         Click="SettingsMenuItem_Click"
-                        Header="Text Grab Sett_ings..." />
+                        Header="Text Grab 設定..." />
                     <MenuItem
                         x:Name="CloseMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.Close"
                         Click="CloseMenuItem_Click"
-                        Header="Close"
+                        Header="關閉"
                         InputGestureText="Alt + F4" />
                 </MenuItem>
                 <MenuItem
@@ -267,44 +267,44 @@
                     <MenuItem Command="ApplicationCommands.Paste" />
                     <MenuItem
                         Command="{x:Static local:EditTextWindow.OcrPasteCommand}"
-                        Header="OCR Paste"
+                        Header="OCR 貼上"
                         InputGestureText="Ctrl + Shift + V" />
                     <Separator />
                     <MenuItem
                         x:Name="LaunchUriMenuItem"
                         Command="{x:Static local:EditTextWindow.LaunchCmd}"
-                        Header="Launch URL" />
+                        Header="開啟 URL" />
                     <MenuItem
                         x:Name="SingleLineMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.SingleLine"
                         Command="{x:Static local:EditTextWindow.SingleLineCmd}"
-                        Header="Make _Single Line" />
+                        Header="合併為單行" />
                     <MenuItem
                         x:Name="JoinLinesMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.JoinLines"
                         Click="JoinLinesMenuItem_Click"
-                        Header="_Join Lines..." />
+                        Header="合併行..." />
                     <MenuItem
                         x:Name="_TrimEachLineMenuItem"
                         Click="TrimEachLineMenuItem_Click"
-                        Header="_Trim Each Line" />
+                        Header="修剪每一行" />
                     <MenuItem
                         x:Name="CleanUpTextMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.CleanUpText"
                         Click="CleanUpText_Click"
-                        Header="Clean _Up Text" />
+                        Header="整理文字" />
                     <MenuItem
                         x:Name="TryToNumberMenuItem"
                         Click="TryToNumberMenuItem_Click"
-                        Header="Try To Make _Numbers" />
+                        Header="嘗試轉換為數字" />
                     <MenuItem
                         x:Name="TryToAlphaMenuItem"
                         Click="TryToAlphaMenuItem_Click"
-                        Header="Try To Make _Letters" />
+                        Header="嘗試轉換為字母" />
                     <MenuItem
                         x:Name="CorrectGuid"
                         Click="CorrectGuid_Click"
-                        Header="Correct Common _GUID/UUID Errors" />
+                        Header="修正常見 GUID/UUID 錯誤" />
                     <MenuItem
                         x:Name="ToggleCaseMenuItem"
                         Command="{x:Static local:EditTextWindow.ToggleCaseCmd}"
@@ -313,57 +313,57 @@
                     <MenuItem
                         x:Name="RemoveDuplicateLines"
                         Click="RemoveDuplicateLines_Click"
-                        Header="Remove Duplicate Lines" />
+                        Header="移除重複行" />
                     <MenuItem
                         x:Name="ShuffleLinesMenuItem"
                         Click="ShuffleLinesMenuItem_Click"
-                        Header="_Shuffle Lines" />
+                        Header="隨機排列行" />
                     <MenuItem
                         x:Name="ReplaceReservedCharsMenuItem"
                         Command="{x:Static local:EditTextWindow.ReplaceReservedCmd}"
-                        Header="_Replace Reserved Characters"
+                        Header="取代保留字元"
                         InputGestureText="Ctrl + R" />
                     <MenuItem
                         x:Name="UnStackMenuItem"
                         Command="{x:Static local:EditTextWindow.UnstackCmd}"
-                        Header="_Unstack Text (Select Top Row)"
+                        Header="取消文字堆疊（選取頂端資料列）"
                         InputGestureText="Ctrl + U" />
                     <MenuItem
                         x:Name="UnStackGroupMenuItem"
                         Command="{x:Static local:EditTextWindow.UnstackGroupCmd}"
-                        Header="_Unstack Text (Select First Column)" />
+                        Header="取消文字堆疊（選取第一欄）" />
                     <MenuItem
                         x:Name="AddRemoveAtMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.AddRemoveLimit"
                         Click="AddRemoveAtMenuItem_Click"
                         Header="_Add, Remove, Limit..." />
-                    <MenuItem Command="{x:Static local:EditTextWindow.TransposeTableCmd}" Header="_Transpose Table" />
-                    <MenuItem x:Name="ApplyMenuItem" Header="Apply Grab Template or Pattern">
+                    <MenuItem Command="{x:Static local:EditTextWindow.TransposeTableCmd}" Header="轉置表格" />
+                    <MenuItem x:Name="ApplyMenuItem" Header="套用擷取範本或規則運算式">
                         <MenuItem
                             x:Name="ApplyGrabTemplateMenuItem"
-                            Header="Grab Templates"
+                            Header="擷取範本"
                             Visibility="Collapsed" />
-                        <MenuItem x:Name="ApplyPatternMenuItem" Header="Patterns" />
-                        <MenuItem x:Name="ApplySmartPatternMenuItem" Header="Smart Patterns" />
+                        <MenuItem x:Name="ApplyPatternMenuItem" Header="模式" />
+                        <MenuItem x:Name="ApplySmartPatternMenuItem" Header="智慧規則運算式" />
                     </MenuItem>
-                    <MenuItem x:Name="ApplyPerLineMenuItem" Header="Apply Per Line (Template or Pattern)">
+                    <MenuItem x:Name="ApplyPerLineMenuItem" Header="逐行套用（範本或規則運算式）">
                         <MenuItem
                             x:Name="ApplyGrabTemplatePerLineMenuItem"
-                            Header="Grab Templates"
+                            Header="擷取範本"
                             Visibility="Collapsed" />
-                        <MenuItem x:Name="ApplyPatternPerLineMenuItem" Header="Patterns" />
-                        <MenuItem x:Name="ApplySmartPatternPerLineMenuItem" Header="Smart Patterns" />
+                        <MenuItem x:Name="ApplyPatternPerLineMenuItem" Header="模式" />
+                        <MenuItem x:Name="ApplySmartPatternPerLineMenuItem" Header="智慧規則運算式" />
                     </MenuItem>
                     <Separator />
                     <MenuItem
                         x:Name="AddSpreadsheetRowMenuItem"
                         Click="AddSpreadsheetRowMenuItem_Click"
-                        Header="Add Spreadsheet Row"
+                        Header="新增試算表資料列"
                         Visibility="Collapsed" />
                     <MenuItem
                         x:Name="AddSpreadsheetColumnMenuItem"
                         Click="AddSpreadsheetColumnMenuItem_Click"
-                        Header="Add Spreadsheet Column"
+                        Header="新增試算表欄"
                         Visibility="Collapsed" />
                 </MenuItem>
                 <MenuItem AutomationProperties.AutomationId="EditText.Menu.Selection" Header="_Selection">
@@ -371,13 +371,13 @@
                         x:Name="FindAndReplaceMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.FindAndReplace"
                         Click="FindAndReplaceMenuItem_Click"
-                        Header="Find and Replace"
+                        Header="尋找及取代"
                         InputGestureText="Ctrl + Shift + F" />
                     <MenuItem
                         x:Name="DefaultWebSearch"
                         Command="{x:Static local:EditTextWindow.DefaultWebSearchCmd}"
-                        Header="Default Web Search" />
-                    <MenuItem x:Name="WebSearchCollection" Header="Search web with..." />
+                        Header="預設網頁搜尋" />
+                    <MenuItem x:Name="WebSearchCollection" Header="使用下列方式搜尋網路..." />
                     <Separator />
                     <MenuItem
                         x:Name="SelectWordMenuItem"
@@ -392,66 +392,66 @@
                     <MenuItem
                         x:Name="SelectAllMenuItem"
                         Click="SelectAllMenuItem_Click"
-                        Header="Select All"
+                        Header="全選"
                         InputGestureText="Ctrl + A" />
                     <MenuItem
                         x:Name="SelectNoneMenuItem"
                         Click="SelectNoneMenuItem_Click"
-                        Header="Select None" />
+                        Header="取消全選" />
                     <MenuItem
                         x:Name="DeleteSelectedTextMenuItem"
                         Click="DeleteSelectedTextMenuItem_Click"
-                        Header="Delete Selected Text" />
+                        Header="刪除選取文字" />
                     <Separator />
                     <MenuItem
                         x:Name="MoveLineUpMenuItem"
                         Click="MoveLineUpMenuItem_Click"
-                        Header="Move Selection _Up"
+                        Header="上移選取項目"
                         InputGestureText="Alt + Up" />
                     <MenuItem
                         x:Name="MoveLineDownMenuItem"
                         Click="MoveLineDownMenuItem_Click"
-                        Header="Move Selection _Down"
+                        Header="下移選取項目"
                         InputGestureText="Alt + Down" />
                     <Separator />
                     <MenuItem
                         x:Name="SplitLineBeforeSelectionMI"
                         Command="{x:Static local:EditTextWindow.SplitOnSelectionCmd}"
-                        Header="Split Lines _Before Each Selection" />
+                        Header="在每個選取內容前分割行" />
                     <MenuItem
                         x:Name="SplitLineAfterSelectionMI"
                         Command="{x:Static local:EditTextWindow.SplitAfterSelectionCmd}"
-                        Header="Split Lines _After Each Selection" />
+                        Header="在每個選取內容後分割行" />
                     <MenuItem
                         x:Name="IsolateSelectionMI"
                         Command="{x:Static local:EditTextWindow.IsolateSelectionCmd}"
-                        Header="_Isolate Selected Text"
+                        Header="隔離選取文字"
                         InputGestureText="Ctrl + I" />
                     <MenuItem
                         x:Name="DeleteAllSelectionMI"
                         Command="{x:Static local:EditTextWindow.DeleteAllSelectionCmd}"
-                        Header="Delete All Instances of Selection" />
+                        Header="刪除所有選取內容" />
                     <MenuItem
                         x:Name="DeleteAllSelectionPatternMI"
                         Command="{x:Static local:EditTextWindow.DeleteAllSelectionPatternCmd}"
-                        Header="Delete All Instances of Selection Simple Pattern" />
+                        Header="刪除所有符合簡易模式的選取內容" />
                     <MenuItem
                         x:Name="InsertSelectionOnEveryLineMI"
                         Command="{x:Static local:EditTextWindow.InsertSelectionOnEveryLineCmd}"
-                        Header="Insert Selection On Every Line" />
+                        Header="將選取內容插入每一行" />
                 </MenuItem>
                 <MenuItem
                     Name="AiMenuItem"
-                    Header="_Local AI"
+                    Header="本機 AI"
                     Visibility="Collapsed">
                     <MenuItem
                         x:Name="SummarizeMenuItem"
                         Click="SummarizeMenuItem_Click"
-                        Header="_Summarize Paragraph" />
+                        Header="摘要段落" />
                     <MenuItem
                         x:Name="MeetingNotesMenuItem"
                         Click="MeetingNotesMenuItem_Click"
-                        Header="Summarize as _Meeting Notes" />
+                        Header="整理為會議記錄" />
                     <MenuItem
                         x:Name="RewriteMenuItem"
                         Click="RewriteMenuItem_Click"
@@ -459,100 +459,100 @@
                     <MenuItem
                         x:Name="ConvertTableMenuItem"
                         Click="ConvertTableMenuItem_Click"
-                        Header="_Convert to Table" />
+                        Header="轉換為表格" />
                     <MenuItem
                         x:Name="TranslateToSystemLanguageMenuItem"
                         Click="TranslateToSystemLanguageMenuItem_Click"
-                        Header="Translate to System Language" />
-                    <MenuItem x:Name="TranslateMenuItem" Header="_Translate to...">
+                        Header="翻譯為系統語言" />
+                    <MenuItem x:Name="TranslateMenuItem" Header="翻譯為...">
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="English"
+                            Header="英文"
                             Tag="English" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Spanish"
+                            Header="西班牙文"
                             Tag="Spanish" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="French"
+                            Header="法文"
                             Tag="French" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="German"
+                            Header="德文"
                             Tag="German" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Italian"
+                            Header="義大利文"
                             Tag="Italian" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Portuguese"
+                            Header="葡萄牙文"
                             Tag="Portuguese" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Russian"
+                            Header="俄文"
                             Tag="Russian" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Japanese"
+                            Header="日文"
                             Tag="Japanese" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Chinese (Simplified)"
+                            Header="簡體中文"
                             Tag="Chinese (Simplified)" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Korean"
+                            Header="韓文"
                             Tag="Korean" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Arabic"
+                            Header="阿拉伯文"
                             Tag="Arabic" />
                         <MenuItem
                             Click="TranslateMenuItem_Click"
-                            Header="Hindi"
+                            Header="印地文"
                             Tag="Hindi" />
                     </MenuItem>
                     <MenuItem
                         x:Name="ExtractRegexMenuItem"
                         Click="ExtractRegexMenuItem_Click"
-                        Header="E_xtract RegEx" />
+                        Header="擷取規則運算式" />
                     <Separator />
                     <MenuItem
                         x:Name="SendLocalAiResultToNewWindowMenuItem"
                         Checked="SendLocalAiResultToNewWindowMenuItem_Checked"
-                        Header="Send Result to _New Window"
+                        Header="將結果傳送至新視窗"
                         IsCheckable="True"
                         Unchecked="SendLocalAiResultToNewWindowMenuItem_Unchecked" />
                     <MenuItem
                         x:Name="NotifyOnLocalAiCompleteMenuItem"
                         Checked="NotifyOnLocalAiCompleteMenuItem_Checked"
-                        Header="_Notify When Done"
+                        Header="完成時通知"
                         IsCheckable="True"
                         Unchecked="NotifyOnLocalAiCompleteMenuItem_Unchecked" />
                     <Separator />
                     <MenuItem
                         x:Name="RestartLocalLlmMenuItem"
                         Click="RestartLocalLlmMenuItem_Click"
-                        Header="_Restart Local LLM" />
+                        Header="重新啟動本機 LLM" />
                     <MenuItem
                         x:Name="LearnAiMenuItem"
                         Click="LearnAiMenuItem_Click"
-                        Header="_Learn About Local AI Features..." />
+                        Header="_了解本機 AI 功能..." />
                 </MenuItem>
                 <MenuItem AutomationProperties.AutomationId="EditText.Menu.Format" Header="F_ormat">
                     <MenuItem
                         x:Name="RawTextModeMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.RawTextMode"
                         Click="EditorModeMenuItem_Click"
-                        Header="Raw Text"
+                        Header="原始文字"
                         IsCheckable="True" />
                     <MenuItem
                         x:Name="SpreadsheetModeMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.SpreadsheetMode"
                         Click="EditorModeMenuItem_Click"
-                        Header="Spreadsheet"
+                        Header="試算表"
                         IsCheckable="True" />
                     <MenuItem
                         x:Name="MarkdownModeMenuItem"
@@ -564,18 +564,18 @@
                     <MenuItem
                         x:Name="ShowErrorsMenuItem"
                         Click="ShowErrorsMenuItem_Click"
-                        Header="Show Calc Errors"
+                        Header="顯示計算錯誤"
                         IsCheckable="True" />
                     <MenuItem
                         x:Name="MarginsMenuItem"
                         Checked="MarginsMenuItem_Checked"
-                        Header="_Use Margins"
+                        Header="使用邊界"
                         IsCheckable="True"
                         Unchecked="MarginsMenuItem_Checked" />
                     <MenuItem
                         x:Name="WrapTextMenuItem"
                         Checked="WrapTextCHBX_Checked"
-                        Header="_Wrap Text"
+                        Header="文字換行"
                         IsCheckable="True"
                         IsChecked="True"
                         Unchecked="WrapTextCHBX_Checked" />
@@ -614,54 +614,54 @@
                         x:Name="FullScreenGrabMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.FullscreenGrab"
                         Click="FullScreenGrabMenuItem_Click"
-                        Header="New _Fullscreen Grab"
+                        Header="新增全螢幕擷取"
                         InputGestureText="Ctrl + F" />
                     <MenuItem
                         x:Name="FSGDelayMenuItem"
                         Click="FSGDelayMenuItem_Click"
-                        Header="Fullscreen with 2 second _delay" />
+                        Header="延遲 2 秒後全螢幕擷取" />
                     <MenuItem
                         x:Name="PreviousRegionMenuItem"
                         Click="PreviousRegion_Click"
-                        Header="Grab previous region" />
+                        Header="擷取上一個區域" />
                     <MenuItem
                         x:Name="GrabFrameMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.GrabFrame"
                         Click="GrabFrameMenuItem_Click"
-                        Header="New _Grab Frame"
+                        Header="新增擷取框"
                         InputGestureText="Ctrl + G" />
                     <MenuItem
                         x:Name="CaptureFromCameraMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.CaptureFromCamera"
                         Click="CaptureFromCameraMenuItem_Click"
-                        Header="Capture from _Camera..." />
+                        Header="從相機擷取..." />
                     <MenuItem
                         x:Name="ManageGrabTemplatesMenuItem"
                         Click="ManageGrabTemplates_Click"
-                        Header="Manage Grab _Templates..." />
+                        Header="管理擷取範本..." />
                     <MenuItem
                         x:Name="RegexManagerMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.RegexManager"
                         Click="RegexManagerMenuItem_Click"
-                        Header="Open _Patterns Manager..." />
+                        Header="開啟規則運算式管理員..." />
                     <Separator />
                     <MenuItem
                         x:Name="QuickSimpleLookupMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.QuickLookup"
                         Click="LaunchQuickSimpleLookup"
-                        Header="Add From _Quick Simple Lookup"
+                        Header="從快速查詢新增"
                         InputGestureText="Ctrl + Q" />
                     <MenuItem
                         x:Name="ClipboardWatcherMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.ClipboardWatcher"
-                        Header="_Watch Clipboard For Changes"
+                        Header="監看剪貼簿變更"
                         IsCheckable="True"
                         IsChecked="False" />
                     <MenuItem
                         x:Name="CaptureTranscribeAudioMenuItem"
                         AutomationProperties.AutomationId="EditText.Menu.TranscribeAudio"
                         Click="CaptureTranscribeAudioMenuItem_Click"
-                        Header="_Transcribe Audio"
+                        Header="轉錄音訊"
                         IsCheckable="True"
                         Visibility="Collapsed" />
                     <MenuItem
@@ -672,30 +672,30 @@
                         <MenuItem
                             x:Name="CaptureLiveSourceMicMenuItem"
                             Click="LiveSourceMenuItem_Click"
-                            Header="From Microphone"
+                            Header="使用麥克風"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Microphone" />
                         <MenuItem
                             x:Name="CaptureLiveSourceSystemMenuItem"
                             Click="LiveSourceMenuItem_Click"
-                            Header="From System Audio (what you hear)"
+                            Header="使用系統音訊（你聽到的聲音）"
                             IsCheckable="True"
                             Tag="SystemAudio" />
                         <MenuItem
                             x:Name="CaptureLiveSourceBothMenuItem"
                             Click="LiveSourceMenuItem_Click"
-                            Header="From Microphone and System Audio"
+                            Header="使用麥克風與系統音訊"
                             IsCheckable="True"
                             Tag="MicrophoneAndSystemAudio" />
                         <Separator />
                         <MenuItem
                             x:Name="CaptureTranscriptionModelMenuItem"
-                            Header="Transcription model"
+                            Header="轉錄模型"
                             SubmenuOpened="TranscriptionModelSubmenu_Opened">
                             <!-- Populated in TranscriptionModelSubmenu_Opened; this placeholder just
                                  gives the item a submenu arrow so it opens in the first place. -->
-                            <MenuItem Header="Loading…" IsEnabled="False" />
+                            <MenuItem Header="載入中…" IsEnabled="False" />
                         </MenuItem>
                     </MenuItem>
                     <MenuItem
@@ -708,45 +708,45 @@
                     <MenuItem
                         x:Name="ListFilesMenuItem"
                         Click="ListFilesMenuItem_Click"
-                        Header="_List Files and Folders From Folder..." />
+                        Header="列出資料夾中的檔案與資料夾..." />
                     <Separator />
                     <MenuItem
                         x:Name="ReadFolderOfImages"
                         Click="ReadFolderOfImages_Click"
-                        Header="_Extract Text from Images in Folder..." />
-                    <MenuItem x:Name="LanguageMenuItem" Header="OCR in Language..." />
+                        Header="從資料夾中的圖片擷取文字..." />
+                    <MenuItem x:Name="LanguageMenuItem" Header="使用指定語言進行 OCR..." />
                     <MenuItem
                         x:Name="GrabTemplateMenuItem"
-                        Header="Use Grab _Template..."
+                        Header="使用擷取範本..."
                         SubmenuOpened="GrabTemplateMenuItem_SubmenuOpened">
                         <!-- Keeps the submenu openable before its items are loaded lazily. -->
-                        <MenuItem Header="Loading…" IsEnabled="False" />
+                        <MenuItem Header="載入中…" IsEnabled="False" />
                     </MenuItem>
                     <MenuItem
                         x:Name="RecursiveFoldersCheck"
-                        Header="Scan all folders recursively"
+                        Header="遞迴掃描所有資料夾"
                         IsCheckable="True"
                         StaysOpenOnClick="True" />
                     <MenuItem
                         x:Name="ReadFolderOfImagesWriteTxtFiles"
-                        Header="Write ._Txt File For Each Image"
+                        Header="為每張圖片建立 .txt 檔案"
                         IsCheckable="True"
                         StaysOpenOnClick="True" />
                     <MenuItem
                         x:Name="OutputFilenamesCheck"
-                        Header="Write File names in output"
+                        Header="將檔案名稱寫入輸出"
                         IsCheckable="True"
                         IsChecked="True"
                         StaysOpenOnClick="True" />
                     <MenuItem
                         x:Name="OutputHeaderCheck"
-                        Header="Include output header text"
+                        Header="包含輸出標頭文字"
                         IsCheckable="True"
                         IsChecked="True"
                         StaysOpenOnClick="True" />
                     <MenuItem
                         x:Name="OutputFooterCheck"
-                        Header="Include output footer text"
+                        Header="包含輸出頁尾文字"
                         IsCheckable="True"
                         IsChecked="True"
                         StaysOpenOnClick="True" />
@@ -758,64 +758,64 @@
                     <MenuItem
                         x:Name="AlwaysOnTop"
                         Click="AlwaysOnTop_Checked"
-                        Header="_Always On Top"
+                        Header="永遠置頂"
                         IsCheckable="True"
                         IsChecked="False" />
                     <MenuItem
                         x:Name="HideBottomBarMenuItem"
                         Click="HideBottomBarMenuItem_Click"
-                        Header="_Hide Bottom Bar"
+                        Header="隱藏底部工具列"
                         IsCheckable="True"
                         IsChecked="False" />
                     <MenuItem
                         x:Name="LaunchFullscreenOnLoad"
                         Click="LaunchFullscreenOnLoad_Click"
-                        Header="Open _Fullscreen on Launch"
+                        Header="啟動時開啟全螢幕擷取"
                         IsCheckable="True"
                         IsChecked="False" />
                     <MenuItem
                         x:Name="RestorePositionMenuItem"
                         Checked="RestorePositionMenuItem_Checked"
-                        Header="Set postion based on previous Edit Text Window"
+                        Header="依據上次文字編輯視窗設定位置"
                         IsCheckable="True"
                         Unchecked="RestorePositionMenuItem_Checked" />
                     <MenuItem
                         x:Name="RestoreThisPosition"
                         Click="RestoreThisPosition_Click"
-                        Header="_Restore this windows's position" />
+                        Header="還原此視窗的位置" />
                     <MenuItem
                         x:Name="ShowCalcPaneMenuItem"
                         Click="ShowCalcPaneMenuItem_Click"
-                        Header="Show calculations pane"
+                        Header="顯示計算窗格"
                         IsCheckable="True" />
                     <Separator />
                     <MenuItem
                         x:Name="NewWindowMenuItem"
                         Click="NewWindow_Clicked"
-                        Header="_New Window" />
+                        Header="新增視窗" />
                     <MenuItem
                         x:Name="NewWindowFromSelectionMenuItem"
                         Click="NewWindowWithText_Clicked"
-                        Header="New Window with Selected _Text"
+                        Header="以選取文字新增視窗"
                         InputGestureText="Ctrl + N" />
                     <MenuItem
                         x:Name="MakeCodeMenuItem"
                         Command="{x:Static local:EditTextWindow.MakeQrCodeCmd}"
-                        Header="Make _QR Code" />
+                        Header="建立 QR Code" />
                     <MenuItem
                         x:Name="OpenLastAsGrabFrameMenuItem"
                         Click="OpenLastAsGrabFrameMenuItem_Click"
-                        Header="Edit _Last Grab" />
+                        Header="編輯上次擷取內容" />
                 </MenuItem>
                 <MenuItem Header="_Help">
                     <MenuItem
                         x:Name="ContactMenuItem"
                         Click="ContactMenuItem_Click"
-                        Header="_Contact The Developer..." />
+                        Header="聯絡開發者..." />
                     <MenuItem
                         x:Name="RateAndReview"
                         Click="RateAndReview_Click"
-                        Header="_Rate and Review..." />
+                        Header="評分與評論..." />
                     <MenuItem
                         x:Name="FeedbackMenuItem"
                         Click="FeedbackMenuItem_Click"
@@ -841,7 +841,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Click="AddSpreadsheetRowMenuItem_Click"
-                    ToolTip="Add spreadsheet row"
+                    ToolTip="新增試算表資料列"
                     Visibility="Collapsed">
                     <ui:SymbolIcon FontSize="16" Symbol="RowTriple24" />
                 </Button>
@@ -855,7 +855,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Click="AddSpreadsheetColumnMenuItem_Click"
-                    ToolTip="Add spreadsheet column"
+                    ToolTip="新增試算表欄"
                     Visibility="Collapsed">
                     <ui:SymbolIcon FontSize="16" Symbol="ColumnTriple24" />
                 </Button>
@@ -865,11 +865,11 @@
                     Height="32"
                     Padding="0"
                     AutomationProperties.AutomationId="EditText.CalculatorToggle"
-                    AutomationProperties.Name="Show calculator pane"
+                    AutomationProperties.Name="顯示計算窗格"
                     Background="Transparent"
                     BorderThickness="0"
                     Click="CalcToggleButton_Click"
-                    ToolTip="Toggle Calculation Pane (Ctrl+P)&#x0a;Note: Text wrapping is disabled when calc pane is visible for better vertical alignment">
+                    ToolTip="切換計算窗格 (Ctrl+P)\n注意：顯示計算窗格時會停用文字換行，以維持垂直對齊">
                     <ui:SymbolIcon FontSize="16" Symbol="Calculator24" />
                 </Button>
             </StackPanel>
@@ -978,37 +978,37 @@
                 VerticalScrollBarVisibility="Hidden">
                 <TextBox.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Name="HideCalcPaneContextItem" Header="Hide Pane" />
-                        <MenuItem Name="ShowCalcErrorsContextItem" Header="Show Errors" />
-                        <MenuItem Name="CopyAllContextItem" Header="Copy All" />
+                        <MenuItem Name="HideCalcPaneContextItem" Header="隱藏窗格" />
+                        <MenuItem Name="ShowCalcErrorsContextItem" Header="顯示錯誤" />
+                        <MenuItem Name="CopyAllContextItem" Header="全部複製" />
                         <Separator />
                         <MenuItem
                             Name="ShowSumContextItem"
-                            Header="Sum: -"
+                            Header="總和：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowAverageContextItem"
-                            Header="Average: -"
+                            Header="平均值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowMedianContextItem"
-                            Header="Median: -"
+                            Header="中位數：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowCountContextItem"
-                            Header="Count: -"
+                            Header="計數：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowMinContextItem"
-                            Header="Min: -"
+                            Header="最小值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowMaxContextItem"
-                            Header="Max: -"
+                            Header="最大值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="ShowProductContextItem"
-                            Header="Product: -"
+                            Header="乘積：-"
                             IsCheckable="True" />
                     </ContextMenu>
                 </TextBox.ContextMenu>
@@ -1029,37 +1029,37 @@
                 CornerRadius="4"
                 Cursor="Hand"
                 MouseLeftButtonDown="CalcAggregateStatusBorder_MouseLeftButtonDown"
-                ToolTip="Click to copy, right-click to change aggregate"
+                ToolTip="按一下以複製，按右鍵變更彙總方式"
                 Visibility="Collapsed">
                 <Border.ContextMenu>
                     <ContextMenu>
                         <MenuItem
                             Name="AggregateSumContextItem"
-                            Header="Sum: -"
+                            Header="總和：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateAverageContextItem"
-                            Header="Average: -"
+                            Header="平均值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateMedianContextItem"
-                            Header="Median: -"
+                            Header="中位數：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateCountContextItem"
-                            Header="Count: -"
+                            Header="計數：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateMinContextItem"
-                            Header="Min: -"
+                            Header="最小值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateMaxContextItem"
-                            Header="Max: -"
+                            Header="最大值：-"
                             IsCheckable="True" />
                         <MenuItem
                             Name="AggregateProductContextItem"
-                            Header="Product: -"
+                            Header="乘積：-"
                             IsCheckable="True" />
                     </ContextMenu>
                 </Border.ContextMenu>
@@ -1093,11 +1093,11 @@
                     Margin="0,0,4,0"
                     Padding="0"
                     AutomationProperties.AutomationId="EditText.CalculatorCopyAllButton"
-                    AutomationProperties.Name="Copy all calculator results"
+                    AutomationProperties.Name="複製所有計算結果"
                     Background="Transparent"
                     BorderThickness="0"
                     Click="CalcCopyAllButton_Click"
-                    ToolTip="Copy All Results">
+                    ToolTip="複製所有結果">
                     <ui:SymbolIcon FontSize="14" Symbol="Copy24" />
                 </Button>
                 <Button
@@ -1106,11 +1106,11 @@
                     Height="24"
                     Padding="0"
                     AutomationProperties.AutomationId="EditText.CalculatorInfoButton"
-                    AutomationProperties.Name="Calculator information"
+                    AutomationProperties.Name="計算機資訊"
                     Background="Transparent"
                     BorderThickness="0"
                     Click="CalcInfoButton_Click"
-                    ToolTip="Calculation Pane Help">
+                    ToolTip="計算窗格說明">
                     <ui:SymbolIcon FontSize="14" Symbol="Info24" />
                 </Button>
             </StackPanel>
@@ -1133,16 +1133,16 @@
                             Margin="0,0,0,8"
                             FontSize="16"
                             FontWeight="Bold"
-                            Text="Calculation Pane" />
+                            Text="計算窗格" />
                         <TextBlock Margin="0,0,0,8" TextWrapping="Wrap">
-                            <Run Text="Type mathematical expressions in the text area and see results calculated in real-time." />
+                            <Run Text="在文字區域輸入數學算式，即時查看計算結果。" />
                         </TextBlock>
                         <TextBlock
                             Margin="0,0,0,4"
                             FontWeight="SemiBold"
-                            Text="Features:" />
+                            Text="功能：" />
                         <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                            <Run Text="• Basic math: +, -, *, /, %, ** for exponent" />
+                            <Run Text="• 基本運算：+、-、*、/、%、**（次方）" />
                         </TextBlock>
                         <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
                             <Run Text="• Functions: sin, cos, tan, sqrt, abs, log, etc." />
@@ -1154,18 +1154,18 @@
                             <Run Text="• Constants: pi, e, tau, phi, sqrt2, sqrt3, sqrt5, ln2, ln10, log2e, log10e" />
                         </TextBlock>
                         <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                            <Run Text="• Unit conversion: 5 miles to km, 100°F to celsius" />
+                            <Run Text="• 單位換算：5 miles to km、100°F to celsius" />
                         </TextBlock>
                         <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                            <Run Text="• Date math: today + 5 days, 5-14-26 - 1-12-25 in weeks" />
+                            <Run Text="• 日期計算：today + 5 days、5-14-26 - 1-12-25 in weeks" />
                         </TextBlock>
                         <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                            <Run Text="• Supported units: length, mass, temperature, volume, speed, area, durations" />
+                            <Run Text="• 支援的單位：長度、質量、溫度、體積、速度、面積、時間長度" />
                         </TextBlock>
                         <TextBlock
                             Margin="0,0,0,4"
                             FontWeight="SemiBold"
-                            Text="Examples:" />
+                            Text="範例：" />
                         <TextBlock
                             Margin="0,0,0,4"
                             FontFamily="Consolas"
@@ -1193,21 +1193,21 @@
                             FontSize="11"
                             FontWeight="SemiBold"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Note:"
+                            Text="注意："
                             TextWrapping="Wrap" />
                         <TextBlock
                             Margin="0,0,0,8"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             TextWrapping="Wrap">
-                            <Run Text="Text wrapping is automatically disabled when the calculation pane is visible to ensure calculation results align vertically with their corresponding input lines." />
+                            <Run Text="顯示計算窗格時會自動停用文字換行，讓計算結果與對應的輸入行保持垂直對齊。" />
                         </TextBlock>
                         <TextBlock
                             Margin="0,0,0,0"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             TextWrapping="Wrap">
-                            <Run Text="Toggle with Ctrl+P or the calculator button" />
+                            <Run Text="按 Ctrl+P 或計算機按鈕切換" />
                         </TextBlock>
                     </StackPanel>
                 </Border>
@@ -1277,7 +1277,7 @@
                         BorderThickness="0"
                         Checked="LiveTranscriptionToggleButton_Checked"
                         Cursor="Hand"
-                        ToolTip="Toggle live transcription. Right-click to choose microphone or system audio."
+                        ToolTip="切換即時轉錄。按右鍵可選擇麥克風或系統音訊。"
                         Unchecked="LiveTranscriptionToggleButton_Unchecked"
                         Visibility="Collapsed">
                         <ToggleButton.ContextMenu>
@@ -1285,36 +1285,36 @@
                                 <MenuItem
                                     x:Name="LiveSourceMicMenuItem"
                                     Click="LiveSourceMenuItem_Click"
-                                    Header="From Microphone"
+                                    Header="使用麥克風"
                                     IsCheckable="True"
                                     IsChecked="True"
                                     Tag="Microphone" />
                                 <MenuItem
                                     x:Name="LiveSourceSystemMenuItem"
                                     Click="LiveSourceMenuItem_Click"
-                                    Header="From System Audio (what you hear)"
+                                    Header="使用系統音訊（你聽到的聲音）"
                                     IsCheckable="True"
                                     Tag="SystemAudio" />
                                 <MenuItem
                                     x:Name="LiveSourceBothMenuItem"
                                     Click="LiveSourceMenuItem_Click"
-                                    Header="From Microphone and System Audio"
+                                    Header="使用麥克風與系統音訊"
                                     IsCheckable="True"
                                     Tag="MicrophoneAndSystemAudio" />
                                 <Separator />
                                 <MenuItem
                                     x:Name="MicTranscriptionModelMenuItem"
-                                    Header="Transcription model"
+                                    Header="轉錄模型"
                                     SubmenuOpened="TranscriptionModelSubmenu_Opened">
                                     <!-- Populated in TranscriptionModelSubmenu_Opened; this placeholder just
                                          gives the item a submenu arrow so it opens in the first place. -->
-                                    <MenuItem Header="Loading…" IsEnabled="False" />
+                                    <MenuItem Header="載入中…" IsEnabled="False" />
                                 </MenuItem>
                                 <Separator />
                                 <MenuItem
                                     x:Name="TranscribeJustIconMenuItem"
                                     Click="TranscribeJustIconMenuItem_Click"
-                                    Header="Just Icon"
+                                    Header="僅顯示圖示"
                                     IsCheckable="True" />
                             </ContextMenu>
                         </ToggleButton.ContextMenu>
@@ -1330,7 +1330,7 @@
                                 VerticalAlignment="Center"
                                 FontFamily="Cascadia Mono"
                                 FontSize="12"
-                                Text="Transcribe" />
+                                Text="轉錄" />
                         </StackPanel>
                     </ToggleButton>
                     <Button
@@ -1342,7 +1342,7 @@
                         BorderThickness="0"
                         Click="MatchCountButton_Click"
                         Cursor="Hand"
-                        ToolTip="Click to Find and Replace"
+                        ToolTip="按一下以尋找及取代"
                         Visibility="Collapsed">
                         <TextBlock
                             FontFamily="Cascadia Mono"
@@ -1360,7 +1360,7 @@
                         ContextMenuOpening="PatternContextOpening"
                         Cursor="Hand"
                         MouseWheel="PatternButton_MouseWheel"
-                        ToolTip="Click to Find and Replace with pattern"
+                        ToolTip="按一下以使用模式尋找及取代"
                         Visibility="Collapsed">
                         <TextBlock
                             FontFamily="Cascadia Mono"
@@ -1371,11 +1371,11 @@
                                 <MenuItem
                                     x:Name="SavePatternMenuItem"
                                     Click="SavePatternMenuItem_Click"
-                                    Header="Save Pattern" />
+                                    Header="儲存模式" />
                                 <MenuItem
                                     x:Name="ExplainPatternMenuItem"
                                     Click="ExplainPatternMenuItem_Click"
-                                    Header="Explain Pattern" />
+                                    Header="說明模式" />
                             </ContextMenu>
                         </Button.ContextMenu>
                     </Button>
@@ -1390,22 +1390,22 @@
                         ContextMenuOpening="PatternContextOpening"
                         Cursor="Hand"
                         MouseWheel="PatternButton_MouseWheel"
-                        ToolTip="Click to open Find and Replace with regex"
+                        ToolTip="按一下以使用規則運算式開啟尋找及取代"
                         Visibility="Collapsed">
                         <TextBlock
                             FontFamily="Cascadia Mono"
                             FontSize="12"
-                            Text="Regex: " />
+                            Text="規則運算式： " />
                         <Button.ContextMenu>
                             <ContextMenu>
                                 <MenuItem
                                     x:Name="SavePatternMenuItem2"
                                     Click="SavePatternMenuItem_Click"
-                                    Header="Save Pattern" />
+                                    Header="儲存模式" />
                                 <MenuItem
                                     x:Name="ExplainPatternMenuItem2"
                                     Click="ExplainPatternMenuItem_Click"
-                                    Header="Explain Pattern" />
+                                    Header="說明模式" />
                             </ContextMenu>
                         </Button.ContextMenu>
                     </Button>
@@ -1418,7 +1418,7 @@
                         BorderThickness="0"
                         Click="CharDetailsButton_Click"
                         Cursor="Hand"
-                        ToolTip="Click for character details"
+                        ToolTip="按一下查看字元詳細資訊"
                         Visibility="Collapsed">
                         <TextBlock
                             x:Name="CharDetailsButtonText"
@@ -1450,7 +1450,7 @@
                 </Popup>
                 <Grid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Click="EditBottomBarMenuItem_Click" Header="Edit Bottom Bar" />
+                        <MenuItem Click="EditBottomBarMenuItem_Click" Header="編輯底部工具列" />
                     </ContextMenu>
                 </Grid.ContextMenu>
             </Grid>
@@ -1475,7 +1475,7 @@
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                Text="Working..." />
+                Text="處理中…" />
         </StackPanel>
         <!--  Non-blocking, cancellable status shown while transcribing audio; text streams into the editor beneath it.  -->
         <Border
@@ -1504,7 +1504,7 @@
                     <TextBlock
                         x:Name="TranscriptionStatusText"
                         VerticalAlignment="Center"
-                        Text="Transcribing…" />
+                        Text="轉錄中…" />
                     <!--  Determinate: how far through the current clip's duration transcription has reached.  -->
                     <ProgressBar
                         x:Name="TranscriptionProgressBar"
@@ -1519,7 +1519,7 @@
                     x:Name="TranscriptionCancelButton"
                     Padding="10,2"
                     Click="TranscriptionCancelButton_Click"
-                    Content="Cancel" />
+                    Content="取消" />
             </StackPanel>
         </Border>
         <ui:ContentDialogHost

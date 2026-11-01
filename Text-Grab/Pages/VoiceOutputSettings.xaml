@@ -15,13 +15,13 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-            <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Voice Output Settings" />
+            <TextBlock Style="{StaticResource SettingsPageTitle}" Text="語音輸出設定" />
 
-            <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Voice" />
+            <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="語音" />
 
             <controls:SettingsCard
-                Description="Choose from the voices installed on this device."
-                HeaderText="Voice"
+                Description="從此裝置已安裝的語音中選擇。"
+                HeaderText="語音"
                 Icon="{ui:SymbolIcon PersonVoice24}">
                 <ComboBox
                     x:Name="VoiceComboBox"
@@ -31,8 +31,8 @@
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Description="How quickly the text is spoken. 1.0 is the default speed."
-                HeaderText="Speaking rate"
+                Description="語音播放速度；預設值為 1.0。"
+                HeaderText="語速"
                 Icon="{ui:SymbolIcon TopSpeed24}">
                 <StackPanel Orientation="Horizontal">
                     <Slider
@@ -55,8 +55,8 @@
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Description="Stop speaking after this many words. Set to 0 for no limit."
-                HeaderText="Word limit"
+                Description="朗讀到指定字數後停止。設為 0 表示不限制。"
+                HeaderText="字數上限"
                 Icon="{ui:SymbolIcon NumberSymbol24}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock
@@ -64,7 +64,7 @@
                         AutomationProperties.AutomationId="Settings.VoiceOutput.WordLimitError"
                         Margin="0,0,12,0"
                         VerticalAlignment="Center"
-                        Text="⚠ Must be a positive number"
+                        Text="⚠ 必須是正數"
                         Visibility="Collapsed" />
                     <TextBox
                         x:Name="TtsSpeakWordLimitTextBox"
@@ -82,8 +82,8 @@
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Description="Speak a short announcement when a slow operation (such as an AI image description) is still processing."
-                HeaderText="Announce when a slow operation is processing"
+                Description="耗時作業（例如 AI 圖片描述）仍在處理時，播放簡短的語音提示。"
+                HeaderText="耗時作業處理中時發出語音提示"
                 Icon="{ui:SymbolIcon ReadAloud24}">
                 <ui:ToggleSwitch
                     x:Name="SpeakProcessingStatusCheckBox"
@@ -93,14 +93,14 @@
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Description="Hear a sample sentence with the current voice and speaking rate."
+                Description="聆聽使用目前語音與語速朗讀的範例句子。"
                 HeaderText="Preview"
                 Icon="{ui:SymbolIcon Play24}">
                 <Button
                     x:Name="PreviewVoiceButton"
                     AutomationProperties.AutomationId="Settings.VoiceOutput.PreviewButton"
                     Click="PreviewVoiceButton_Click"
-                    Content="Speak sample" />
+                    Content="播放語音範例" />
             </controls:SettingsCard>
 
         </StackPanel>

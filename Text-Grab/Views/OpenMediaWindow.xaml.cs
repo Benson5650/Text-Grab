@@ -69,7 +69,7 @@ public partial class OpenMediaWindow : FluentWindow
         }
         catch (Exception ex)
         {
-            FileErrorText.Text = $"⚠ Couldn't read this file: {ex.Message}";
+            FileErrorText.Text = $"⚠ 無法讀取此檔案：{ex.Message}";
             FileErrorText.Visibility = Visibility.Visible;
         }
     }
@@ -144,8 +144,8 @@ public partial class OpenMediaWindow : FluentWindow
 
         long? downloadedBytes = AudioTranscriptionUtilities.DownloadedModelSizeBytes(choice);
         ModelDownloadStatusText.Text = downloadedBytes is long bytes
-            ? $"Already downloaded — {bytes / (1024.0 * 1024.0):0.#} MB on disk."
-            : $"Not downloaded yet ({WhisperModelInfo.ApproxDownloadSize(choice)}) — it will download automatically the first time you use it.";
+            ? $"已下載 — 磁碟上有 {bytes / (1024.0 * 1024.0):0.#} MB。"
+            : $"尚未下載（{WhisperModelInfo.ApproxDownloadSize(choice)}）— 首次使用時會自動下載。";
     }
 
     private async void StartTranscriptionButton_Click(object sender, RoutedEventArgs e)

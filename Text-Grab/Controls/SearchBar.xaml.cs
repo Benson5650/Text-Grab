@@ -16,7 +16,7 @@ namespace Text_Grab.Controls;
 /// </summary>
 public partial class SearchBar : UserControl
 {
-    private const string RegexToolTip = "Search using Regular Expression syntax";
+    private const string RegexToolTip = "使用規則運算式語法搜尋";
 
     /// <summary>Suppresses <see cref="SearchChanged"/> while several inputs are updated as one action.</summary>
     private bool suppressSearchChanged;
@@ -95,7 +95,7 @@ public partial class SearchBar : UserControl
 
     public static readonly DependencyProperty PlaceholderTextProperty =
         DependencyProperty.Register(nameof(PlaceholderText), typeof(string), typeof(SearchBar),
-            new PropertyMetadata("Type to search..."));
+            new PropertyMetadata("輸入以搜尋..."));
 
     public bool AcceptsReturn
     {
@@ -129,7 +129,7 @@ public partial class SearchBar : UserControl
         else
             RegexSplitContainer.BorderBrush = Brushes.Red;
 
-        RegExToggleButton.ToolTip = toolTip ?? (isValid ? RegexToolTip : "Invalid Regular Expression");
+        RegExToggleButton.ToolTip = toolTip ?? (isValid ? RegexToolTip : "規則運算式無效");
     }
 
     /// <summary>The underlying text box, for hosts that need the control directly (focus, OCR target, caret, etc.).</summary>

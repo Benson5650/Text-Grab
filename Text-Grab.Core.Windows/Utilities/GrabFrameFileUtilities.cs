@@ -69,7 +69,7 @@ public static class GrabFrameFileUtilities
     /// </summary>
     public static string GetGrabFrameFileFilter()
     {
-        return $"Text Grab Frame (*{GrabFrameFileExtension})|*{GrabFrameFileExtension}";
+        return $"Text Grab 擷取框 (*{GrabFrameFileExtension})|*{GrabFrameFileExtension}";
     }
 
     /// <summary>

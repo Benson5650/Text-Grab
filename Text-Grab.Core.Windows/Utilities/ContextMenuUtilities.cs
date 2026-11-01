@@ -11,9 +11,9 @@ namespace Text_Grab.Utilities;
 internal static class ContextMenuUtilities
 {
     private const string GrabTextRegistryKeyName = "Text-Grab.GrabText";
-    private const string GrabTextDisplayText = "Grab text with Text Grab";
+    private const string GrabTextDisplayText = "使用 Text Grab 擷取文字";
     private const string GrabFrameRegistryKeyName = "Text-Grab.OpenInGrabFrame";
-    private const string GrabFrameDisplayText = "Open in Grab Frame";
+    private const string GrabFrameDisplayText = "在擷取框中開啟";
 
     /// <summary>
     /// Supported image and PDF file extensions for context menu integration.
@@ -34,7 +34,7 @@ internal static class ContextMenuUtilities
     {
         if (AutomationProfile.Current is { AllowsSystemIntegration: false })
         {
-            errorMessage = "System integration is disabled for this automation profile.";
+            errorMessage = "此自動化設定檔已停用系統整合。";
             return false;
         }
 
@@ -43,7 +43,7 @@ internal static class ContextMenuUtilities
 
         if (string.IsNullOrEmpty(executablePath))
         {
-            errorMessage = "Could not determine the application executable path.";
+            errorMessage = "無法判斷應用程式可執行檔路徑。";
             return false;
         }
 
@@ -59,13 +59,13 @@ internal static class ContextMenuUtilities
         catch (UnauthorizedAccessException ex)
         {
             Debug.WriteLine($"Context menu registration failed due to permissions: {ex.Message}");
-            errorMessage = "Permission denied. Please run Text Grab as administrator or check your registry permissions.";
+            errorMessage = "拒絕存取。請以系統管理員身分執行 Text Grab，或檢查登錄權限。";
             return false;
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Context menu registration failed: {ex.Message}");
-            errorMessage = $"Failed to register context menu: {ex.Message}";
+            errorMessage = $"註冊內容功能表失敗：{ex.Message}";
             return false;
         }
     }
@@ -79,7 +79,7 @@ internal static class ContextMenuUtilities
     {
         if (AutomationProfile.Current is { AllowsSystemIntegration: false })
         {
-            errorMessage = "System integration is disabled for this automation profile.";
+            errorMessage = "此自動化設定檔已停用系統整合。";
             return false;
         }
 
@@ -96,13 +96,13 @@ internal static class ContextMenuUtilities
         catch (UnauthorizedAccessException ex)
         {
             Debug.WriteLine($"Context menu unregistration failed due to permissions: {ex.Message}");
-            errorMessage = "Permission denied. Some context menu entries could not be removed.";
+            errorMessage = "拒絕存取。部分內容功能表項目無法移除。";
             return false;
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Context menu unregistration failed: {ex.Message}");
-            errorMessage = $"Failed to remove context menu entries: {ex.Message}";
+            errorMessage = $"移除內容功能表項目失敗：{ex.Message}";
             return false;
         }
     }

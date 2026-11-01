@@ -7,7 +7,7 @@ public record WindowSelectionCandidate(IntPtr Handle, Rect Bounds, string Title,
 {
     public bool Contains(Point point) => Bounds.Contains(point);
 
-    public string DisplayAppName => string.IsNullOrWhiteSpace(AppName) ? "Application" : AppName;
+    public string DisplayAppName => string.IsNullOrWhiteSpace(AppName) ? "應用程式" : AppName;
 
-    public string DisplayTitle => string.IsNullOrWhiteSpace(Title) ? "Untitled window" : Title;
+    public string DisplayTitle => string.IsNullOrWhiteSpace(Title) ? "未命名視窗" : Title;
 }

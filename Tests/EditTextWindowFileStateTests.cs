@@ -6,10 +6,10 @@ namespace Tests;
 public class EditTextWindowFileStateTests
 {
     [Theory]
-    [InlineData(null, false, "Edit Text")]
-    [InlineData("", true, "Edit Text")]
-    [InlineData(@"C:\Temp\notes.md", false, "Edit Text | notes.md")]
-    [InlineData(@"C:\Temp\notes.md", true, "Edit Text | *notes.md")]
+    [InlineData(null, false, "文字編輯")]
+    [InlineData("", true, "文字編輯")]
+    [InlineData(@"C:\Temp\notes.md", false, "文字編輯 | notes.md")]
+    [InlineData(@"C:\Temp\notes.md", true, "文字編輯 | *notes.md")]
     public void GetWindowTitle_ReflectsTrackedFileAndPendingEdits(string? path, bool hasPendingEdits, string expectedTitle)
     {
         Assert.Equal(expectedTitle, EditTextWindow.GetWindowTitle(path, hasPendingEdits));

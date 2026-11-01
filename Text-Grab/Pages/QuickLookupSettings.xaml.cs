@@ -48,7 +48,7 @@ public partial class QuickLookupSettings : Page
         {
             AddExtension = true,
             DefaultExt = ".csv",
-            Filter = "CSV files (*.csv)|*.csv",
+            Filter = "CSV 檔案 (*.csv)|*.csv",
             InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             FileName = "QuickSimpleLookupDataFile.csv",
             OverwritePrompt = false

@@ -49,6 +49,7 @@
                 <ResourceDictionary Source="/Styles/GridViewStyles.xaml" />
                 <ResourceDictionary Source="/Styles/DataGridStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <local:UiEnumDisplayConverter x:Key="UiEnumDisplayConverter" />
             <ControlTemplate x:Key="MenuItemTemplate1" TargetType="{x:Type MenuItem}">
                 <Grid />
             </ControlTemplate>
@@ -74,25 +75,25 @@
     <JumpList.JumpList>
         <JumpList>
             <JumpTask
-                Title="Settings"
+                Title="設定"
                 Arguments="Settings"
-                Description="Open Text Grab Settings" />
+                Description="開啟 Text Grab 設定" />
             <JumpTask
-                Title="Quick Lookup"
+                Title="快速查詢"
                 Arguments="QuickLookup"
-                Description="Quickly search through a simple, flexible, list of values" />
+                Description="快速搜尋簡單、彈性的值清單" />
             <JumpTask
-                Title="Edit Text"
+                Title="文字編輯"
                 Arguments="EditText"
-                Description="Open Text Edit Window" />
+                Description="開啟文字編輯視窗" />
             <JumpTask
-                Title="Grab Frame"
+                Title="擷取框"
                 Arguments="GrabFrame"
-                Description="Open a Grab Frame to search and select text" />
+                Description="開啟擷取框以搜尋並選取文字" />
             <JumpTask
-                Title="Full Screen"
+                Title="全螢幕擷取"
                 Arguments="Fullscreen"
-                Description="Full screen overlay to select text" />
+                Description="使用全螢幕覆蓋層選取文字" />
         </JumpList>
     </JumpList.JumpList>
 </Application>

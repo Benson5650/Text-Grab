@@ -127,7 +127,7 @@ public partial class GeneralSettings : Page
                     StartupOnLoginCheckBox.IsChecked = false;
                     StartupOnLoginCheckBox.IsEnabled = false;
 
-                    StartupTextBlock.Text = "Auto start is disabled in Task Manager";
+                    StartupTextBlock.Text = "自動啟動已在工作管理員中停用";
                     StartupTextBlock.Visibility = Visibility.Visible;
                     break;
                 case StartupTaskState.Enabled:
@@ -354,19 +354,19 @@ public partial class GeneralSettings : Page
         string message = status switch
         {
             Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus.Allowed
-                => "Borderless capture is allowed. The yellow capture border will no longer appear.",
+                => "已允許無邊框擷取。黃色擷取邊框將不再顯示。",
             Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus.DeniedByUser
-                => "Borderless capture was denied. You can allow it in Windows Settings under Privacy & security → Graphics capture (or the consent prompt).",
+                => "無邊框擷取遭拒。您可以在 Windows「設定」的「隱私權與安全性」→「圖形擷取」中允許，或透過權限提示授予權限。",
             Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus.DeniedBySystem
-                => "Borderless capture is blocked on this system, so the capture border can't be removed.",
-            _ => "Borderless capture permission is currently unavailable.",
+                => "此系統封鎖無邊框擷取，因此無法移除擷取邊框。",
+            _ => "目前無法取得無邊框擷取權限。",
         };
 
         await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "HDR Capture Permission",
+            Title = "HDR 擷取權限",
             Content = message,
-            CloseButtonText = "OK"
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 
@@ -531,9 +531,9 @@ public partial class GeneralSettings : Page
             // Show error message to user
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Context Menu Registration Failed",
-                Content = errorMessage ?? "Failed to add Text Grab to the context menu.",
-                CloseButtonText = "OK"
+                Title = "右鍵選單註冊失敗",
+                Content = errorMessage ?? "無法將 Text Grab 加入右鍵選單。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -559,9 +559,9 @@ public partial class GeneralSettings : Page
 
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Context Menu Removal Failed",
-                Content = errorMessage ?? "Some context menu entries could not be removed.",
-                CloseButtonText = "OK"
+                Title = "右鍵選單移除失敗",
+                Content = errorMessage ?? "部分右鍵選單項目無法移除。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }

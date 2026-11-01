@@ -60,7 +60,7 @@ public partial class FirstRunWindow : FluentWindow
                     StartupCheckbox.IsChecked = false;
                     StartupCheckbox.IsEnabled = false;
 
-                    StartupTextblock.Text += "\nDisabled in Task Manager";
+                    StartupTextblock.Text += "\n已在工作管理員中停用";
                     StartupTextblock.Foreground = new SolidColorBrush(Colors.Gray);
                     break;
                 case StartupTaskState.Enabled:

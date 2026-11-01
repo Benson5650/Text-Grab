@@ -575,12 +575,12 @@ public static class GrabTemplateExecutor
         {
             if (!int.TryParse(match.Groups[1].Value, out int num))
             {
-                issues.Add($"Invalid placeholder: {match.Value}");
+                issues.Add($"預留位置無效：{match.Value}");
                 continue;
             }
 
             if (!available.Contains(num))
-                issues.Add($"Placeholder {{{num}}} references region {num} which does not exist.");
+                issues.Add($"預留位置 {{{num}}} 指向不存在的區域 {num}。");
 
             referenced.Add(num);
         }
@@ -588,7 +588,7 @@ public static class GrabTemplateExecutor
         foreach (int availableNum in available)
         {
             if (!referenced.Contains(availableNum))
-                issues.Add($"Region {availableNum} is defined but not used in the output template.");
+                issues.Add($"已定義區域 {availableNum}，但輸出範本未使用此區域。");
         }
 
         // Validate pattern placeholders
@@ -603,10 +603,10 @@ public static class GrabTemplateExecutor
                 string mode = match.Groups[2].Value;
 
                 if (!availableNames.Contains(patternName))
-                    issues.Add($"Pattern placeholder references \"{patternName}\" which is not a saved pattern.");
+                    issues.Add($"規則運算式預留位置參照了未儲存的 \"{patternName}\"。");
 
                 if (!IsValidMatchMode(mode))
-                    issues.Add($"Invalid match mode \"{mode}\" for pattern \"{patternName}\". Use first, last, all, or numeric indices.");
+                    issues.Add($"符合模式 \"{mode}\" 不適用於規則運算式 \"{patternName}\"。請使用 first、last、all 或數字索引。");
             }
         }
 

@@ -12,7 +12,7 @@ namespace Text_Grab.Utilities;
 internal static class FileAssociationUtilities
 {
     private const string GrabFrameProgId = "TextGrab.GrabFrame";
-    private const string GrabFrameProgIdDescription = "Text Grab Frame";
+    private const string GrabFrameProgIdDescription = "Text Grab 擷取框";
 
     private const string ClassesRoot = @"Software\Classes\";
     private const string GrabFrameExtensionKeyPath = ClassesRoot + GrabFrameFileUtilities.GrabFrameFileExtension;

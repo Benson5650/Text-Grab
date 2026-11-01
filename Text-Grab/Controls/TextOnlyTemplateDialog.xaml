@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="New Text-Only Template"
+    Title="新增純文字範本"
     AutomationProperties.AutomationId="TextTemplateDialog"
     Width="520"
     Height="340"
@@ -27,21 +27,21 @@
 
         <ui:TitleBar
             x:Name="TitleBarControl"
-            Title="New Text-Only Template"
+            Title="新增純文字範本"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
             Icon="{StaticResource TextGrabIcon}" />
 
         <StackPanel Grid.Row="1" Margin="12">
-            <TextBlock Margin="0,0,0,4" Text="Template Name:" />
+            <TextBlock Margin="0,0,0,4" Text="範本名稱：" />
             <TextBox
                 x:Name="TemplateNameBox"
                 AutomationProperties.AutomationId="TextTemplate.Name"
                 Margin="0,0,0,12"
                 TextChanged="ValidateInput" />
 
-            <TextBlock Margin="0,0,0,4" Text="Output (type { to pick):" />
+            <TextBlock Margin="0,0,0,4" Text="輸出（輸入 { 以選取）：" />
             <controls:InlinePickerRichTextBox
                 x:Name="OutputTemplateBox"
                 AutomationProperties.AutomationId="TextTemplate.Output"
@@ -50,7 +50,7 @@
                 AcceptsReturn="True"
                 AcceptsTab="True"
                 TextChanged="OutputTemplateBox_TextChanged"
-                ToolTip="Type { to insert a pattern placeholder. Plain text is also supported."
+                ToolTip="輸入 { 以插入規則運算式預留位置，也支援純文字。"
                 VerticalScrollBarVisibility="Auto" />
 
             <Grid Margin="0,2,0,0">
@@ -58,15 +58,15 @@
                     VerticalAlignment="Center"
                     FontSize="11"
                     Opacity="0.6"
-                    Text="Type { to pick from saved regex patterns. Use \n for newline."
+                    Text="輸入 { 以從已儲存的規則運算式中選取。使用 \n 換行。"
                     TextWrapping="Wrap" />
                 <ui:Button
                     HorizontalAlignment="Right"
                     Appearance="Secondary"
                     Click="ManagePatternsButton_Click"
-                    Content="New Regex..."
+                    Content="新增規則運算式..."
                     Icon="{ui:SymbolIcon Add24}"
-                    ToolTip="Open the Patterns Manager to create or edit patterns" />
+                    ToolTip="開啟規則運算式管理器以建立或編輯規則運算式" />
             </Grid>
 
             <TextBlock
@@ -89,9 +89,9 @@
                 Margin="0,0,6,0"
                 Appearance="Primary"
                 Click="SaveButton_Click"
-                Content="Save"
+                Content="儲存"
                 IsEnabled="False" />
-            <ui:Button Click="CancelButton_Click" Content="Cancel" />
+            <ui:Button Click="CancelButton_Click" Content="取消" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

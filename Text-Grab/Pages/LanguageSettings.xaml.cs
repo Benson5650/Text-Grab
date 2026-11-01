@@ -58,16 +58,16 @@ public partial class LanguageSettings : Page
     {
         if (OSInterop.IsWindows10())
         {
-            StatusTextBlock.Text = "Not supported";
-            ReasonTextBlock.Text = "Windows AI is not supported on Windows 10.";
+            StatusTextBlock.Text = "不支援";
+            ReasonTextBlock.Text = "Windows 10 不支援 Windows AI。";
             return;
         }
 
         // Check if the app is packaged and if the AI feature is supported
         if (!AppUtilities.IsPackaged())
         {
-            StatusTextBlock.Text = "Not supported";
-            ReasonTextBlock.Text = "Windows AI is only supported in packaged apps.";
+            StatusTextBlock.Text = "不支援";
+            ReasonTextBlock.Text = "Windows AI 僅支援套件化應用程式。";
             StoreLink.Visibility = Visibility.Visible;
             return;
         }
@@ -76,21 +76,21 @@ public partial class LanguageSettings : Page
         {
             if (!WindowsAiUtilities.CanDeviceUseWinAI())
             {
-                StatusTextBlock.Text = "Not supported";
-                ReasonTextBlock.Text = "Windows AI is not supported on this system.";
+                StatusTextBlock.Text = "不支援";
+                ReasonTextBlock.Text = "此系統不支援 Windows AI。";
                 return;
             }
             else
             {
-                StatusTextBlock.Text = "Ready";
-                ReasonTextBlock.Text = "Windows AI is supported on this system.";
+                StatusTextBlock.Text = "就緒";
+                ReasonTextBlock.Text = "此系統支援 Windows AI。";
                 return;
             }
         }
         catch (Exception ex)
         {
-            StatusTextBlock.Text = "Failed to ready";
-            ReasonTextBlock.Text = $"An error occurred while checking Windows AI support: {ex.Message}";
+            StatusTextBlock.Text = "無法完成準備";
+            ReasonTextBlock.Text = $"檢查 Windows AI 支援狀態時發生錯誤：{ex.Message}";
             return;
         }
     }
@@ -291,9 +291,9 @@ public partial class LanguageSettings : Page
             // Handle this situation as you prefer.
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Error",
+                Title = "錯誤",
                 Content = ex.Message,
-                CloseButtonText = "OK"
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }

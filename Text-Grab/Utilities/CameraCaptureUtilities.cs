@@ -21,8 +21,8 @@ public static class CameraCaptureUtilities
             await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = "Camera capture is only available in the Microsoft Store version of Text Grab.",
-                CloseButtonText = "OK"
+                Content = "攝影機擷取僅適用於 Microsoft Store 版本的 Text Grab。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return null;
         }
@@ -44,8 +44,8 @@ public static class CameraCaptureUtilities
             await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = $"Error capturing image from camera.{Environment.NewLine}{ex.Message}",
-                CloseButtonText = "OK"
+                Content = $"從攝影機擷取影像時發生錯誤。{Environment.NewLine}{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return null;
         }

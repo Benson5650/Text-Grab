@@ -16,6 +16,9 @@ public class ButtonInfo
 {
     public double OrderNumber { get; set; } = 0.1;
     public string ButtonText { get; set; } = "";
+    // Display labels may be translated; persisted action identities must remain unchanged.
+    [JsonIgnore]
+    public string DisplayText => Text_Grab.Utilities.UiText.Get(ButtonText);
     public string SymbolText { get; set; } = "";
     public string Background { get; set; } = "Transparent";
     public string Command { get; set; } = "";

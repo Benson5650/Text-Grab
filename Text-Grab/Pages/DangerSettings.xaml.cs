@@ -56,10 +56,10 @@ public partial class DangerSettings : System.Windows.Controls.Page
 
             Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Bug Report Generated",
-                Content = $"Bug report saved to:\n{filePath}\n\nWould you like to open the file location?",
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                Title = "已產生錯誤報告",
+                Content = $"錯誤報告已儲存至：\n{filePath}\n\n要開啟檔案所在位置嗎？",
+                PrimaryButtonText = "是",
+                CloseButtonText = "否"
             }.ShowDialogAsync();
 
             if (result == Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -72,9 +72,9 @@ public partial class DangerSettings : System.Windows.Controls.Page
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Error",
-                Content = $"Failed to generate bug report:\n{ex.Message}",
-                CloseButtonText = "OK"
+                Title = "錯誤",
+                Content = $"產生錯誤報告失敗：\n{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -83,10 +83,10 @@ public partial class DangerSettings : System.Windows.Controls.Page
     {
         Wpf.Ui.Controls.MessageBoxResult areYouSure = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Reset Settings to Default",
-            Content = "Are you sure you want to reset all settings to default and delete all history?",
-            PrimaryButtonText = "Yes",
-            CloseButtonText = "No"
+            Title = "將設定重設為預設值",
+            Content = "確定要將所有設定重設為預設值並刪除所有歷史記錄嗎？",
+            PrimaryButtonText = "是",
+            CloseButtonText = "否"
         }.ShowDialogAsync();
 
         if (areYouSure != Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -101,10 +101,10 @@ public partial class DangerSettings : System.Windows.Controls.Page
     {
         Wpf.Ui.Controls.MessageBoxResult areYouSure = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Reset Settings to Default",
-            Content = "Are you sure you want to delete all history?",
-            PrimaryButtonText = "Yes",
-            CloseButtonText = "No"
+            Title = "將設定重設為預設值",
+            Content = "確定要刪除所有歷史記錄嗎？",
+            PrimaryButtonText = "是",
+            CloseButtonText = "否"
         }.ShowDialogAsync();
 
         if (areYouSure != Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -127,10 +127,10 @@ public partial class DangerSettings : System.Windows.Controls.Page
 
             Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Export Successful",
-                Content = $"Settings exported successfully to:\n{filePath}\n\nWould you like to open the file location?",
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                Title = "匯出成功",
+                Content = $"設定已成功匯出至：\n{filePath}\n\n要開啟檔案所在位置嗎？",
+                PrimaryButtonText = "是",
+                CloseButtonText = "否"
             }.ShowDialogAsync();
 
             if (result == Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -143,9 +143,9 @@ public partial class DangerSettings : System.Windows.Controls.Page
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Export Error",
-                Content = $"Failed to export settings:\n{ex.Message}",
-                CloseButtonText = "OK"
+                Title = "匯出錯誤",
+                Content = $"匯出設定失敗：\n{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -165,8 +165,8 @@ public partial class DangerSettings : System.Windows.Controls.Page
 
             OpenFileDialog openFileDialog = new()
             {
-                Filter = "ZIP files (*.zip)|*.zip|All files (*.*)|*.*",
-                Title = "Select Settings Export File",
+                Filter = "ZIP 檔案 (*.zip)|*.zip|所有檔案 (*.*)|*.*",
+                Title = "選取設定匯出檔案",
                 DefaultExt = ".zip",
                 InitialDirectory = documentsPath
             };
@@ -176,10 +176,10 @@ public partial class DangerSettings : System.Windows.Controls.Page
 
             Wpf.Ui.Controls.MessageBoxResult confirmation = await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Confirm Import",
-                Content = "Importing settings will overwrite your current settings. The application will restart after import.\n\nDo you want to continue?",
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                Title = "確認匯入",
+                Content = "匯入設定將覆寫目前設定。匯入後應用程式會重新啟動。\n\n要繼續嗎？",
+                PrimaryButtonText = "是",
+                CloseButtonText = "否"
             }.ShowDialogAsync();
 
             if (confirmation != Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -189,9 +189,9 @@ public partial class DangerSettings : System.Windows.Controls.Page
 
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Import Successful",
-                Content = "Settings imported successfully. Open Text Grab again to fully apply all settings. Shutting down now...",
-                CloseButtonText = "OK"
+                Title = "匯入成功",
+                Content = "設定已成功匯入。請再次開啟 Text Grab，以完整套用所有設定。現在即將關閉…",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
 
             // Shut down Text Grab
@@ -201,9 +201,9 @@ public partial class DangerSettings : System.Windows.Controls.Page
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Import Error",
-                Content = $"Failed to import settings:\n{ex.Message}",
-                CloseButtonText = "OK"
+                Title = "匯入錯誤",
+                Content = $"匯入設定失敗：\n{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -240,14 +240,14 @@ public partial class DangerSettings : System.Windows.Controls.Page
         DefaultSettings.Save();
 
         string message = isEnabled
-            ? "Experimental file-backed settings storage will be preferred after you restart Text Grab. Restart is required because Text Grab applies this storage preference when it starts so it can safely keep the legacy strings and file-backed copies in sync. Backup your settings before using it if you have not already."
-            : "Legacy settings storage will be preferred again after you restart Text Grab.";
+            ? "重新啟動 Text Grab 後，將優先使用實驗性檔案式設定儲存。必須重新啟動才能套用此偏好，並確保舊格式字串與檔案副本安全同步。若尚未備份設定，請先備份再使用。"
+            : "重新啟動 Text Grab 後，將再次優先使用舊版設定儲存方式。";
 
         await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Restart Required",
+            Title = "需要重新啟動",
             Content = message,
-            CloseButtonText = "OK"
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 }

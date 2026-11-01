@@ -12,12 +12,12 @@
             x:Name="ActionDescription"
             Margin="0,0,0,12"
             TextWrapping="Wrap" />
-        <TextBlock Margin="0,0,0,4" Text="Link details:" />
+        <TextBlock Margin="0,0,0,4" Text="連結詳細資料：" />
         <TextBox
             x:Name="TargetTextBox"
             MaxHeight="160"
             AutomationProperties.AutomationId="ExternalLink.Target"
-            AutomationProperties.Name="Complete link details"
+            AutomationProperties.Name="完整連結詳細資料"
             IsReadOnly="True"
             TextWrapping="Wrap"
             VerticalScrollBarVisibility="Auto" />
@@ -28,12 +28,12 @@
                 Height="32"
                 Padding="4"
                 AutomationProperties.AutomationId="ExternalLink.WarningButton"
-                AutomationProperties.HelpText="Only open email and telephone links when you trust the source. These links open another app and may prepare a message or start a call."
-                AutomationProperties.Name="Link safety warning"
+                AutomationProperties.HelpText="僅開啟您信任來源的電子郵件與電話連結。這些連結會開啟其他應用程式，並可能準備寄送訊息或撥打電話。"
+                AutomationProperties.Name="連結安全性警告"
                 Background="Transparent"
                 BorderThickness="0"
                 Click="WarningButton_Click"
-                ToolTip="Only open links when you trust the source.">
+                ToolTip="只有在信任來源時才開啟連結。">
                 <ui:SymbolIcon
                     FontSize="22"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
@@ -42,7 +42,7 @@
             <TextBlock
                 Margin="8,0,0,0"
                 VerticalAlignment="Center"
-                Text="Only continue if you trust the source." />
+                Text="只有在信任來源時才繼續。" />
             <Popup
                 x:Name="WarningPopup"
                 AllowsTransparency="True"
@@ -59,7 +59,7 @@
                         Width="340"
                         AutomationProperties.AutomationId="ExternalLink.WarningText"
                         Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
-                        Text="Only open this link when you trust the source of the text or image. Links from OCR, the clipboard, or a document may be supplied by someone else. Check the complete link before continuing: email links can prefill a message, and telephone links may start a call, incur charges, or reveal your number."
+                        Text="只有在信任文字或影像來源時才開啟此連結。OCR、剪貼簿或文件中的連結可能由他人提供。繼續前請檢查完整連結：電子郵件連結可能預先填入訊息，電話連結則可能撥出電話、產生費用或揭露您的電話號碼。"
                         TextWrapping="Wrap" />
                 </Border>
             </Popup>
@@ -68,6 +68,6 @@
             x:Name="DontWarnAgainCheckBox"
             Margin="0,12,0,0"
             AutomationProperties.AutomationId="ExternalLink.DontWarnAgain"
-            AutomationProperties.HelpText="You can turn this warning back on in Settings, Dangerous Options, External links." />
+            AutomationProperties.HelpText="您可以在「設定」→「進階風險選項」→「外部連結」重新啟用此提醒。" />
     </StackPanel>
 </UserControl>

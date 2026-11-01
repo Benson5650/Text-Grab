@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Open Audio / Video"
+    Title="開啟音訊／影片"
     Width="560"
     Height="660"
     MinWidth="480"
@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Open Audio / Video file to transcribe"
+            Title="開啟要轉錄的音訊／影片檔案"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -33,19 +33,19 @@
         <ScrollViewer Grid.Row="1">
             <StackPanel Margin="16,12,16,8">
 
-                <TextBlock Style="{StaticResource TextHeader}" Text="Audio file" />
+                <TextBlock Style="{StaticResource TextHeader}" Text="音訊或影片檔案" />
                 <StackPanel Margin="0,8,0,4" Orientation="Horizontal">
                     <ui:TextBox
                         x:Name="FilePathTextBox"
                         Width="380"
                         VerticalContentAlignment="Center"
                         IsReadOnly="True"
-                        PlaceholderText="No file selected" />
+                        PlaceholderText="尚未選取檔案" />
                     <ui:Button
                         x:Name="BrowseButton"
                         Margin="8,0,0,0"
                         Click="BrowseButton_Click"
-                        Content="Browse..."
+                        Content="瀏覽..."
                         Icon="{ui:SymbolIcon FolderOpen24}" />
                 </StackPanel>
 
@@ -79,7 +79,7 @@
                             Margin="0,8,0,0"
                             FontSize="12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Longer files and more accurate models take longer to transcribe. Whisper works through the audio in short segments, so text starts appearing in the editor before the whole file is done."
+                            Text="檔案越長、模型越精確，轉錄所需時間也越久。Whisper 會分段處理音訊，因此即使尚未完成整個檔案，文字也會先逐步顯示在編輯器中。"
                             TextWrapping="Wrap" />
                     </StackPanel>
                 </Border>
@@ -87,7 +87,7 @@
                 <TextBlock
                     Margin="0,20,0,0"
                     Style="{StaticResource TextHeader}"
-                    Text="Transcription model" />
+                    Text="轉錄模型" />
                 <ComboBox
                     x:Name="ModelComboBox"
                     Margin="0,8,0,0"
@@ -134,11 +134,11 @@
                 <TextBlock
                     Margin="0,20,0,0"
                     Style="{StaticResource TextHeader}"
-                    Text="Hot words" />
+                    Text="提示詞" />
                 <TextBlock
                     Margin="0,4,0,8"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Add names or unusual words the transcription might miss, separated by commas, or pick a saved batch. This applies only to this transcription."
+                    Text="加入轉錄時可能辨識錯誤的人名或特殊詞彙，以逗號分隔；也可以選取已儲存的詞彙組。這些詞彙只會套用於本次轉錄。"
                     TextWrapping="Wrap" />
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -163,7 +163,7 @@
                         AutomationProperties.AutomationId="OpenMedia.HotWordsLookupButton"
                         Click="HotWordsLookupButton_Click"
                         Style="{StaticResource SymbolButton}"
-                        ToolTip="Pick from Quick Simple Lookup">
+                        ToolTip="從快速查詢中選取">
                         <ui:SymbolIcon Symbol="List24" />
                     </Button>
                 </Grid>
@@ -177,7 +177,7 @@
                     <TextBlock
                         Margin="8,0,0,0"
                         VerticalAlignment="Center"
-                        Text="Show a notification when transcription is done" />
+                        Text="轉錄完成時顯示通知" />
                 </StackPanel>
 
                 <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
@@ -189,7 +189,7 @@
                     <TextBlock
                         Margin="8,0,0,0"
                         VerticalAlignment="Center"
-                        Text="Include timecodes in the output" />
+                        Text="在輸出中包含時間碼" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
@@ -209,7 +209,7 @@
                 <TextBlock
                     x:Name="TranscribingStatusText"
                     Margin="0,0,0,4"
-                    Text="Transcribing…" />
+                    Text="轉錄中…" />
                 <ProgressBar
                     x:Name="TranscribingProgressBar"
                     Height="6"
@@ -226,13 +226,13 @@
                     x:Name="CancelButton"
                     Margin="0,0,8,0"
                     Click="CancelButton_Click"
-                    Content="Cancel" />
+                    Content="取消" />
                 <ui:Button
                     x:Name="StartTranscriptionButton"
                     Appearance="Primary"
                     AutomationProperties.AutomationId="OpenMedia.StartTranscriptionButton"
                     Click="StartTranscriptionButton_Click"
-                    Content="Start Transcription"
+                    Content="開始轉錄"
                     IsEnabled="False" />
             </StackPanel>
         </Grid>

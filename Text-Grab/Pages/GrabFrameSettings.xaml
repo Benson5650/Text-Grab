@@ -14,34 +14,34 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Grab Frame Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="擷取框設定" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Capture behavior" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="擷取行為" />
 
         <controls:SettingsCard
-            Description="Freeze and run OCR automatically after dragging the frame. When off, a manual OCR button is shown instead of the Refresh button."
-            HeaderText="Automatically run OCR on capture"
+            Description="拖曳擷取框後凍結畫面並自動執行 OCR。關閉時會顯示手動 OCR 按鈕，取代重新整理按鈕。"
+            HeaderText="擷取時自動執行 OCR"
             Icon="{ui:SymbolIcon ScanText24}">
             <ui:ToggleSwitch x:Name="GrabFrameAutoOcrCheckBox" AutomationProperties.AutomationId="Settings.GrabFrame.AutoOcrToggle" Click="GrabFrameAutoOcrCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="When grabbing, replace the current selection in the Edit Text Window with captured text. When off, text is appended instead."
-            HeaderText="Update Edit Text Window on each grab"
+            Description="擷取時，以擷取文字取代文字編輯視窗中目前選取的內容。關閉時則會將文字附加在原內容後。"
+            HeaderText="每次擷取時更新文字編輯視窗"
             Icon="{ui:SymbolIcon WindowEdit20}">
             <ui:ToggleSwitch x:Name="GrabFrameUpdateEtwCheckBox" AutomationProperties.AutomationId="Settings.GrabFrame.UpdateEditTextToggle" Click="GrabFrameUpdateEtwCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Automatically close the Grab Frame window after a grab or trim executes."
-            HeaderText="Close Grab Frame after grabbing text"
+            Description="擷取或修剪完成後，自動關閉擷取框。"
+            HeaderText="擷取文字後關閉擷取框"
             Icon="{ui:SymbolIcon DismissSquare24}">
             <ui:ToggleSwitch x:Name="CloseFrameOnGrabCheckBox" AutomationProperties.AutomationId="Settings.GrabFrame.CloseAfterGrabToggle" Click="CloseFrameOnGrabCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="Controls what the mouse scroll wheel does while the Grab Frame is active."
-            HeaderText="Scroll wheel behavior"
+            Description="控制擷取框啟用時滑鼠滾輪的作用。"
+            HeaderText="滑鼠滾輪行為"
             Icon="{ui:SymbolIcon CursorHover24}">
             <StackPanel>
                 <RadioButton
@@ -49,53 +49,53 @@
                     AutomationProperties.AutomationId="Settings.GrabFrame.Scroll.None"
                     Click="ScrollBehaviorRadio_Click"
                     GroupName="GfScrollBehavior">
-                    None — scroll wheel does nothing
+                    無 — 滾輪不執行任何動作
                 </RadioButton>
                 <RadioButton
                     x:Name="ResizeScrollRadio"
                     AutomationProperties.AutomationId="Settings.GrabFrame.Scroll.Resize"
                     Click="ScrollBehaviorRadio_Click"
                     GroupName="GfScrollBehavior">
-                    Resize — scroll wheel resizes the frame
+                    調整大小 — 使用滾輪調整擷取框大小
                 </RadioButton>
                 <RadioButton
                     x:Name="ZoomScrollRadio"
                     AutomationProperties.AutomationId="Settings.GrabFrame.Scroll.Zoom"
                     Click="ScrollBehaviorRadio_Click"
                     GroupName="GfScrollBehavior">
-                    Zoom — scroll wheel zooms the captured image
+                    縮放 — 使用滾輪縮放擷取的影像
                 </RadioButton>
                 <RadioButton
                     x:Name="ZoomWhenFrozenScrollRadio"
                     AutomationProperties.AutomationId="Settings.GrabFrame.Scroll.ZoomWhenFrozen"
                     Click="ScrollBehaviorRadio_Click"
                     GroupName="GfScrollBehavior">
-                    Zoom when frozen — zoom only after freezing the frame
+                    凍結後縮放 — 僅在凍結擷取框後縮放
                 </RadioButton>
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Barcodes" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="條碼" />
 
         <controls:SettingsCard
-            Description="Scan for barcodes and QR codes alongside OCR text. Each barcode found appears as its own selectable word border."
-            HeaderText="Read barcodes in Grab Frame"
+            Description="在 OCR 文字以外也掃描條碼與 QR 碼。找到的每個條碼都會以獨立、可選取的文字框顯示。"
+            HeaderText="在擷取框中辨識條碼"
             Icon="{ui:SymbolIcon BarcodeScanner24}">
             <ui:ToggleSwitch x:Name="GrabFrameReadBarcodesCheckBox" AutomationProperties.AutomationId="Settings.GrabFrame.ReadBarcodesToggle" Click="GrabFrameReadBarcodesCheckBox_Click" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Translation" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="翻譯" />
 
         <controls:SettingsExpander
-            Description="Translates captured text in place using on-device Windows AI — no internet required."
-            HeaderText="Enable translation overlay (requires Windows AI)"
+            Description="使用裝置端 Windows AI 就地翻譯擷取文字，不需連線至網際網路。"
+            HeaderText="啟用翻譯覆蓋層（需要 Windows AI）"
             Icon="{ui:SymbolIcon Translate24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch x:Name="GrabFrameTranslationCheckBox" AutomationProperties.AutomationId="Settings.GrabFrame.TranslationToggle" Click="GrabFrameTranslationCheckBox_Click" />
             </controls:SettingsExpander.SettingsContent>
             <StackPanel>
                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Translation language:" />
+                    <TextBlock VerticalAlignment="Center" Text="翻譯目標語言：" />
                     <TextBox
                         x:Name="GrabFrameTranslationLanguageText"
                         AutomationProperties.AutomationId="Settings.GrabFrame.TranslationLanguage"
@@ -107,35 +107,35 @@
                     Margin="0,4,0,0"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Enter the target language name (e.g. English, French, Spanish)."
+                    Text="輸入目標語言名稱（例如 English、French、Spanish）。"
                     TextWrapping="Wrap" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Frame border" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="擷取框邊框" />
 
         <controls:SettingsExpander
-            Description="Controls how the Grab Frame outline is drawn. High contrast keeps the frame easy to locate over dark or busy content."
-            HeaderText="Frame border style"
+            Description="控制擷取框外框的繪製方式。高對比樣式讓您在深色或複雜背景上也能輕易找到擷取框。"
+            HeaderText="擷取框邊框樣式"
             Icon="{ui:SymbolIcon BorderOutside24}">
             <StackPanel>
                 <RadioButton
                     x:Name="ThemeBorderRadio"
                     Click="BorderStyleRadio_Click"
                     GroupName="GfBorderStyle">
-                    Theme — follows the app light/dark theme (default)
+                    佈景主題 — 跟隨應用程式的淺色/深色佈景主題（預設）
                 </RadioButton>
                 <RadioButton
                     x:Name="HighContrastBorderRadio"
                     Click="BorderStyleRadio_Click"
                     GroupName="GfBorderStyle">
-                    High contrast — black &amp; white, visible on any background
+                    高對比 — 黑白配色，適用於任何背景
                 </RadioButton>
                 <RadioButton
                     x:Name="ColorBorderRadio"
                     Click="BorderStyleRadio_Click"
                     GroupName="GfBorderStyle">
-                    Pick a color
+                    挑選顏色
                 </RadioButton>
 
                 <WrapPanel x:Name="BorderColorSwatchPanel" Margin="24,6,0,0">
@@ -146,7 +146,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#2A767E"
-                        ToolTip="Teal">
+                        ToolTip="藍綠色">
                         <Border Width="20" Height="20" Background="#2A767E" CornerRadius="3" />
                     </Button>
                     <Button
@@ -156,7 +156,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#E03B3B"
-                        ToolTip="Red">
+                        ToolTip="紅色">
                         <Border Width="20" Height="20" Background="#E03B3B" CornerRadius="3" />
                     </Button>
                     <Button
@@ -166,7 +166,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#E0781E"
-                        ToolTip="Orange">
+                        ToolTip="橘色">
                         <Border Width="20" Height="20" Background="#E0781E" CornerRadius="3" />
                     </Button>
                     <Button
@@ -176,7 +176,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#E0C81E"
-                        ToolTip="Yellow">
+                        ToolTip="黃色">
                         <Border Width="20" Height="20" Background="#E0C81E" CornerRadius="3" />
                     </Button>
                     <Button
@@ -186,7 +186,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#3BB143"
-                        ToolTip="Green">
+                        ToolTip="綠色">
                         <Border Width="20" Height="20" Background="#3BB143" CornerRadius="3" />
                     </Button>
                     <Button
@@ -196,7 +196,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#2A7EE0"
-                        ToolTip="Blue">
+                        ToolTip="藍色">
                         <Border Width="20" Height="20" Background="#2A7EE0" CornerRadius="3" />
                     </Button>
                     <Button
@@ -206,7 +206,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#8A5CD1"
-                        ToolTip="Purple">
+                        ToolTip="紫色">
                         <Border Width="20" Height="20" Background="#8A5CD1" CornerRadius="3" />
                     </Button>
                     <Button
@@ -216,7 +216,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#FFFFFF"
-                        ToolTip="White">
+                        ToolTip="白色">
                         <Border Width="20" Height="20" Background="#FFFFFF" CornerRadius="3" />
                     </Button>
                     <Button
@@ -226,7 +226,7 @@
                         Padding="2"
                         Click="BorderColorSwatch_Click"
                         Tag="#000000"
-                        ToolTip="Black">
+                        ToolTip="黑色">
                         <Border Width="20" Height="20" Background="#000000" CornerRadius="3" />
                     </Button>
                 </WrapPanel>

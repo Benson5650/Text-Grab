@@ -455,7 +455,7 @@ public partial class FullscreenGrab : Window
     {
         MenuItem menuItem = new()
         {
-            Header = action.ButtonText,
+            Header = action.DisplayText,
             IsCheckable = true,
             Tag = action,
             IsChecked = isChecked,
@@ -526,7 +526,7 @@ public partial class FullscreenGrab : Window
         // Add "Close this menu" menu item
         MenuItem hidePostGrabMenuItem = new()
         {
-            Header = "Close this menu",
+            Header = "關閉此選單",
             Tag = ClosePostGrabMenuTag
         };
         hidePostGrabMenuItem.Click += HidePostGrabActions_Click;

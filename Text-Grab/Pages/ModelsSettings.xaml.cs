@@ -84,8 +84,8 @@ public partial class ModelsSettings : Page
         long? downloadedBytes = AudioTranscriptionUtilities.DownloadedModelSizeBytes(choice);
 
         row.StatusText.Text = downloadedBytes is long bytes
-            ? $"{bytes / (1024.0 * 1024.0):0.#} MB downloaded"
-            : $"Not downloaded ({WhisperModelInfo.ApproxDownloadSize(choice)})";
+            ? $"已下載 {bytes / (1024.0 * 1024.0):0.#} MB"
+            : $"尚未下載（{WhisperModelInfo.ApproxDownloadSize(choice)}）";
 
         row.DownloadButton.Visibility = downloadedBytes is null ? Visibility.Visible : Visibility.Collapsed;
         row.DeleteButton.Visibility = downloadedBytes is null ? Visibility.Collapsed : Visibility.Visible;
@@ -141,9 +141,9 @@ public partial class ModelsSettings : Page
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Download failed",
-                Content = $"Couldn't download this model:\n{ex.Message}",
-                CloseButtonText = "OK"
+                Title = "下載失敗",
+                Content = $"無法下載此模型：\n{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         finally
@@ -164,18 +164,18 @@ public partial class ModelsSettings : Page
         bool isLiveDefault = AudioTranscriptionUtilities.CurrentLiveModelChoice == choice;
         string content = (isFileDefault, isLiveDefault) switch
         {
-            (true, true) => $"Delete the downloaded \"{WhisperModelInfo.DisplayName(choice)}\" model? It's your default for both file and live transcription, so Text Grab will automatically download it again the next time you transcribe.",
-            (true, false) => $"Delete the downloaded \"{WhisperModelInfo.DisplayName(choice)}\" model? It's your file transcription default, so Text Grab will automatically download it again the next time you transcribe.",
-            (false, true) => $"Delete the downloaded \"{WhisperModelInfo.DisplayName(choice)}\" model? It's your live transcription default, so Text Grab will automatically download it again the next time you transcribe.",
-            _ => $"Delete the downloaded \"{WhisperModelInfo.DisplayName(choice)}\" model? You can download it again later.",
+            (true, true) => $"確定要刪除已下載的「{WhisperModelInfo.DisplayName(choice)}」模型嗎？此模型同時是檔案與即時轉錄的預設模型，Text Grab 下次轉錄時會自動重新下載。",
+            (true, false) => $"確定要刪除已下載的「{WhisperModelInfo.DisplayName(choice)}」模型嗎？此模型是檔案轉錄的預設模型，Text Grab 下次轉錄時會自動重新下載。",
+            (false, true) => $"確定要刪除已下載的「{WhisperModelInfo.DisplayName(choice)}」模型嗎？此模型是即時轉錄的預設模型，Text Grab 下次轉錄時會自動重新下載。",
+            _ => $"確定要刪除已下載的「{WhisperModelInfo.DisplayName(choice)}」模型嗎？您稍後可以再次下載。",
         };
 
         Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Delete model",
+            Title = "刪除模型",
             Content = content,
-            PrimaryButtonText = "Delete",
-            CloseButtonText = "Cancel"
+            PrimaryButtonText = "刪除",
+            CloseButtonText = "取消"
         }.ShowDialogAsync();
 
         if (result != Wpf.Ui.Controls.MessageBoxResult.Primary)

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Find and Replace"
+    Title="尋找與取代"
     AutomationProperties.AutomationId="FindReplaceDialog"
     Width="520"
     Height="560"
@@ -56,7 +56,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Find and Replace"
+            Title="尋找與取代"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -87,7 +87,7 @@
                 IsChecked="True"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{DynamicResource ToggleSymbolButton}"
-                ToolTip="Show or hide more options">
+                ToolTip="顯示或隱藏更多選項">
                 <ToggleButton.RenderTransform>
                     <RotateTransform Angle="0" />
                 </ToggleButton.RenderTransform>
@@ -125,7 +125,7 @@
                 AcceptsTab="True"
                 ExactMatchChanged="OptionsChangedRefresh"
                 KeyUp="FindTextBox_KeyUp"
-                PlaceholderText="Find..."
+                PlaceholderText="尋找…"
                 SearchChanged="SearchBar_SearchChanged"
                 ShowExactMatchToggle="True" />
             <local:CollapsibleButton
@@ -137,7 +137,7 @@
                 Margin="0,6,6,0"
                 Padding="4"
                 ButtonSymbol="Search24"
-                ButtonText="Find"
+                ButtonText="尋找"
                 Command="{x:Static local:FindAndReplaceWindow.TextSearchCmd}" />
 
             <TextBox
@@ -160,7 +160,7 @@
                 Margin="0,6,6,0"
                 Padding="4"
                 ButtonSymbol="ArrowRepeat124"
-                ButtonText="Replace"
+                ButtonText="取代"
                 Command="{x:Static local:FindAndReplaceWindow.ReplaceOneCmd}"
                 Visibility="Visible" />
 
@@ -185,7 +185,7 @@
                     VerticalAlignment="Center"
                     Background="Red"
                     ButtonSymbol="DeleteLines20"
-                    ButtonText="Delete All"
+                    ButtonText="全部刪除"
                     Command="{x:Static local:FindAndReplaceWindow.DeleteAllCmd}" />
 
                 <local:CollapsibleButton
@@ -195,7 +195,7 @@
                     Margin="3,0,0,0"
                     VerticalAlignment="Center"
                     ButtonSymbol="ArrowRepeatAll24"
-                    ButtonText="Replace All"
+                    ButtonText="全部取代"
                     Command="{x:Static local:FindAndReplaceWindow.ReplaceAllCmd}" />
             </Grid>
             <Grid
@@ -217,7 +217,7 @@
                     Margin="0,0,3,0"
                     VerticalAlignment="Center"
                     ButtonSymbol="WindowEdit20"
-                    ButtonText="Edit Matches"
+                    ButtonText="編輯符合項目"
                     Command="{x:Static local:FindAndReplaceWindow.CopyMatchesCmd}" />
 
                 <local:CollapsibleButton
@@ -226,9 +226,9 @@
                     Margin="3,0,0,0"
                     VerticalAlignment="Center"
                     ButtonSymbol="DocumentTableSearch24"
-                    ButtonText="Apply Template"
+                    ButtonText="套用範本"
                     Click="ApplyTemplateButton_Click"
-                    ToolTip="Apply a text-only Grab Template to each match" />
+                    ToolTip="對每個符合項目套用純文字擷取範本" />
             </Grid>
             <Grid
                 x:Name="PatternActionsGrid"
@@ -252,7 +252,7 @@
                     Margin="0,0,3,0"
                     VerticalAlignment="Center"
                     ButtonSymbol="Book24"
-                    ButtonText="Manage Patterns"
+                    ButtonText="管理規則運算式"
                     Click="ManageRegexButton_Click" />
 
                 <local:CollapsibleButton
@@ -261,7 +261,7 @@
                     Margin="3,0,0,0"
                     VerticalAlignment="Center"
                     ButtonSymbol="LightbulbFilament24"
-                    ButtonText="Extract Regex"
+                    ButtonText="擷取規則運算式"
                     Command="{x:Static local:FindAndReplaceWindow.ExtractPatternCmd}" />
 
                 <StackPanel
@@ -277,7 +277,7 @@
                         Padding="4"
                         Click="SavePatternButton_Click"
                         Icon="{ui:SymbolIcon Save24}"
-                        ToolTip="Save pattern to Patterns Manager"
+                        ToolTip="將規則運算式儲存至管理器"
                         Visibility="Collapsed" />
                     <StackPanel
                         x:Name="PrecisionSliderPanel"
@@ -288,7 +288,7 @@
                             Margin="0,0,8,0"
                             VerticalAlignment="Center"
                             Style="{StaticResource TextBodyNormal}"
-                            Text="Precision" />
+                            Text="精確度" />
                         <Slider
                             x:Name="PrecisionSlider"
                             Width="160"
@@ -298,7 +298,7 @@
                             Minimum="0"
                             TickFrequency="1"
                             TickPlacement="BottomRight"
-                            ToolTip="Adjust regex pattern precision (0=least precise, 5=most precise)"
+                            ToolTip="調整規則運算式精確度（0=最低，5=最高）"
                             ValueChanged="PrecisionSlider_ValueChanged"
                             Value="3" />
                     </StackPanel>
@@ -313,7 +313,7 @@
             Margin="6"
             FontSize="18"
             Foreground="{StaticResource Teal}"
-            Text="Matches" />
+            Text="相符項目" />
 
         <Border Grid.Row="3" Background="{ui:ThemeResource SolidBackgroundFillColorBaseAltBrush}">
             <ui:ListView

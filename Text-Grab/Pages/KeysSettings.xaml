@@ -15,13 +15,13 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Shortcut Key Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="快捷鍵設定" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Background and hotkeys" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="背景執行與快速鍵" />
 
         <controls:SettingsCard
-            Description="For this setting to take effect close all instances of Text Grab."
-            HeaderText="Run Text Grab in the background and enable hotkeys"
+            Description="此設定必須在關閉所有 Text Grab 執行個體後才會生效。"
+            HeaderText="在背景執行 Text Grab 並啟用快速鍵"
             Icon="{ui:SymbolIcon Desktop24}">
             <ui:ToggleSwitch
                 Name="RunInBackgroundChkBx"
@@ -31,8 +31,8 @@
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Trigger Text Grab from anywhere using the shortcuts below."
-            HeaderText="Global hotkeys"
+            Description="使用下列快捷鍵，即可隨時啟動 Text Grab。"
+            HeaderText="全域快速鍵"
             Icon="{ui:SymbolIcon Keyboard24}">
             <ui:ToggleSwitch
                 x:Name="GlobalHotkeysCheckbox"
@@ -42,7 +42,7 @@
                 Unchecked="GlobalHotkeysCheckbox_Unchecked" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Shortcuts" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="快捷鍵" />
 
         <StackPanel
             x:Name="ShortcutsStackPanel"
@@ -55,49 +55,49 @@
                 IsShortcutEnabled="True"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Full Screen Grab" />
+                ShortcutName="全螢幕擷取" />
             <controls:ShortcutControl
                 x:Name="GlrShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.LastRegion"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Grab Last Region" />
+                ShortcutName="擷取上一個區域" />
             <controls:ShortcutControl
                 x:Name="GfShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.GrabFrame"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Grab Frame" />
+                ShortcutName="擷取框" />
             <controls:ShortcutControl
                 x:Name="LgfShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.LastGrabFrame"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Open Last Grab Frame" />
+                ShortcutName="開啟上一個擷取框" />
             <controls:ShortcutControl
                 x:Name="EtwShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.EditText"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Edit Text Window" />
+                ShortcutName="文字編輯視窗" />
             <controls:ShortcutControl
                 x:Name="LetwShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.LastEditText"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Last Edit Text Window" />
+                ShortcutName="上一個文字編輯視窗" />
             <controls:ShortcutControl
                 x:Name="QslShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.QuickLookup"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Quick Simple Lookup" />
+                ShortcutName="快速查詢" />
             <controls:ShortcutControl
                 x:Name="OccShortcutControl"
                 AutomationProperties.AutomationId="Settings.Shortcuts.ClipboardContent"
                 KeySetChanged="ShortcutControl_KeySetChanged"
                 RecordingStarted="ShortcutControl_Recording"
-                ShortcutName="Open Clipboard Content" />
+                ShortcutName="開啟剪貼簿內容" />
         </StackPanel>
     </StackPanel>
 </Page>

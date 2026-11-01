@@ -221,7 +221,7 @@ public static class AudioTranscriptionUtilities
     public static string GetAudioFileFilter()
     {
         string extensions = string.Join(";", AudioExtensions.Select(ext => $"*{ext}"));
-        return $"Audio/video files|{extensions}|All files (*.*)|*.*";
+        return $"音訊／視訊檔案|{extensions}|所有檔案 (*.*)|*.*";
     }
 
     /// <summary>Basic file info (name, size, duration) for the "what to expect" panel — no decoding.</summary>
@@ -280,7 +280,7 @@ public static class AudioTranscriptionUtilities
         return await EnsureModelDownloadedAsync(modelPath, async cancellation =>
         {
             AudioDebugLog.Write($"EnsureModelDownloadedAsync: downloading Whisper '{ggmlType}' ({quantization}) model to {modelPath}");
-            progress?.Report($"Downloading ({WhisperModelInfo.DisplayName(choice)}, first run)…");
+            progress?.Report($"正在下載（{WhisperModelInfo.DisplayName(choice)}，首次執行）…");
             return await WhisperGgmlDownloader.Default.GetGgmlModelAsync(ggmlType, quantization, cancellation).ConfigureAwait(false);
         }, cancellationToken).ConfigureAwait(false);
     }
@@ -440,7 +440,7 @@ public static class AudioTranscriptionUtilities
             {
                 Directory.CreateDirectory(ModelDirectory);
                 AudioDebugLog.Write("GetVadFactoryAsync: downloading Silero VAD model");
-                progress?.Report("Downloading voice-activity model…");
+                progress?.Report("正在下載語音活動偵測模型…");
 
                 string tempPath = VadModelPath + ".download";
                 try
@@ -506,7 +506,7 @@ public static class AudioTranscriptionUtilities
             WhisperFactoryLease factoryLease = await AcquireFactoryAsync(statusProgress, cancellationToken).ConfigureAwait(false);
             try
             {
-                statusProgress?.Report("Transcribing audio…");
+                statusProgress?.Report("正在轉錄音訊…");
                 AudioDebugLog.Write("TranscribeAudioFileAsync: decoding audio to 16 kHz mono WAV");
                 using MemoryStream wavStream = DecodeToWav16kMono(audioFilePath);
                 AudioDebugLog.Write($"TranscribeAudioFileAsync: decoded WAV bytes={wavStream.Length}");
@@ -767,10 +767,10 @@ internal static class WhisperModelInfo
         WhisperModelChoice.TinyEnglish => "Fastest — English",
         WhisperModelChoice.BaseEnglish => "Fast — English",
         WhisperModelChoice.SmallMultilingual => "Accurate — multilingual",
-        WhisperModelChoice.MediumEnglish => "Very accurate — English",
-        WhisperModelChoice.MediumMultilingual => "Very accurate — multilingual",
-        WhisperModelChoice.LargeTurboMultilingual => "Highly accurate, faster — multilingual",
-        WhisperModelChoice.LargeMultilingual => "Most accurate — multilingual",
+        WhisperModelChoice.MediumEnglish => "極高準確度－英文",
+        WhisperModelChoice.MediumMultilingual => "極高準確度－多語言",
+        WhisperModelChoice.LargeTurboMultilingual => "高準確度、速度較快－多語言",
+        WhisperModelChoice.LargeMultilingual => "最高準確度－多語言",
         _ => "Balanced — multilingual",
     };
 
@@ -794,30 +794,30 @@ internal static class WhisperModelInfo
     public static string Description(WhisperModelChoice choice) => choice switch
     {
         WhisperModelChoice.TinyEnglish =>
-            "The smallest and fastest model here. English speech only, and the least accurate — best for quick drafts where speed matters more than getting every word right.",
+            "這是此處最小、最快的模型，僅支援英文語音，準確度也最低。適合重視速度勝過逐字準確度的快速草稿。",
         WhisperModelChoice.BaseEnglish =>
-            "Still fast, with noticeably better accuracy than the tiny model. English speech only.",
+            "速度仍快，準確度明顯高於 tiny 模型。僅支援英文語音。",
         WhisperModelChoice.SmallMultilingual =>
-            "Noticeably more accurate than the balanced model, and slower. Automatically detects the spoken language and covers dozens beyond English.",
+            "準確度明顯高於 balanced 模型，但速度較慢。可自動偵測語言，支援英文以外數十種語言。",
         WhisperModelChoice.MediumEnglish =>
-            "Noticeably more accurate than the fast English models, but slower and a larger download. English speech only.",
+            "準確度明顯高於快速英文模型，但速度較慢且下載檔案較大。僅支援英文語音。",
         WhisperModelChoice.MediumMultilingual =>
-            "More accurate than the small model, but slower and a larger download. Automatically detects the spoken language and covers dozens beyond English.",
+            "準確度高於 small 模型，但速度較慢且下載檔案較大。可自動偵測語言，支援英文以外數十種語言。",
         WhisperModelChoice.LargeTurboMultilingual =>
-            "A distilled version of the large model: nearly the same accuracy, but noticeably faster. Automatically detects the spoken language and covers dozens beyond English.",
+            "large 模型的蒸餾版本：準確度幾乎相同，但速度明顯更快。可自動偵測語言，支援英文以外數十種語言。",
         WhisperModelChoice.LargeMultilingual =>
-            "The most accurate model here, but the slowest to process and the largest download. Automatically detects the spoken language and covers dozens beyond English.",
+            "這是此處準確度最高的模型，但處理速度最慢且下載檔案最大。可自動偵測語言，支援英文以外數十種語言。",
         _ =>
-            "A good default: balances speed and accuracy. Automatically detects the spoken language and covers dozens beyond English.",
+            "適合作為預設值：兼顧速度與準確度。可自動偵測語言，支援英文以外數十種語言。",
     };
 
     /// <summary>Short label for the language coverage, shown alongside <see cref="Description"/>.</summary>
     public static string LanguageSummary(WhisperModelChoice choice) =>
-        IsEnglishOnly(choice) ? "English only" : "Multilingual — auto-detects language";
+        IsEnglishOnly(choice) ? "僅英文" : "多語言－自動偵測語言";
 
     /// <summary>Terse language label for a table column, where <see cref="LanguageSummary"/> is too long.</summary>
     public static string ShortLanguageLabel(WhisperModelChoice choice) =>
-        IsEnglishOnly(choice) ? "English only" : "Multilingual";
+        IsEnglishOnly(choice) ? "僅英文" : "Multilingual";
 
     /// <summary>
     /// <see cref="DisplayName"/> with its approximate download size appended — used everywhere a model

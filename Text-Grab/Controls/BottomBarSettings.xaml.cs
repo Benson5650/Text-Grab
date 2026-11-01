@@ -107,7 +107,8 @@ public partial class BottomBarSettings : FluentWindow
         string filter = (sender as TextBox)?.Text.Trim() ?? string.Empty;
         _leftListView.Filter = string.IsNullOrEmpty(filter)
             ? null
-            : obj => obj is ButtonInfo btn && btn.ButtonText.Contains(filter, StringComparison.OrdinalIgnoreCase);
+            : obj => obj is ButtonInfo btn && (btn.DisplayText.Contains(filter, StringComparison.OrdinalIgnoreCase)
+                || btn.ButtonText.Contains(filter, StringComparison.OrdinalIgnoreCase));
     }
 
     private void MoveDownButton_Click(object sender, RoutedEventArgs e)

@@ -115,7 +115,7 @@ public partial class JoinLinesWindow : Wpf.Ui.Controls.FluentWindow
         if (!string.Equals(PreviewTextBox.Text, previewText, StringComparison.Ordinal))
             PreviewTextBox.Text = previewText;
 
-        PreviewHeaderTextBlock.Text = previewUsesSampling || previewWasTruncated ? "Preview (sampled)" : "Preview";
+        PreviewHeaderTextBlock.Text = previewUsesSampling || previewWasTruncated ? "Preview (sampled)" : "預覽";
     }
 
     private string BuildPreviewText(ref bool previewWasTruncated)

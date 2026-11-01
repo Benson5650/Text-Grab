@@ -16,7 +16,7 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="General Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="一般設定" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -30,7 +30,7 @@
                 VerticalAlignment="Center"
                 AutomationProperties.AutomationId="Settings.General.Version"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Version X.X" />
+                Text="版本 X.X" />
 
             <ui:HyperlinkButton
                 x:Name="OpenExeFolderButton"
@@ -40,7 +40,7 @@
                 Click="OpenExeFolderButton_Click"
                 Foreground="{StaticResource Teal}"
                 Visibility="Collapsed">
-                <TextBlock Text="Open EXE Containing Folder" />
+                <TextBlock Text="開啟 EXE 所在資料夾" />
             </ui:HyperlinkButton>
 
             <controls:CollapsibleButton
@@ -49,7 +49,7 @@
                 Margin="0"
                 AutomationProperties.AutomationId="Settings.General.AboutButton"
                 ButtonSymbol="Info24"
-                ButtonText="About Text Grab"
+                ButtonText="關於 Text Grab"
                 Click="AboutBTN_Click" />
         </Grid>
 
@@ -59,12 +59,13 @@
             Background="{ui:ThemeResource SolidBackgroundFillColorBaseBrush}"
             CornerRadius="8">
             <StackPanel Orientation="Vertical">
-                <TextBlock Style="{StaticResource TextHeader}" Text="Hello there!" />
+                <TextBlock Style="{StaticResource TextHeader}" Text="你好！" />
                 <TextBlock Style="{StaticResource TextBodyNormal}">
-                    Thank you for using Text Grab!
-                    Building this application is very much a labor of love. I am always happy to hear from users to better understand how you use the app and what you would like to see in the future.<LineBreak />
-                    Feel free to open an issue on GitHub if you have a bug or feature request. Email me directly for questions or just to say hi.<LineBreak />
-                    Happy Text Grabbing!</TextBlock>
+                    感謝您使用 Text Grab！
+
+打造這個應用程式是出於熱愛。我一直很樂意聽取使用者的想法，了解您如何使用這款應用程式，以及未來希望看到哪些功能。<LineBreak />
+                    如果您遇到錯誤或有功能建議，歡迎在 GitHub 提出問題。若有疑問或只是想打聲招呼，也可以直接寄電子郵件給我。<LineBreak />
+                    祝您擷取愉快！</TextBlock>
                 <TextBlock
                     Margin="0,12"
                     HorizontalAlignment="Left"
@@ -79,108 +80,108 @@
             </StackPanel>
         </Border>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Appearance" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="外觀" />
 
         <controls:SettingsExpander
-            Description="Choose whether Text Grab follows the Windows theme or always uses light or dark."
-            HeaderText="Text Grab theme"
+            Description="選擇 Text Grab 是否跟隨 Windows 佈景主題，或一律使用淺色/深色模式。"
+            HeaderText="Text Grab 佈景主題"
             Icon="{ui:SymbolIcon Color24}">
             <StackPanel>
                 <RadioButton
                     x:Name="SystemThemeRdBtn"
                     AutomationProperties.AutomationId="Settings.General.Theme.System"
                     Checked="SystemThemeRdBtn_Checked"
-                    Content="System"
+                    Content="系統"
                     GroupName="ThemeGroup" />
                 <RadioButton
                     x:Name="LightThemeRdBtn"
                     AutomationProperties.AutomationId="Settings.General.Theme.Light"
                     Checked="LightThemeRdBtn_Checked"
-                    Content="Light"
+                    Content="淺色"
                     GroupName="ThemeGroup" />
                 <RadioButton
                     x:Name="DarkThemeRdBtn"
                     AutomationProperties.AutomationId="Settings.General.Theme.Dark"
                     Checked="DarkThemeRdBtn_Checked"
-                    Content="Dark"
+                    Content="深色"
                     GroupName="ThemeGroup" />
             </StackPanel>
         </controls:SettingsExpander>
 
         <controls:SettingsExpander
-            Description="Choose whether the system tray icon uses full color or a monochrome outline that follows the taskbar theme."
-            HeaderText="Tray icon style"
+            Description="選擇系統匣圖示使用全彩，或採用會跟隨工作列佈景主題的單色外框。"
+            HeaderText="系統匣圖示樣式"
             Icon="{ui:SymbolIcon PaintBucket24}">
             <StackPanel>
                 <RadioButton
                     x:Name="ColorTrayIconRdBtn"
                     AutomationProperties.AutomationId="Settings.General.TrayIconStyle.Color"
                     Checked="ColorTrayIconRdBtn_Checked"
-                    Content="Color"
+                    Content="彩色"
                     GroupName="TrayIconStyleGroup" />
                 <RadioButton
                     x:Name="MonochromeTrayIconRdBtn"
                     AutomationProperties.AutomationId="Settings.General.TrayIconStyle.Monochrome"
                     Checked="MonochromeTrayIconRdBtn_Checked"
-                    Content="Monochrome"
+                    Content="單色"
                     GroupName="TrayIconStyleGroup" />
             </StackPanel>
         </controls:SettingsExpander>
 
         <controls:SettingsExpander
-            Description="Choose whether Text Grab draws its windows with the graphics card or the CPU. Restart Text Grab for a change to take effect."
-            HeaderText="Rendering"
+            Description="選擇 Text Grab 使用顯示卡或 CPU 繪製視窗。變更後請重新啟動 Text Grab 才會生效。"
+            HeaderText="繪製方式"
             Icon="{ui:SymbolIcon DeveloperBoard24}">
             <StackPanel>
                 <RadioButton
                     x:Name="RenderingAutoRadio"
                     AutomationProperties.AutomationId="Settings.General.Rendering.Auto"
                     Checked="RenderingModeRadio_Checked"
-                    Content="Automatic"
+                    Content="自動"
                     GroupName="RenderingModeGroup"
                     Tag="Auto" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Use the CPU on Arm64 devices, where the graphics driver can hold on to around 1 GB of memory, and the graphics card everywhere else."
+                    Text="在 Arm64 裝置上使用 CPU，避免顯示卡驅動程式占用約 1 GB 記憶體；其他裝置則使用顯示卡。"
                     TextWrapping="Wrap" />
 
                 <RadioButton
                     x:Name="RenderingHardwareRadio"
                     AutomationProperties.AutomationId="Settings.General.Rendering.Hardware"
                     Checked="RenderingModeRadio_Checked"
-                    Content="Graphics card"
+                    Content="顯示卡"
                     GroupName="RenderingModeGroup"
                     Tag="Hardware" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Always render with the graphics card. Uses more memory on some devices."
+                    Text="一律使用顯示卡繪製。部分裝置會因此使用較多記憶體。"
                     TextWrapping="Wrap" />
 
                 <RadioButton
                     x:Name="RenderingSoftwareRadio"
                     AutomationProperties.AutomationId="Settings.General.Rendering.Software"
                     Checked="RenderingModeRadio_Checked"
-                    Content="CPU (software)"
+                    Content="CPU（軟體）"
                     GroupName="RenderingModeGroup"
                     Tag="Software" />
                 <TextBlock
                     Margin="24,0,0,0"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Always render with the CPU. Uses far less graphics memory."
+                    Text="一律使用 CPU 繪製，可大幅減少顯示記憶體用量。"
                     TextWrapping="Wrap" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Behavior" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="行為" />
 
         <controls:SettingsCard
-            Description="Clicking the notification opens the copied text into a new Edit Text Window to display and edit text."
-            HeaderText="Show notification when text is copied"
+            Description="按一下通知會在新的文字編輯視窗中開啟已複製的文字，以供檢視與編輯。"
+            HeaderText="複製文字時顯示通知"
             Icon="{ui:SymbolIcon Alert24}">
             <ui:ToggleSwitch
                 Name="ShowToastCheckBox"
@@ -190,8 +191,8 @@
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="Which window opens when launching Text Grab."
-            HeaderText="Default launch window"
+            Description="啟動 Text Grab 時要開啟的視窗。"
+            HeaderText="預設啟動視窗"
             Icon="{ui:SymbolIcon AppFolder24}">
             <StackPanel>
                 <RadioButton
@@ -205,7 +206,7 @@
                             VerticalAlignment="Center"
                             FontSize="20"
                             Symbol="SlideAdd20" />
-                        <TextBlock VerticalAlignment="Center" Text="Full Screen" />
+                        <TextBlock VerticalAlignment="Center" Text="全螢幕擷取" />
                     </StackPanel>
                 </RadioButton>
                 <RadioButton
@@ -219,7 +220,7 @@
                             VerticalAlignment="Center"
                             FontSize="20"
                             Symbol="PanelBottom20" />
-                        <TextBlock VerticalAlignment="Center" Text="Grab Frame" />
+                        <TextBlock VerticalAlignment="Center" Text="擷取框" />
                     </StackPanel>
                 </RadioButton>
                 <RadioButton
@@ -233,7 +234,7 @@
                             VerticalAlignment="Center"
                             FontSize="20"
                             Symbol="Window20" />
-                        <TextBlock VerticalAlignment="Center" Text="Edit Text Window" />
+                        <TextBlock VerticalAlignment="Center" Text="文字編輯視窗" />
                     </StackPanel>
                 </RadioButton>
                 <RadioButton
@@ -247,15 +248,15 @@
                             VerticalAlignment="Center"
                             FontSize="20"
                             Symbol="SlideSearch20" />
-                        <TextBlock VerticalAlignment="Center" Text="Quick Simple Lookup" />
+                        <TextBlock VerticalAlignment="Center" Text="快速查詢" />
                     </StackPanel>
                 </RadioButton>
             </StackPanel>
         </controls:SettingsExpander>
 
         <controls:SettingsCard
-            Description="Run Text Grab in the background and enable hotkeys."
-            HeaderText="Run in the background"
+            Description="在背景執行 Text Grab 並啟用快速鍵。"
+            HeaderText="在背景執行"
             Icon="{ui:SymbolIcon Desktop24}">
             <ui:ToggleSwitch
                 Name="RunInBackgroundChkBx"
@@ -264,7 +265,7 @@
                 Unchecked="RunInBackgroundChkBx_Checked" />
         </controls:SettingsCard>
 
-        <controls:SettingsCard HeaderText="Auto start Text Grab when you login" Icon="{ui:SymbolIcon Power24}">
+        <controls:SettingsCard HeaderText="登入時自動啟動 Text Grab" Icon="{ui:SymbolIcon Power24}">
             <ui:ToggleSwitch
                 Name="StartupOnLoginCheckBox"
                 AutomationProperties.AutomationId="Settings.General.StartupToggle"
@@ -280,10 +281,10 @@
             TextWrapping="Wrap"
             Visibility="Collapsed" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Integrations" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="整合" />
 
         <controls:SettingsCard
-            Description="Right-click on supported image files or PDFs to quickly grab text."
+            Description="在支援的圖片或 PDF 檔案上按右鍵，即可快速擷取文字。"
             HeaderText="Add &quot;Grab text with Text Grab&quot; to the right-click menu"
             Icon="{ui:SymbolIcon CursorClick24}">
             <ui:ToggleSwitch
@@ -294,7 +295,7 @@
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Opens supported images and PDFs directly in Grab Frame when using &quot;Open with&quot; from File Explorer."
+            Description="在檔案總管使用「開啟檔案」時，會直接在擷取框中開啟支援的圖片與 PDF。"
             HeaderText="Register Text Grab as an &quot;Open with&quot; app for image and PDF files"
             Icon="{ui:SymbolIcon Open24}">
             <ui:ToggleSwitch
@@ -304,11 +305,11 @@
                 Unchecked="RegisterOpenWithCheckBox_Unchecked" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Capture" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="擷取" />
 
         <controls:SettingsCard
-            Description="Try to read barcodes and QR codes when capturing. Disabling may speed up results."
-            HeaderText="Read barcodes and QR codes"
+            Description="擷取時嘗試辨識條碼與 QR 碼。停用此功能可能加快處理速度。"
+            HeaderText="辨識條碼與 QR 碼"
             Icon="{ui:SymbolIcon BarcodeScanner24}">
             <ui:ToggleSwitch
                 Name="ReadBarcodesBarcode"
@@ -318,8 +319,8 @@
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="Captures HDR screens at full range and tone-maps them back to SDR so text isn't overly bright. Only affects monitors with HDR turned on."
-            HeaderText="Correct washed-out captures on HDR displays"
+            Description="以完整色域擷取 HDR 螢幕，再轉換為 SDR，避免文字過亮。僅適用於已開啟 HDR 的螢幕。"
+            HeaderText="修正 HDR 螢幕上的擷取畫面褪色問題"
             Icon="{ui:SymbolIcon Hdr24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch
@@ -332,7 +333,7 @@
                 <TextBlock
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Removing the yellow capture border needs Windows &quot;borderless capture&quot; permission. Use Check permissions to grant it."
+                    Text="移除黃色擷取邊框需要 Windows「無邊框擷取」權限。請使用「檢查權限」授予權限。"
                     TextWrapping="Wrap" />
                 <ui:Button
                     Name="CheckHdrPermissionButton"
@@ -340,11 +341,11 @@
                     HorizontalAlignment="Left"
                     AutomationProperties.AutomationId="Settings.General.CheckHdrPermissionButton"
                     Click="CheckHdrPermissionButton_Click"
-                    Content="Check permissions" />
+                    Content="檢查權限" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <controls:SettingsCard HeaderText="Web search engine" Icon="{ui:SymbolIcon Search24}">
+        <controls:SettingsCard HeaderText="網頁搜尋引擎" Icon="{ui:SymbolIcon Search24}">
             <ComboBox
                 x:Name="WebSearchersComboBox"
                 Width="240"
@@ -359,7 +360,7 @@
             </ComboBox>
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Correct common errors" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="修正常見辨識錯誤" />
 
         <controls:SettingsCard HeaderText="Detect paragraph wrapping — join wrapped lines into one paragraph" Icon="{ui:SymbolIcon TextParagraph24}">
             <ui:ToggleSwitch
@@ -369,7 +370,7 @@
                 Unchecked="ParagraphDetectionToggle_Unchecked" />
         </controls:SettingsCard>
 
-        <controls:SettingsCard HeaderText="Correct common confusions between numbers and letters" Icon="{ui:SymbolIcon Wand24}">
+        <controls:SettingsCard HeaderText="修正容易混淆的數字與字母" Icon="{ui:SymbolIcon Wand24}">
             <ui:ToggleSwitch
                 Name="ErrorCorrectBox"
                 AutomationProperties.AutomationId="Settings.General.ErrorCorrectionToggle"
@@ -377,7 +378,7 @@
                 Unchecked="ErrorCorrectBox_Unchecked" />
         </controls:SettingsCard>
 
-        <controls:SettingsCard HeaderText="Correct misidentifications between Greek and Cyrillic to Latin letters" Icon="{ui:SymbolIcon TextT24}">
+        <controls:SettingsCard HeaderText="修正希臘字母、西里爾字母與拉丁字母之間的誤辨" Icon="{ui:SymbolIcon TextT24}">
             <ui:ToggleSwitch
                 Name="CorrectToLatin"
                 AutomationProperties.AutomationId="Settings.General.CorrectToLatinToggle"
@@ -385,9 +386,9 @@
                 Unchecked="CorrectToLatin_Unchecked" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Clipboard" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="剪貼簿" />
 
-        <controls:SettingsCard HeaderText="Never automatically add text to the clipboard" Icon="{ui:SymbolIcon ClipboardLetter24}">
+        <controls:SettingsCard HeaderText="不要自動將文字加入剪貼簿" Icon="{ui:SymbolIcon ClipboardLetter24}">
             <ui:ToggleSwitch
                 Name="NeverUseClipboardChkBx"
                 AutomationProperties.AutomationId="Settings.General.DisableClipboardToggle"
@@ -396,8 +397,8 @@
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="After a Fullscreen Grab, wait and then paste the captured text into the focused text field."
-            HeaderText="Try to insert text in text fields after Fullscreen Grab"
+            Description="全螢幕擷取後，等待一段時間，再將擷取文字貼到目前作用中的文字欄位。"
+            HeaderText="全螢幕擷取後，嘗試將文字輸入文字欄位"
             Icon="{ui:SymbolIcon ClipboardPaste24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch
@@ -407,7 +408,7 @@
                     Unchecked="TryInsertCheckbox_Unchecked" />
             </controls:SettingsExpander.SettingsContent>
             <StackPanel Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="Insert after" />
+                <TextBlock VerticalAlignment="Center" Text="延遲後插入" />
                 <TextBox
                     x:Name="SecondsTextBox"
                     Width="40"
@@ -425,22 +426,22 @@
                 <TextBlock
                     Margin="8,0,0,0"
                     VerticalAlignment="Center"
-                    Text="seconds" />
+                    Text="秒" />
                 <TextBlock
                     x:Name="DelayTimeErrorSeconds"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center"
                     AutomationProperties.AutomationId="Settings.General.InsertDelayError"
-                    Text="⚠ Pick a number between 0 and 10"
+                    Text="⚠ 請輸入 0 到 10 之間的數字"
                     Visibility="Collapsed" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="History" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="歷史記錄" />
 
         <controls:SettingsCard
-            Description="Keep recent history of Grabs and Edit Text Windows."
-            HeaderText="Keep history"
+            Description="保留擷取與文字編輯視窗的近期歷史記錄。"
+            HeaderText="保留歷史記錄"
             Icon="{ui:SymbolIcon History24}">
             <ui:ToggleSwitch
                 Name="HistorySwitch"

@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Text_Grab.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Quick Simple Lookup"
+    Title="快速查詢"
     AutomationProperties.AutomationId="QuickLookupWindow"
     Width="800"
     Height="400"
@@ -38,7 +38,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Quick Simple Lookup"
+            Title="快速查詢"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -55,7 +55,7 @@
                 Margin="6,0,0,0"
                 VerticalAlignment="Center"
                 AcceptsTab="True"
-                PlaceholderText="Type to search..."
+                PlaceholderText="輸入文字以搜尋..."
                 SearchChanged="SearchBar_SearchChanged" />
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <controls:CollapsibleButton
@@ -63,7 +63,7 @@
                     AutomationProperties.AutomationId="QuickLookup.AddItemButton"
                     Background="DarkGreen"
                     ButtonSymbol="Add24"
-                    ButtonText="Add Item"
+                    ButtonText="新增項目"
                     Click="AddItemBtn_Click"
                     Foreground="White"
                     Visibility="Collapsed" />
@@ -73,23 +73,23 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     ButtonSymbol="SlideAdd24"
-                    ButtonText="New Fullscreen Grab"
+                    ButtonText="新增全螢幕擷取"
                     Click="NewFullscreen_Click"
                     IsSymbol="True"
-                    ToolTip="New Fullscreen Grab (Ctrl + F)" />
+                    ToolTip="新增全螢幕擷取 (Ctrl + F)" />
                 <controls:CollapsibleButton
                     x:Name="SaveBTN"
                     AutomationProperties.AutomationId="QuickLookup.SaveButton"
                     ButtonSymbol="Save24"
-                    ButtonText="Save Lookup Data"
+                    ButtonText="儲存查詢資料"
                     Click="SaveBTN_Click"
                     IsSymbol="True"
-                    ToolTip="Save Lookup Data"
+                    ToolTip="儲存查詢資料"
                     Visibility="Collapsed" />
                 <ToggleButton
                     x:Name="PasteToggleButton"
                     AutomationProperties.AutomationId="QuickLookup.InsertToggle"
-                    AutomationProperties.Name="Insert selected value into the previously focused app"
+                    AutomationProperties.Name="將選取的值插入先前使用的應用程式"
                     Grid.Column="0"
                     Margin="0,0,5,0"
                     Padding="7,4"
@@ -97,14 +97,14 @@
                     VerticalAlignment="Center"
                     Checked="PasteToggleButton_Checked"
                     Style="{StaticResource ToggleSymbolButton}"
-                    ToolTip="(Ctrl + I) Insert the value when it is copied"
+                    ToolTip="(Ctrl + I) 複製時插入此值"
                     Unchecked="PasteToggleButton_Checked">
                     <ui:SymbolIcon Symbol="ClipboardPaste24" />
                 </ToggleButton>
                 <ToggleButton
                     x:Name="EditWindowToggleButton"
                     AutomationProperties.AutomationId="QuickLookup.SendToEditTextToggle"
-                    AutomationProperties.Name="Send selected value to Edit Text Window"
+                    AutomationProperties.Name="將選取的值傳送至文字編輯視窗"
                     Grid.Column="0"
                     Margin="0,0,5,0"
                     Padding="7,4"
@@ -112,7 +112,7 @@
                     VerticalAlignment="Center"
                     Checked="EditWindowToggleButton_Checked"
                     Style="{StaticResource ToggleSymbolButton}"
-                    ToolTip="(Ctrl + E) Send value to Edit Text Window"
+                    ToolTip="(Ctrl + E) 將值傳送至文字編輯視窗"
                     Unchecked="EditWindowToggleButton_Checked">
                     <ui:SymbolIcon Symbol="Window24" />
 
@@ -124,7 +124,7 @@
                     ClipToBounds="True"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                     IsMainMenu="True">
-                    <MenuItem AutomationProperties.AutomationId="QuickLookup.MoreMenu" AutomationProperties.Name="More lookup actions">
+                    <MenuItem AutomationProperties.AutomationId="QuickLookup.MoreMenu" AutomationProperties.Name="更多查詢動作">
                         <MenuItem.Header>
                             <TextBlock
                                 Height="40"
@@ -138,33 +138,33 @@
                             x:Name="SaveMenuItem"
                             AutomationProperties.AutomationId="QuickLookup.Menu.Save"
                             Click="SaveBTN_Click"
-                            Header="Save Lookup Data" />
+                            Header="儲存查詢資料" />
                         <MenuItem
                             x:Name="PickSaveLocation"
                             AutomationProperties.AutomationId="QuickLookup.Menu.ChangeFileLocation"
                             Click="PickSaveLocation_Click"
-                            Header="Change Lookup Data File Location..." />
+                            Header="變更查詢資料檔案位置..." />
                         <MenuItem
                             x:Name="ParseClipboardMenuItem"
                             AutomationProperties.AutomationId="QuickLookup.Menu.ParseClipboard"
                             Click="ParseBTN_Click"
-                            Header="Parse Excel Copied Table" />
+                            Header="解析從 Excel 複製的表格" />
                         <MenuItem
                             x:Name="ParseCSVFileMenuItem"
                             AutomationProperties.AutomationId="QuickLookup.Menu.ImportCsv"
                             Click="ParseCSVFileMenuItem_Click"
-                            Header="Add Rows from CSV File..." />
+                            Header="從 CSV 檔案新增資料列..." />
                         <MenuItem
                             x:Name="SearchHistory"
                             AutomationProperties.AutomationId="QuickLookup.Menu.SearchHistory"
                             Click="SearchHistory_Click"
-                            Header="Search History"
+                            Header="搜尋記錄"
                             IsCheckable="True" />
                         <MenuItem
                             x:Name="TextGrabSettingsMenuItem"
                             AutomationProperties.AutomationId="QuickLookup.Menu.OpenSettings"
                             Click="TextGrabSettingsMenuItem_Click"
-                            Header="Text Grab Settings" />
+                            Header="Text Grab 設定" />
                     </MenuItem>
                 </Menu>
                 <controls:CollapsibleButton
@@ -173,10 +173,10 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     ButtonSymbol="ArrowRight24"
-                    ButtonText="Enter"
+                    ButtonText="輸入"
                     Click="EnterButton_Click"
                     IsSymbol="True"
-                    ToolTip="Go (Enter)">
+                    ToolTip="前往（Enter）">
                     <controls:CollapsibleButton.ContextMenu>
                         <ContextMenu>
                             <MenuItem Click="EnterShiftMI_Click" Header="Shift + Enter" />
@@ -236,7 +236,7 @@
                         <TextBlock
                             Background="{DynamicResource SolidBackgroundFillColorBaseAltBrush}"
                             Style="{StaticResource CellTextBlock}"
-                            Text="Ctrl + Enter to copy" />
+                            Text="按 Ctrl + Enter 複製" />
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -257,7 +257,7 @@
                         <TextBlock
                             Background="{DynamicResource SolidBackgroundFillColorBaseAltBrush}"
                             Style="{StaticResource CellTextBlock}"
-                            Text="Press Enter to copy" />
+                            Text="按 Enter 複製" />
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -280,7 +280,7 @@
                         x:Name="DeleteItem"
                         AutomationProperties.AutomationId="QuickLookup.Context.DeleteItem"
                         Click="DeleteItem_Click"
-                        Header="Delete">
+                        Header="刪除">
                         <MenuItem.Icon>
                             <ui:SymbolIcon Symbol="Delete24" />
                         </MenuItem.Icon>
@@ -289,7 +289,7 @@
                         x:Name="OpenInETWMenuItem"
                         AutomationProperties.AutomationId="QuickLookup.Context.OpenInEditText"
                         Click="OpenInETWMenuItem_Click"
-                        Header="Open in Edit Text Window">
+                        Header="在文字編輯視窗中開啟">
                         <MenuItem.Icon>
                             <ui:SymbolIcon Symbol="Window24" />
                         </MenuItem.Icon>
@@ -310,7 +310,7 @@
                 HorizontalAlignment="Left"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                 Style="{StaticResource CellTextBlock}">
-                Shift + Enter to copy entire selected row(s).
+                按 Shift + Enter 複製所有選取的資料列。
             </TextBlock>
             <TextBlock
                 Grid.Column="1"
@@ -318,7 +318,7 @@
                 HorizontalAlignment="Center"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                 Style="{StaticResource CellTextBlock}">
-                Shift + Ctrl + Enter to copy all results.
+                按 Shift + Ctrl + Enter 複製所有結果。
             </TextBlock>
             <TextBlock
                 x:Name="RowCountTextBlock"
@@ -345,7 +345,7 @@
                 Padding="10,4"
                 Foreground="White"
                 Style="{StaticResource CellTextBlock}"
-                Text="⚠️ Failed to add text to clipboard." />
+                Text="⚠️ 無法將文字加入剪貼簿。" />
             <ui:Button
                 Name="ErrorBarOkay"
                 AutomationProperties.AutomationId="QuickLookup.ErrorDismissButton"
@@ -354,7 +354,7 @@
                 Padding="12,3,12,4"
                 Appearance="Primary"
                 Click="ErrorBarOkay_Click"
-                Content="Okay" />
+                Content="確定" />
         </Grid>
     </Grid>
 </ui:FluentWindow>

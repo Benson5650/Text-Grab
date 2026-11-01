@@ -37,7 +37,7 @@ public class ExternalLinkLauncherTests
 
         Assert.False(opened);
         Assert.Equal(0, starts);
-        Assert.Contains("This link is not supported.", Assert.Single(errors));
+        Assert.Contains("不支援此連結。", Assert.Single(errors));
     }
 
     [Theory]
@@ -94,7 +94,7 @@ public class ExternalLinkLauncherTests
 
         Assert.False(opened);
         Assert.Equal(1, starts);
-        Assert.Equal("The link could not be opened in its default app.", Assert.Single(errors));
+        Assert.Equal("無法使用預設應用程式開啟此連結。", Assert.Single(errors));
         Assert.DoesNotContain(privateDetail, errors[0]);
     }
 
@@ -219,8 +219,8 @@ public class ExternalLinkLauncherTests
         const string canonicalUri = "https://trusted.invalid@example.invalid:8443/very/long/path?value=1";
         Assert.Equal(canonicalUri, Assert.Single(opened));
         Assert.Equal(canonicalUri, menuItem.ToolTip);
-        Assert.Equal("Go to: https://example.invalid:8443", Assert.IsType<TextBlock>(menuItem.Header).Text);
-        Assert.Equal("Go to: https://example.invalid:8443", AutomationProperties.GetName(menuItem));
+        Assert.Equal("前往：https://example.invalid:8443", Assert.IsType<TextBlock>(menuItem.Header).Text);
+        Assert.Equal("前往：https://example.invalid:8443", AutomationProperties.GetName(menuItem));
     }
 
     [WpfFact]
@@ -229,7 +229,7 @@ public class ExternalLinkLauncherTests
         const string target = "https://long_descriptive_name.example.invalid/path";
         MenuItem menuItem = Assert.IsType<MenuItem>(ExternalLinkLauncher.CreateMenuItem(target));
 
-        Assert.Equal("Go to: https://long_descriptive_name.example.invalid", Assert.IsType<TextBlock>(menuItem.Header).Text);
+        Assert.Equal("前往：https://long_descriptive_name.example.invalid", Assert.IsType<TextBlock>(menuItem.Header).Text);
         Assert.Equal(target, menuItem.ToolTip);
     }
 
@@ -238,7 +238,7 @@ public class ExternalLinkLauncherTests
     {
         MenuItem menuItem = Assert.IsType<MenuItem>(ExternalLinkLauncher.CreateMenuItem("http://[::1]:8080/path"));
 
-        Assert.Equal("Go to: http://[::1]:8080", Assert.IsType<TextBlock>(menuItem.Header).Text);
+        Assert.Equal("前往：http://[::1]:8080", Assert.IsType<TextBlock>(menuItem.Header).Text);
     }
 
     [WpfFact]
@@ -247,8 +247,8 @@ public class ExternalLinkLauncherTests
         MenuItem emailItem = Assert.IsType<MenuItem>(ExternalLinkLauncher.CreateMenuItem("mailto:user@example.invalid?subject=Hello"));
         MenuItem phoneItem = Assert.IsType<MenuItem>(ExternalLinkLauncher.CreateMenuItem("tel:+15551234567;ext=23"));
 
-        Assert.Equal("Email: user@example.invalid", Assert.IsType<TextBlock>(emailItem.Header).Text);
-        Assert.Equal("Call: +15551234567;ext=23", Assert.IsType<TextBlock>(phoneItem.Header).Text);
+        Assert.Equal("傳送郵件：user@example.invalid", Assert.IsType<TextBlock>(emailItem.Header).Text);
+        Assert.Equal("撥打電話：+15551234567;ext=23", Assert.IsType<TextBlock>(phoneItem.Header).Text);
     }
 
     [WpfFact]
@@ -265,14 +265,14 @@ public class ExternalLinkLauncherTests
                 CheckBox dontWarnAgain = Assert.IsType<CheckBox>(content.FindName("DontWarnAgainCheckBox"));
                 bool isEmail = uri.Scheme == "mailto";
 
-                Assert.Equal(isEmail ? "Open Email Link?" : "Open Telephone Link?", dialog.Title);
-                Assert.Equal(isEmail ? "Open email app" : "Open calling app", dialog.PrimaryButtonText);
-                Assert.Equal("Cancel", dialog.CloseButtonText);
+                Assert.Equal(isEmail ? "要開啟電子郵件連結嗎？" : "要開啟電話連結嗎？", dialog.Title);
+                Assert.Equal(isEmail ? "開啟電子郵件應用程式" : "開啟通話應用程式", dialog.PrimaryButtonText);
+                Assert.Equal("取消", dialog.CloseButtonText);
                 Assert.Equal(Uri.UnescapeDataString(uri.AbsoluteUri), target.Text);
                 Assert.Equal(uri.AbsoluteUri, target.ToolTip);
                 Assert.True(target.IsReadOnly);
                 Assert.Equal(
-                    isEmail ? "Don't warn me again about email links" : "Don't warn me again about telephone links",
+                    isEmail ? "不再提醒我電子郵件連結" : "不再提醒我電話連結",
                     dontWarnAgain.Content);
                 Assert.False(content.DontWarnAgain);
                 dontWarnAgain.IsChecked = true;

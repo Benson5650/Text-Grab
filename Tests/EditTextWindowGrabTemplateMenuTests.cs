@@ -26,7 +26,7 @@ public class EditTextWindowGrabTemplateMenuTests
         Assert.True(menu.HasItems);
         Assert.Equal(MenuItemRole.SubmenuHeader, menu.Role);
         MenuItem placeholder = Assert.IsType<MenuItem>(Assert.Single(menu.Items.Cast<object>()));
-        Assert.Equal("Loading…", placeholder.Header);
+        Assert.Equal("載入中…", placeholder.Header);
         Assert.False(placeholder.IsEnabled);
     }
 

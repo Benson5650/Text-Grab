@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Grab Multiple Pages"
+    Title="擷取多個頁面"
     AutomationProperties.AutomationId="GrabPageRangeDialog"
     Width="360"
     Height="360"
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Grab Multiple Pages"
+            Title="擷取多個頁面"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -48,7 +48,7 @@
                 <TextBlock
                     Margin="0,0,8,0"
                     VerticalAlignment="Center"
-                    Text="From page" />
+                    Text="起始頁" />
                 <TextBox
                     x:Name="FromPageTextBox"
                     Grid.Column="1"
@@ -58,7 +58,7 @@
                     Grid.Column="2"
                     Margin="12,0,8,0"
                     VerticalAlignment="Center"
-                    Text="to" />
+                    Text="至" />
                 <TextBox
                     x:Name="ToPageTextBox"
                     Grid.Column="3"
@@ -66,25 +66,25 @@
                     TextChanged="PageTextBox_TextChanged" />
             </Grid>
 
-            <TextBlock Margin="0,0,0,4" Text="Pages to include:" />
+            <TextBlock Margin="0,0,0,4" Text="要包含的頁面：" />
             <StackPanel
                 x:Name="PageParityPanel"
                 AutomationProperties.AutomationId="GrabPageRange.PageParityOptions"
                 Margin="0,0,0,12"
                 Orientation="Horizontal">
                 <RadioButton
-                    Content="All"
+                    Content="全部"
                     GroupName="PageParity"
                     IsChecked="True"
                     Tag="all" />
                 <RadioButton
                     Margin="12,0,0,0"
-                    Content="Odd only"
+                    Content="僅奇數頁"
                     GroupName="PageParity"
                     Tag="odd" />
                 <RadioButton
                     Margin="12,0,0,0"
-                    Content="Even only"
+                    Content="僅偶數頁"
                     GroupName="PageParity"
                     Tag="even" />
             </StackPanel>
@@ -92,7 +92,7 @@
             <CheckBox
                 x:Name="BlankLineBetweenPagesCheckBox"
                 AutomationProperties.AutomationId="GrabPageRange.BlankLineBetweenPages"
-                Content="Insert a blank line between pages" />
+                Content="在頁面之間插入空白行" />
 
             <TextBlock
                 x:Name="RangeErrorText"
@@ -115,11 +115,11 @@
                 Margin="0,0,6,0"
                 Appearance="Primary"
                 Click="OkButton_Click"
-                Content="Grab" />
+                Content="擷取" />
             <ui:Button
                 AutomationProperties.AutomationId="GrabPageRange.CancelButton"
                 Click="CancelButton_Click"
-                Content="Cancel" />
+                Content="取消" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

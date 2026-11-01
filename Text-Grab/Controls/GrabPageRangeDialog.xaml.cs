@@ -72,8 +72,8 @@ public partial class GrabPageRangeDialog : FluentWindow
         int currentPageNumber = Math.Clamp(currentPageIndex + 1, 1, _pageCount);
 
         DescriptionTextBlock.Text = isTableMode
-            ? "The current table boundary and settings are applied to every page in the range, and the results are joined into a new spreadsheet in an Edit Text Window."
-            : "The current Grab Frame settings are applied to every page in the range, and the results are joined into a new Edit Text Window.";
+            ? "目前的表格邊界與設定會套用至範圍內的每一頁，並將結果合併至文字編輯視窗中的新試算表。"
+            : "目前的擷取框設定會套用至範圍內的每一頁，並將結果合併至新的文字編輯視窗。";
 
         FromPageTextBox.Text = currentPageNumber.ToString();
         ToPageTextBox.Text = _pageCount.ToString();
@@ -97,19 +97,19 @@ public partial class GrabPageRangeDialog : FluentWindow
         if (!int.TryParse(FromPageTextBox.Text.Trim(), out int fromPage)
             || !int.TryParse(ToPageTextBox.Text.Trim(), out int toPage))
         {
-            ShowRangeError("Enter whole page numbers.");
+            ShowRangeError("請輸入整數頁碼。");
             return false;
         }
 
         if (fromPage < 1 || toPage < 1 || fromPage > _pageCount || toPage > _pageCount)
         {
-            ShowRangeError($"Pages must be between 1 and {_pageCount}.");
+            ShowRangeError($"頁碼必須介於 1 到 {_pageCount} 之間。");
             return false;
         }
 
         if (fromPage > toPage)
         {
-            ShowRangeError("The first page must come before the last page.");
+            ShowRangeError("起始頁必須早於結束頁。");
             return false;
         }
 

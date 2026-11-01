@@ -27,7 +27,7 @@ internal static class ExternalLinkLauncher
         if (!ExternalLinkUtilities.TryCreate(target, out Uri? uri))
         {
             Debug.WriteLine("External link blocked: the target is not a supported HTTP, HTTPS, mailto, or tel URI.");
-            await showErrorAsync("This link is not supported. Only HTTP, HTTPS, email links with a recipient and optional subject/body, and telephone numbers with an optional extension can be opened.");
+            await showErrorAsync("不支援此連結。僅能開啟 HTTP、HTTPS、含收件者及選填主旨／內文的電子郵件連結，以及可含分機號碼的電話號碼。");
             return false;
         }
 
@@ -42,7 +42,7 @@ internal static class ExternalLinkLauncher
         catch (Exception ex) when (ex is Win32Exception or InvalidOperationException)
         {
             Debug.WriteLine($"Opening an external link failed ({ex.GetType().Name}, HRESULT: 0x{ex.HResult:X8}).");
-            await showErrorAsync("The link could not be opened in its default app.");
+            await showErrorAsync("無法使用預設應用程式開啟此連結。");
             return false;
         }
     }
@@ -57,9 +57,9 @@ internal static class ExternalLinkLauncher
         string absoluteUri = uri.AbsoluteUri;
         string label = uri.Scheme switch
         {
-            "mailto" => $"Email: {Uri.UnescapeDataString(absoluteUri["mailto:".Length..].Split('?')[0])}",
-            "tel" => $"Call: {uri.AbsolutePath}",
-            _ => $"Go to: {uri.Scheme}://{host}{port}"
+            "mailto" => $"傳送郵件：{Uri.UnescapeDataString(absoluteUri["mailto:".Length..].Split('?')[0])}",
+            "tel" => $"撥打電話：{uri.AbsolutePath}",
+            _ => $"前往：{uri.Scheme}://{host}{port}"
         };
         MenuItem menuItem = new()
         {
@@ -78,10 +78,10 @@ internal static class ExternalLinkLauncher
         bool isEmail = uri.Scheme == Uri.UriSchemeMailto;
         Wpf.Ui.Controls.MessageBox dialog = new()
         {
-            Title = isEmail ? "Open Email Link?" : "Open Telephone Link?",
+            Title = isEmail ? "要開啟電子郵件連結嗎？" : "要開啟電話連結嗎？",
             Content = new ExternalLinkConfirmationContent(uri),
-            PrimaryButtonText = isEmail ? "Open email app" : "Open calling app",
-            CloseButtonText = "Cancel",
+            PrimaryButtonText = isEmail ? "開啟電子郵件應用程式" : "開啟通話應用程式",
+            CloseButtonText = "取消",
             ShowInTaskbar = false,
             WindowStartupLocation = WindowStartupLocation.CenterOwner
         };
@@ -139,9 +139,9 @@ internal static class ExternalLinkLauncher
     {
         await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Unable to Open Link",
+            Title = "無法開啟連結",
             Content = message,
-            CloseButtonText = "OK"
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 }

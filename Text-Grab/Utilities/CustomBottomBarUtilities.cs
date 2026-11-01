@@ -65,10 +65,10 @@ public class CustomBottomBarUtilities
         {
             CollapsibleButton button = new()
             {
-                ButtonText = buttonItem.ButtonText,
+                ButtonText = buttonItem.DisplayText,
                 IsSymbol = buttonItem.IsSymbol,
                 CustomButton = buttonItem,
-                ToolTip = $"{buttonItem.ButtonText} (ctrl + {index})",
+                ToolTip = $"{buttonItem.DisplayText} (Ctrl + {index})",
                 ButtonSymbol = buttonItem.SymbolIcon
             };
 

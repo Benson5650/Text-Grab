@@ -1136,7 +1136,7 @@ public partial class FullscreenGrab
 
             // Give a speech-reliant user an audible cue that the (slow) work is underway.
             if (DefaultSettings.SpeakProcessingStatus)
-                Singleton<TtsService>.Instance.Speak($"{selectedOcrLang.DisplayName} is processing");
+                Singleton<TtsService>.Instance.Speak($"{selectedOcrLang.DisplayName} 正在處理");
         }
 
         // Race the description against a user choice made while it is still running.
@@ -1367,8 +1367,8 @@ public partial class FullscreenGrab
                         await new Wpf.Ui.Controls.MessageBox
                         {
                             Title = "Text Grab",
-                            Content = "Grab Templates are currently available only for rectangular selections. Freeform captures will keep their OCR text without applying templates.",
-                            CloseButtonText = "OK"
+                            Content = "擷取範本目前僅適用於矩形選取。自由選取仍會保留 OCR 文字，但不會套用範本。",
+                            CloseButtonText = "確定"
                         }.ShowDialogAsync();
                         showedFreeformTemplateMessage = true;
                     }

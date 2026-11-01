@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Add or remove text on each line"
+    Title="逐行新增或移除文字"
     AutomationProperties.AutomationId="AddRemoveDialog"
     Width="330"
     Height="320"
@@ -40,7 +40,7 @@
         </Grid.RowDefinitions>
 
         <ui:TitleBar
-            Title="Add, Remove, or Limit"
+            Title="新增、移除或限制"
             Height="32"
             Margin="2,2,2,0"
             Padding="8,2"
@@ -61,7 +61,7 @@
                 GroupName="AddOrRemoveRDBTNs"
                 IsChecked="True">
                 <TextBlock Style="{StaticResource TextBodyNormal}">
-                    Add
+                    新增
                 </TextBlock>
             </RadioButton>
             <RadioButton
@@ -75,7 +75,7 @@
                 IsChecked="False"
                 Unchecked="RemoveRadioButton_Checked">
                 <TextBlock Style="{StaticResource TextBodyNormal}">
-                    Remove
+                    移除
                 </TextBlock>
             </RadioButton>
             <RadioButton
@@ -99,7 +99,7 @@
             Margin="12,0"
             Orientation="Horizontal">
             <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBodyNormal}">
-                From The:
+                位置：
             </TextBlock>
             <RadioButton
                 x:Name="BeginningRDBTN"
@@ -116,7 +116,7 @@
             <!--<RadioButton
                 x:Name="MiddleRDBTN"
                 Grid.Row="1"
-                Content="Middle"
+                Content="中間"
                 GroupName="PlaceRDBTNs"
                 IsChecked="False" />-->
             <RadioButton
@@ -140,7 +140,7 @@
                 Width="184"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Number of characters" />
+                Text="字元數" />
             <TextBox
                 x:Name="LengthTextBox"
                 AutomationProperties.AutomationId="AddRemove.Length"
@@ -159,7 +159,7 @@
                 Width="106"
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBodyNormal}"
-                Text="Text to add" />
+                Text="要新增的文字" />
             <TextBox
                 x:Name="TextToAddTextBox"
                 AutomationProperties.AutomationId="AddRemove.Text"
@@ -181,7 +181,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 ButtonSymbol="ArrowClockwise24"
-                ButtonText="Apply"
+                ButtonText="套用"
                 Command="{x:Static local:AddOrRemoveWindow.ApplyCmd}"
                 IsSymbol="True" />
             <local:CollapsibleButton
@@ -191,7 +191,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 ButtonSymbol="Checkmark24"
-                ButtonText="Done"
+                ButtonText="完成"
                 Command="{x:Static local:AddOrRemoveWindow.AddRemoveCmd}" />
         </StackPanel>
     </Grid>

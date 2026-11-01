@@ -170,7 +170,7 @@ public partial class QrCodeWindow : FluentWindow
             LengthErrorTextBlock.Visibility = Visibility.Visible;
 
         int maxLength = 50;
-        UiTitleBar.Title = $"QR Code: {TextOfCode.Truncate(30)}";
+        UiTitleBar.Title = $"QR Code：{TextOfCode.Truncate(30)}";
         int trimLength = TextOfCode.Length < maxLength ? TextOfCode.Length : maxLength;
         qrCodeFileName = $"QR-{TextOfCode[..trimLength].ReplaceReservedCharacters()}";
         tempPath = Path.Combine(AutomationProfile.GetTemporaryDirectory(), qrCodeFileName + ".png");

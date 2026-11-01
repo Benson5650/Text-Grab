@@ -65,7 +65,7 @@ public class ExternalLinkConfirmationContentTests
             await Dispatcher.Yield(DispatcherPriority.ApplicationIdle);
             Assert.False(popup.IsOpen);
             Assert.Equal(Wpf.Ui.Controls.SymbolRegular.Warning24, Assert.IsType<Wpf.Ui.Controls.SymbolIcon>(button.Content).Symbol);
-            Assert.Contains("trust the source", AutomationProperties.GetHelpText(button));
+            Assert.Contains("信任來源", AutomationProperties.GetHelpText(button));
 
             button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
@@ -73,8 +73,8 @@ public class ExternalLinkConfirmationContentTests
             Assert.False(popup.StaysOpen);
             Assert.Same(button, popup.PlacementTarget);
             TextBlock warning = Assert.IsType<TextBlock>(Assert.IsType<Border>(popup.Child).Child);
-            Assert.Contains("Only open this link when you trust the source", warning.Text);
-            Assert.Contains("incur charges", warning.Text);
+            Assert.Contains("只有在信任文字或影像來源時才開啟此連結", warning.Text);
+            Assert.Contains("產生費用", warning.Text);
 
             button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             Assert.False(popup.IsOpen);

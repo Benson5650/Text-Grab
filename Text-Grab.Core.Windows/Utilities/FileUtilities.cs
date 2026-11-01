@@ -36,7 +36,7 @@ public class FileUtilities
     public static string GetImageFilter()
     {
         string imageExtensions = GetImageExtensionsFilterPattern();
-        return string.IsNullOrEmpty(imageExtensions) ? string.Empty : $"Image files|{imageExtensions}";
+        return string.IsNullOrEmpty(imageExtensions) ? string.Empty : $"影像檔案|{imageExtensions}";
     }
 
     public static string GetVisualDocumentFilter()
@@ -47,8 +47,8 @@ public class FileUtilities
 
         return string.Join("|", new[]
         {
-            $"Image and PDF files|{combinedExtensions}",
-            $"PDF files|{pdfExtensions}",
+            $"影像與 PDF 檔案|{combinedExtensions}",
+            $"PDF 檔案|{pdfExtensions}",
             imageFilter
         });
     }
@@ -76,13 +76,13 @@ public class FileUtilities
 
         return string.Join("|", new[]
         {
-            $"Supported documents|{supportedExtensions}",
+            $"支援的文件|{supportedExtensions}",
             GetVisualDocumentFilter(),
             GrabFrameFileUtilities.GetGrabFrameFileFilter(),
-            $"Spreadsheet documents|{spreadsheetExtensions}",
-            $"Markdown documents|{markdownExtensions}",
-            "Text documents (*.txt)|*.txt",
-            "All files (*.*)|*.*"
+            $"試算表文件|{spreadsheetExtensions}",
+            $"Markdown 文件|{markdownExtensions}",
+            "文字文件 (*.txt)|*.txt",
+            "所有檔案 (*.*)|*.*"
         });
     }
 

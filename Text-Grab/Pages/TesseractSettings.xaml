@@ -15,13 +15,13 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Tesseract Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Tesseract 設定" />
 
         <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Tesseract OCR" />
 
         <controls:SettingsCard
-            Description="Select Tesseract languages from the language picker where it is supported: Fullscreen Grab mode and the processing of files from the Edit Text Window or the command line."
-            HeaderText="Enable Tesseract within Text Grab"
+            Description="在支援的情況下，可從語言選擇器選取 Tesseract 語言：全螢幕擷取模式，以及從文字編輯視窗或命令列處理檔案。"
+            HeaderText="在 Text Grab 中啟用 Tesseract"
             Icon="{ui:SymbolIcon PuzzlePiece24}">
             <ui:ToggleSwitch
                 Name="UseTesseractCheckBox"
@@ -34,12 +34,12 @@
             AutomationProperties.AutomationId="Settings.Tesseract.NotFoundStatus"
             Margin="1,4,0,4"
             Style="{StaticResource TextBodyNormal}"
-            Text="⚠️ Could not locate Tesseract.exe"
+            Text="⚠️ 找不到 Tesseract.exe"
             Visibility="Collapsed" />
 
         <controls:SettingsExpander
-            Description="Path to tesseract.exe. Set automatically when Tesseract is installed in a known location."
-            HeaderText="Tesseract location"
+            Description="tesseract.exe 路徑。若 Tesseract 安裝於已知位置，系統會自動設定。"
+            HeaderText="Tesseract 位置"
             Icon="{ui:SymbolIcon FolderOpen24}"
             IsExpanded="True">
             <Grid>
@@ -64,22 +64,22 @@
                     Style="{StaticResource SymbolButton}">
                     <StackPanel Margin="4,0" Orientation="Horizontal">
                         <ui:SymbolIcon Margin="0,0,6,0" Symbol="OpenFolder24" />
-                        <TextBlock Text="Open Folder" />
+                        <TextBlock Text="開啟資料夾" />
                     </StackPanel>
                 </Button>
             </Grid>
         </controls:SettingsExpander>
 
         <controls:SettingsExpander
-            Description="Install Tesseract with WinGet, then restart Text Grab so the Tesseract.exe path is set automatically."
-            HeaderText="How do I get Tesseract?"
+            Description="使用 WinGet 安裝 Tesseract，然後重新啟動 Text Grab，系統便會自動設定 Tesseract.exe 路徑。"
+            HeaderText="如何取得 Tesseract？"
             Icon="{ui:SymbolIcon ArrowDownload24}">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button
                         x:Name="WinGetCodeCopyButton"
                         AutomationProperties.AutomationId="Settings.Tesseract.CopyInstallCommandButton"
-                        AutomationProperties.Name="Copy Tesseract install command"
+                        AutomationProperties.Name="複製 Tesseract 安裝指令"
                         Width="40"
                         Click="WinGetCodeCopyButton_Click"
                         Style="{StaticResource SymbolButton}">
@@ -93,49 +93,49 @@
                     Margin="0,4,0,8"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Restart Text Grab after installing Tesseract for the Tesseract.exe path to be automatically set."
+                    Text="安裝 Tesseract 後請重新啟動 Text Grab，系統會自動設定 Tesseract.exe 路徑。"
                     TextWrapping="Wrap" />
                 <TextBlock Style="{StaticResource TextBodyNormal}">
-                    The source repository is on GitHub:<LineBreak />
+                    原始碼儲存庫位於 GitHub：<LineBreak />
                     <Hyperlink NavigateUri="https://github.com/tesseract-ocr/tesseract" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/tesseract-ocr/tesseract</Hyperlink>
                     <LineBreak />
-                    UB Mannheim maintains an installer for Windows:<LineBreak />
+                    UB Mannheim 維護了 Windows 安裝程式：<LineBreak />
                     <Hyperlink NavigateUri="https://github.com/UB-Mannheim/tesseract/wiki" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/UB-Mannheim/tesseract/wiki/</Hyperlink>
                 </TextBlock>
             </StackPanel>
         </controls:SettingsExpander>
 
         <controls:SettingsExpander
-            Description="What Tesseract is, how Text Grab uses it, and why you might want it."
-            HeaderText="About Tesseract"
+            Description="Tesseract 的介紹、Text Grab 使用方式，以及使用它的理由。"
+            HeaderText="關於 Tesseract"
             Icon="{ui:SymbolIcon QuestionCircle24}">
             <StackPanel>
-                <TextBlock FontWeight="SemiBold" Text="What is Tesseract?" />
+                <TextBlock FontWeight="SemiBold" Text="Tesseract 是什麼？" />
                 <TextBlock
                     Margin="0,2,0,10"
                     Style="{StaticResource TextBodyNormal}"
                     TextWrapping="Wrap">
-                    Tesseract is an optical character recognition engine for various operating systems. It is free software, released under the Apache License. Originally developed by Hewlett-Packard as proprietary software in the 1980s, it was released as open source in 2005 and development has been sponsored by Google since 2006.<LineBreak /><Hyperlink NavigateUri="https://en.wikipedia.org/wiki/Tesseract_(software)" RequestNavigate="Hyperlink_RequestNavigate">
+                    Tesseract 是適用於多種作業系統的光學字元辨識引擎。它是以 Apache License 發行的自由軟體。最初由 Hewlett-Packard 在 1980 年代以專有軟體開發，2005 年以開放原始碼形式釋出，自 2006 年起由 Google 贊助開發。<LineBreak /><Hyperlink NavigateUri="https://en.wikipedia.org/wiki/Tesseract_(software)" RequestNavigate="Hyperlink_RequestNavigate">
                         More: https://en.wikipedia.org/wiki/Tesseract_(software)
                     </Hyperlink>
                 </TextBlock>
 
-                <TextBlock FontWeight="SemiBold" Text="How does Text Grab use Tesseract?" />
+                <TextBlock FontWeight="SemiBold" Text="Text Grab 如何使用 Tesseract？" />
                 <TextBlock Margin="0,2,0,10" Style="{StaticResource TextBodyNormal}">
-                    Text Grab will capture the image then pass it to the Tesseract EXE. Then Tesseract returns the result of the OCR to Text Grab and error occurs according to user settings.<LineBreak />
-                    Does not use Tesseract: Table Recogintion and the Grab Frame.</TextBlock>
+                    Text Grab 會擷取圖片並交由 Tesseract 執行檔處理。接著 Tesseract 會將 OCR 結果傳回 Text Grab，並依照使用者設定處理錯誤。<LineBreak />
+                    不使用 Tesseract 的功能：表格辨識與擷取框。</TextBlock>
 
-                <TextBlock FontWeight="SemiBold" Text="Why should I use Tesseract?" />
+                <TextBlock FontWeight="SemiBold" Text="為什麼要使用 Tesseract？" />
                 <TextBlock Margin="0,2,0,10" Style="{StaticResource TextBodyNormal}">
-                    Tesseract is known for having the best OCR capabilities. While the Windows OCR is convenient and fast, it has not been updated in years and Microsoft has no plans to update it.<LineBreak />
-                    Feel free to try Tesseract and hopefully it will work well for you. Ideally Text Grab can bring together the convenience with the power of Tesseract.</TextBlock>
+                    Tesseract 以出色的 OCR 能力聞名。Windows OCR 雖然方便又快速，但多年來未曾更新，Microsoft 也沒有更新計畫。<LineBreak />
+                    歡迎試用 Tesseract，希望它能滿足您的需求。理想情況下，Text Grab 能結合便利性與 Tesseract 的強大功能。</TextBlock>
 
-                <TextBlock FontWeight="SemiBold" Text="Adding more language support" />
+                <TextBlock FontWeight="SemiBold" Text="新增其他語言支援" />
                 <TextBlock Margin="0,2,0,0" Style="{StaticResource TextBodyNormal}">
-                    The default OCR Models installed by UB Mannheim are the 'fast' models which are not as accurate. Other more accurate models can be downloaded from the tessdata GitHub repository here:<LineBreak />
+                    UB Mannheim 安裝的預設 OCR 模型是「快速」模型，準確度較低。您可以從此處的 tessdata GitHub 儲存庫下載更準確的模型：<LineBreak />
                     <Hyperlink NavigateUri="https://github.com/tesseract-ocr/tessdata" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/tesseract-ocr/tessdata</Hyperlink>
                     <LineBreak />
-                    After downloading language files, place them in the "tessdata" folder in the installed location of Tesseract.</TextBlock>
+                    下載語言檔後，請將檔案放入 Tesseract 安裝位置中的「tessdata」資料夾。</TextBlock>
             </StackPanel>
         </controls:SettingsExpander>
     </StackPanel>

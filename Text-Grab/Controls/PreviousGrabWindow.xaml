@@ -90,7 +90,7 @@
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Foreground="White"
-                                Text="Cancel" />
+                                Text="取消" />
                         </StackPanel>
                     </Button>
                     <Button
@@ -104,7 +104,7 @@
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Foreground="White"
-                                Text="Re-grab" />
+                                Text="重新擷取" />
                         </StackPanel>
                     </Button>
                     <Button
@@ -119,7 +119,7 @@
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Foreground="White"
-                                Text="Send to Grab Frame" />
+                                Text="傳送至擷取框" />
                         </StackPanel>
                     </Button>
                     <ToggleButton
@@ -129,7 +129,7 @@
                         Margin="4,0"
                         Click="SendToEtwToggleButton_Click"
                         Style="{StaticResource ToggleSymbolButton}"
-                        ToolTip="Send to an Edit Text Window"
+                        ToolTip="傳送至文字編輯視窗"
                         Visibility="Collapsed">
                         <ui:SymbolIcon Symbol="Window24" />
                     </ToggleButton>

@@ -137,7 +137,7 @@ public partial class GrabFrame : Window
     private bool isGrabbingMultiplePages;
     private bool isLoadedVisualDocument = false;
     private double frozenFrameContentScale = 1;
-    private const string TargetLanguageMenuHeader = "Target Language";
+    private const string TargetLanguageMenuHeader = "目標語言";
     private string _lastSpokenFrameText = string.Empty;
     private bool _speakOnNextFrameTextUpdate = false;
     private bool isSpeakEnabled = false;
@@ -229,8 +229,8 @@ public partial class GrabFrame : Window
             Loaded += async (s, e) => await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = "No file path was provided.",
-                CloseButtonText = "OK"
+                Content = "未提供檔案路徑。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -244,8 +244,8 @@ public partial class GrabFrame : Window
             Loaded += async (s, e) => await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = $"File not found:\n{absolutePath}",
-                CloseButtonText = "OK"
+                Content = $"找不到檔案：\n{absolutePath}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -294,7 +294,7 @@ public partial class GrabFrame : Window
 
         ShouldSaveOnClose = false;
         _editingTemplate = template;
-        Title = $"Edit Template: {template.Name}";
+        Title = $"編輯範本：{template.Name}";
 
         Loaded += async (s, e) => await LoadTemplateForEditing(template);
     }
@@ -697,7 +697,7 @@ public partial class GrabFrame : Window
     {
         if (TableToggleButton.IsChecked is not true || wordBorders.Count == 0)
         {
-            ShowFrameMessage("Turn on table analysis after OCR to place table dividers.");
+            ShowFrameMessage("請在 OCR 後啟用表格分析，才能放置表格分隔線。");
             UpdateTableEditingUiState();
             return;
         }
@@ -778,7 +778,7 @@ public partial class GrabFrame : Window
 
         if (!tableEditState.TryCommitPreview())
         {
-            ShowFrameMessage("Move farther from the table edge or another divider.");
+            ShowFrameMessage("請移至遠離表格邊緣或其他分隔線的位置。");
             return true;
         }
 
@@ -833,7 +833,7 @@ public partial class GrabFrame : Window
         string placementTarget = tableEditState.PlacementMode == GrabFrameTablePlacementMode.AddRow
             ? "row"
             : "column";
-        TablePlacementInstructionsTextBlock.Text = $"Click inside the table to place a {placementTarget} divider. Press Esc to cancel.";
+        TablePlacementInstructionsTextBlock.Text = $"在表格內按一下以放置{placementTarget}分隔線。按 Esc 取消。";
     }
 
     private void UpdateTablePlacementPreview(Point pointerPosition)
@@ -934,7 +934,7 @@ public partial class GrabFrame : Window
     {
         if (_loadedPdfDocument is null)
         {
-            ShowFrameMessage("Open a PDF in the Grab Frame to grab multiple pages.");
+            ShowFrameMessage("在擷取框中開啟 PDF，即可擷取多個頁面。");
             return;
         }
 
@@ -989,7 +989,7 @@ public partial class GrabFrame : Window
                 List<PageTextSnapshot> snapshots = [];
                 foreach (int pageIndex in pagesToGrab)
                 {
-                    ShowFrameMessage($"Checking page {pageIndex + 1} for repeated headers and footers...");
+                    ShowFrameMessage($"正在檢查第 {pageIndex + 1} 頁是否有重複的頁首與頁尾...");
 
                     if (!await PrepareCurrentPdfPageForGrabAsync(pageIndex, ocrResultsByPage))
                         return;
@@ -1004,7 +1004,7 @@ public partial class GrabFrame : Window
             for (int position = 0; position < pagesToGrab.Count; position++)
             {
                 int pageIndex = pagesToGrab[position];
-                ShowFrameMessage($"Grabbing page {pageIndex + 1} of {lastPageNumber}...");
+                ShowFrameMessage($"正在擷取第 {pageIndex + 1} 頁，共 {lastPageNumber} 頁...");
 
                 if (!await PrepareCurrentPdfPageForGrabAsync(pageIndex, ocrResultsByPage))
                     return;
@@ -1033,7 +1033,7 @@ public partial class GrabFrame : Window
         string outputText = combinedText.ToString().TrimEnd();
         if (string.IsNullOrWhiteSpace(outputText))
         {
-            ShowFrameMessage("No text was found on the selected pages.");
+            ShowFrameMessage("所選頁面中找不到文字。");
             return;
         }
 
@@ -1530,7 +1530,7 @@ public partial class GrabFrame : Window
             direction);
 
         ApplyFrozenFrameContentScale();
-        ShowFrameMessage($"Image scale {frozenFrameContentScale:P0}");
+        ShowFrameMessage($"影像縮放比例 {frozenFrameContentScale:P0}");
     }
 
     public HistoryInfo AsHistoryItem()
@@ -3133,7 +3133,7 @@ public partial class GrabFrame : Window
             return;
         }
 
-        if (TextSearchUtilities.HasSearchText(SearchBar.SearchText) && SearchBar.SearchText != "Search For Text...")
+        if (TextSearchUtilities.HasSearchText(SearchBar.SearchText) && SearchBar.SearchText != SearchBar.PlaceholderText)
             SearchBar.SearchText = "";
         else if (RectanglesCanvas.Children.Count > 0)
         {
@@ -3850,14 +3850,14 @@ public partial class GrabFrame : Window
             return;
 
         string message = DefaultSettings.UiAutomationFallbackToOcr
-            ? "UI Automation reads live application controls. This Grab Frame currently contains a static image, so Text Grab will fall back to OCR for image-only operations."
-            : "UI Automation reads live application controls. This Grab Frame currently contains a static image, so image-only operations will not return UI Automation text.";
+            ? "UI Automation 會讀取應用程式中的即時控制項。目前擷取框包含靜態影像，因此 Text Grab 會在僅適用於影像的操作中改用 OCR。"
+            : "UI Automation 會讀取應用程式中的即時控制項。目前擷取框包含靜態影像，因此僅適用於影像的操作不會傳回 UI Automation 文字。";
 
         await new Wpf.Ui.Controls.MessageBox
         {
             Title = "Text Grab",
             Content = message,
-            CloseButtonText = "OK"
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 
@@ -4052,7 +4052,7 @@ public partial class GrabFrame : Window
             Filter = GrabFrameFileUtilities.GetGrabFrameFileFilter(),
             DefaultExt = GrabFrameFileUtilities.GrabFrameFileExtension,
             AddExtension = true,
-            Title = "Save Grab Frame File",
+            Title = "儲存擷取框檔案",
             FileName = "Grab Frame",
         };
 
@@ -4070,8 +4070,8 @@ public partial class GrabFrame : Window
                 await new Wpf.Ui.Controls.MessageBox
                 {
                     Title = "Text Grab",
-                    Content = $"Failed to save Grab Frame file:\n{dlg.FileName}",
-                    CloseButtonText = "OK"
+                    Content = $"無法儲存擷取框檔案：\n{dlg.FileName}",
+                    CloseButtonText = "確定"
                 }.ShowDialogAsync();
             }
         }
@@ -4089,7 +4089,7 @@ public partial class GrabFrame : Window
         Microsoft.Win32.OpenFileDialog dlg = new()
         {
             Filter = GrabFrameFileUtilities.GetGrabFrameFileFilter(),
-            Title = "Open Grab Frame File",
+            Title = "開啟擷取框檔案",
             CheckFileExists = true,
         };
 
@@ -4103,8 +4103,8 @@ public partial class GrabFrame : Window
             await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = $"Failed to open Grab Frame file:\n{dlg.FileName}",
-                CloseButtonText = "OK"
+                Content = $"無法開啟擷取框檔案：\n{dlg.FileName}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -4515,7 +4515,7 @@ public partial class GrabFrame : Window
             isStaticImageSource,
             frozenUiAutomationSnapshot is not null))
         {
-            ShowFrameMessage("Cannot use UI Automation on a saved image. Switch to an OCR language to refresh.");
+            ShowFrameMessage("無法對已儲存的影像使用 UI Automation。請切換 OCR 語言以重新整理。");
             return;
         }
 
@@ -4616,7 +4616,7 @@ public partial class GrabFrame : Window
         {
             ClearSearchMatchesAndSelection();
             UpdateFrameText();
-            MatchesTXTBLK.Text = $"Search Error";
+            MatchesTXTBLK.Text = $"搜尋錯誤";
             return;
         }
 
@@ -4901,9 +4901,9 @@ public partial class GrabFrame : Window
         Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
         {
             Title = "Text Grab",
-            Content = "This Grab Frame has edits that haven't been saved. Continuing will discard them and re-run OCR.\n\nContinue anyway?",
-            PrimaryButtonText = "Discard Edits",
-            CloseButtonText = "Cancel"
+            Content = "此擷取框有尚未儲存的修改。繼續將會捨棄修改並重新執行 OCR。\n\n仍要繼續嗎？",
+            PrimaryButtonText = "捨棄修改",
+            CloseButtonText = "取消"
         }.ShowDialogAsync();
 
         return result == Wpf.Ui.Controls.MessageBoxResult.Primary;
@@ -5027,9 +5027,9 @@ public partial class GrabFrame : Window
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "No Regions or Patterns",
-                Content = "Use Ctrl+drag to draw at least one region, or add a pattern placeholder, before saving.",
-                CloseButtonText = "OK"
+                Title = "沒有區域或模式",
+                Content = "儲存前請按住 Ctrl 並拖曳以繪製至少一個區域，或新增模式預留位置。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -5087,9 +5087,9 @@ public partial class GrabFrame : Window
 
         await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Template Saved",
-            Content = $"Template \"{name}\" saved with {itemsDesc}.\n\nEnable it in Post-Grab Actions Settings to use it during a Fullscreen Grab.",
-            CloseButtonText = "OK"
+            Title = "範本已儲存",
+            Content = $"範本「{name}」已儲存，包含 {itemsDesc}。\n\n請在「擷取後動作」設定中啟用範本，才能在全螢幕擷取時使用。",
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 
@@ -5140,7 +5140,7 @@ public partial class GrabFrame : Window
         if (sender is not ContextMenu menu) return;
         menu.Items.Clear();
 
-        MenuItem createItem = new() { Header = "Create new Grab Template..." };
+        MenuItem createItem = new() { Header = "建立新的擷取範本..." };
         createItem.Click += (_, _) =>
         {
             bool show = TemplateSavePanel.Visibility != Visibility.Visible;
@@ -5426,8 +5426,8 @@ public partial class GrabFrame : Window
             await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = "Not an image",
-                CloseButtonText = "OK"
+                Content = "不是圖片",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -5454,8 +5454,8 @@ public partial class GrabFrame : Window
             await new Wpf.Ui.Controls.MessageBox
             {
                 Title = "Text Grab",
-                Content = $"Failed to open PDF.{Environment.NewLine}{ex.Message}",
-                CloseButtonText = "OK"
+                Content = $"無法開啟 PDF。{Environment.NewLine}{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -5915,7 +5915,7 @@ public partial class GrabFrame : Window
             // borders (including manual corrections) remain valid. Keep them and let
             // the content-change watcher re-OCR only once the screen actually changes.
             contentChangeDetector.Reset();
-            ShowFrameMessage("Frame unchanged — keeping recognized words.");
+            ShowFrameMessage("擷取框未變更 — 保留已辨識的文字。");
         }
     }
 
@@ -6774,9 +6774,9 @@ public partial class GrabFrame : Window
                 {
                     await new Wpf.Ui.Controls.MessageBox
                     {
-                        Title = "Translation Not Available",
-                        Content = reason ?? "Windows AI is not available on this device.",
-                        CloseButtonText = "OK"
+                        Title = "無法使用翻譯",
+                        Content = reason ?? "此裝置無法使用 Windows AI。",
+                        CloseButtonText = "確定"
                     }.ShowDialogAsync();
                     TranslateToggleButton.IsChecked = false;
                     isTranslationEnabled = false;
@@ -6843,7 +6843,7 @@ public partial class GrabFrame : Window
         DefaultSettings.Save();
 
         // Update the tooltip to show the current target language
-        TranslateToggleButton.ToolTip = $"Enable real-time translation to {language}";
+        TranslateToggleButton.ToolTip = $"啟用即時翻譯為 {language}";
 
         // Uncheck all language menu items and check only the selected one
         if (menuItem.Parent is MenuItem parentMenu)
@@ -6953,7 +6953,7 @@ public partial class GrabFrame : Window
         catch (Exception ex)
         {
             Debug.WriteLine($"Translation error: {ex.Message}");
-            failureMessage = $"Translation failed: {ex.Message}";
+            failureMessage = $"翻譯失敗：{ex.Message}";
         }
         finally
         {
@@ -6971,9 +6971,9 @@ public partial class GrabFrame : Window
 
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Translation Failed",
+                Title = "翻譯失敗",
                 Content = failureMessage,
-                CloseButtonText = "OK"
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -7017,7 +7017,7 @@ public partial class GrabFrame : Window
         {
             TranslateToggleButton.IsChecked = isTranslationEnabled;
             EnableTranslationMenuItem.IsChecked = isTranslationEnabled;
-            TranslateToggleButton.ToolTip = $"Enable real-time translation to {translationTargetLanguage}";
+            TranslateToggleButton.ToolTip = $"啟用即時翻譯為 {translationTargetLanguage}";
         }
         else
         {

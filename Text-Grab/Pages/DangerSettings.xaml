@@ -15,9 +15,9 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Dangerous Options" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="進階風險選項" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="App" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="應用程式" />
 
         <controls:SettingsCard HeaderText="Shutdown Text Grab" Icon="{ui:SymbolIcon Power24}">
             <controls:CollapsibleButton
@@ -25,66 +25,66 @@
                 AutomationProperties.AutomationId="Settings.Danger.ShutdownButton"
                 Margin="0"
                 ButtonSymbol="Power24"
-                ButtonText="Shutdown Text Grab"
+                ButtonText="關閉 Text Grab"
                 Click="ShutdownButton_Click" />
         </controls:SettingsCard>
 
-        <controls:SettingsCard HeaderText="Reset Tray icon" Icon="{ui:SymbolIcon ArrowClockwise24}">
+        <controls:SettingsCard HeaderText="重設系統匣圖示" Icon="{ui:SymbolIcon ArrowClockwise24}">
             <controls:CollapsibleButton
                 x:Name="RetrySettingTrayButton"
                 AutomationProperties.AutomationId="Settings.Danger.ResetTrayButton"
                 Margin="0"
                 ButtonSymbol="ArrowClockwise24"
-                ButtonText="Reset Tray Icon"
+                ButtonText="重設系統匣圖示"
                 Click="RetrySettingTrayButton_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Generate bug report with app diagnostic information."
-            HeaderText="Export bug report"
+            Description="產生包含應用程式診斷資訊的錯誤報告。"
+            HeaderText="匯出錯誤報告"
             Icon="{ui:SymbolIcon Bug24}">
             <controls:CollapsibleButton
                 x:Name="ExportBugReportButton"
                 AutomationProperties.AutomationId="Settings.Danger.ExportBugReportButton"
                 Margin="0"
                 ButtonSymbol="Bug24"
-                ButtonText="Export Bug Report"
+                ButtonText="匯出錯誤報告"
                 Click="ExportBugReportButton_Click" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="External links" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="外部連結" />
 
         <controls:SettingsCard
-            Description="Ask for confirmation before opening an email link from captured or pasted text. Only open links from sources you trust."
-            HeaderText="Email link warnings (mailto:)"
+            Description="開啟從擷取或貼上的文字中找到的電子郵件連結前，先要求確認。僅開啟來自可信來源的連結。"
+            HeaderText="電子郵件連結警告 (mailto:)"
             Icon="{ui:SymbolIcon Mail24}">
             <ui:ToggleSwitch
                 x:Name="EmailLinkWarningToggle"
                 AutomationProperties.AutomationId="Settings.Danger.EmailLinkWarningToggle"
                 Checked="ExternalLinkWarningToggle_Changed"
-                OffContent="Open without warning"
-                OnContent="Warn before opening"
+                OffContent="直接開啟，不顯示警告"
+                OnContent="開啟前顯示警告"
                 Unchecked="ExternalLinkWarningToggle_Changed" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Ask for confirmation before opening a telephone link. Calls may incur charges or reveal your number."
-            HeaderText="Telephone link warnings (tel:)"
+            Description="開啟電話連結前先要求確認。通話可能產生費用或洩漏您的電話號碼。"
+            HeaderText="電話連結警告 (tel:)"
             Icon="{ui:SymbolIcon Call24}">
             <ui:ToggleSwitch
                 x:Name="TelephoneLinkWarningToggle"
                 AutomationProperties.AutomationId="Settings.Danger.TelephoneLinkWarningToggle"
                 Checked="ExternalLinkWarningToggle_Changed"
-                OffContent="Open without warning"
-                OnContent="Warn before opening"
+                OffContent="直接開啟，不顯示警告"
+                OnContent="開啟前顯示警告"
                 Unchecked="ExternalLinkWarningToggle_Changed" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Backup and restore" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="備份與還原" />
 
         <controls:SettingsExpander
-            Description="Export all settings and optionally history to a portable ZIP file."
-            HeaderText="Export settings"
+            Description="將所有設定及（可選的）歷史記錄匯出為 ZIP 檔案。"
+            HeaderText="匯出設定"
             Icon="{ui:SymbolIcon SaveArrowRight24}">
             <controls:SettingsExpander.SettingsContent>
                 <controls:CollapsibleButton
@@ -92,30 +92,30 @@
                     AutomationProperties.AutomationId="Settings.Danger.ExportSettingsButton"
                     Margin="0"
                     ButtonSymbol="FolderZip24"
-                    ButtonText="Export Settings"
+                    ButtonText="匯出設定"
                     Click="ExportSettingsButton_Click" />
             </controls:SettingsExpander.SettingsContent>
             <CheckBox
                 x:Name="IncludeHistoryCheckBox"
                 AutomationProperties.AutomationId="Settings.Danger.IncludeHistoryToggle"
-                Content="Include history (images and text)"
+                Content="包含歷史記錄（圖片與文字）"
                 IsChecked="True" />
         </controls:SettingsExpander>
 
         <controls:SettingsCard
-            Description="Import settings and history from a previously exported ZIP file."
-            HeaderText="Import settings"
+            Description="從先前匯出的 ZIP 檔案匯入設定與歷史記錄。"
+            HeaderText="匯入設定"
             Icon="{ui:SymbolIcon ArrowImport24}">
             <controls:CollapsibleButton
                 x:Name="ImportSettingsButton"
                 AutomationProperties.AutomationId="Settings.Danger.ImportSettingsButton"
                 Margin="0"
                 ButtonSymbol="ArrowImport24"
-                ButtonText="Import Settings"
+                ButtonText="匯入設定"
                 Click="ImportSettingsButton_Click" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Experimental" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="實驗性功能" />
 
         <Border
             Padding="12"
@@ -127,15 +127,15 @@
                 <TextBlock
                     FontWeight="Bold"
                     Style="{StaticResource TextBodyNormal}"
-                    Text="Experimental file-backed settings storage" />
+                    Text="實驗性檔案式設定儲存" />
                 <TextBlock
                     Margin="0,6,0,0"
                     Style="{StaticResource TextBodyNormal}"
                     TextWrapping="Wrap">
-                    <Run Text="This transition feature keeps a second file-backed copy of large settings and can reduce Text Grab's RAM usage by moving large settings payloads out of the main settings store. It is off by default for rollback safety." />
+                    <Run Text="此過渡功能會為大型設定保留另一份檔案副本，並將大型設定資料移出主要設定儲存區，以降低 Text Grab 的記憶體用量。為確保可安全還原，此功能預設為關閉。" />
                     <LineBreak />
-                    <Hyperlink Click="BackupSettingsHyperlink_Click">Backup your settings</Hyperlink>
-                    <Run Text=" before enabling it, then restart Text Grab. The restart applies the new storage preference on launch so Text Grab can keep the legacy strings and the file-backed copies in sync." />
+                    <Hyperlink Click="BackupSettingsHyperlink_Click">備份設定</Hyperlink>
+                    <Run Text=" 啟用前，請先備份設定，然後重新啟動 Text Grab。重新啟動時才會套用新的儲存偏好，讓 Text Grab 維持舊格式字串與檔案副本同步。" />
                 </TextBlock>
                 <ui:ToggleSwitch
                     x:Name="EnableFileBackedManagedSettingsToggle"
@@ -144,7 +144,7 @@
                     Checked="EnableFileBackedManagedSettingsToggle_Checked"
                     Unchecked="EnableFileBackedManagedSettingsToggle_Checked">
                     <TextBlock Style="{StaticResource TextBodyNormal}">
-                        Enable experimental file-backed settings storage (restart required)
+                        啟用實驗性檔案式設定儲存（需重新啟動）
                     </TextBlock>
                 </ui:ToggleSwitch>
             </StackPanel>
@@ -152,22 +152,22 @@
 
         <controls:SettingsCard
             Margin="0,8,0,3"
-            Description="Windows Local AI model features normally require an ARM CPU. Override the check to allow any architecture."
-            HeaderText="Check CPU architecture before enabling Windows Local AI model features"
+            Description="Windows Local AI 模型功能通常需要 ARM CPU。覆寫此檢查即可允許任何處理器架構。"
+            HeaderText="啟用 Windows Local AI 模型功能前檢查 CPU 架構"
             Icon="{ui:SymbolIcon BrainCircuit24}">
             <ui:ToggleSwitch
                 x:Name="OverrideArchCheckWinAI"
                 AutomationProperties.AutomationId="Settings.Danger.OverrideWinAiArchitectureToggle"
                 Click="OverrideArchCheckWinAI_Click"
-                OffContent="ARM CPU only"
-                OnContent="No CPU Arch is checked" />
+                OffContent="僅限 ARM CPU"
+                OnContent="不檢查 CPU 架構" />
         </controls:SettingsCard>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Reset" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="重設" />
 
         <controls:SettingsCard
-            Description="Reset all settings to default settings."
-            HeaderText="Reset all settings"
+            Description="將所有設定還原為預設值。"
+            HeaderText="重設所有設定"
             Icon="{ui:SymbolIcon ArrowReset24}">
             <controls:CollapsibleButton
                 x:Name="ResetSettingsButton"
@@ -175,14 +175,14 @@
                 Margin="0"
                 Background="DarkRed"
                 ButtonSymbol="ArrowCounterclockwise24"
-                ButtonText="Reset All Settings"
+                ButtonText="重設所有設定"
                 Click="ResetSettingsButton_Click" />
         </controls:SettingsCard>
 
         <!--  Add how many history items exist to be deleted  -->
         <controls:SettingsCard
-            Description="Delete all history items."
-            HeaderText="Clear history"
+            Description="刪除所有歷史記錄項目。"
+            HeaderText="清除歷史記錄"
             Icon="{ui:SymbolIcon Delete24}">
             <controls:CollapsibleButton
                 x:Name="ClearHistoryButton"
@@ -190,7 +190,7 @@
                 Margin="0"
                 Background="DarkRed"
                 ButtonSymbol="Delete24"
-                ButtonText="Clear History"
+                ButtonText="清除歷史記錄"
                 Click="ClearHistoryButton_Click" />
         </controls:SettingsCard>
     </StackPanel>

@@ -147,10 +147,10 @@ public partial class PostGrabActionEditor : FluentWindow
     {
         Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Reset to Defaults",
-            Content = "This will reset to the default post-grab actions. Continue?",
-            PrimaryButtonText = "Yes",
-            CloseButtonText = "No"
+            Title = "重設為預設值",
+            Content = "即將重設擷取後動作為預設值。是否繼續？",
+            PrimaryButtonText = "是",
+            CloseButtonText = "否"
         }.ShowDialogAsync();
 
         if (result != Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -269,9 +269,9 @@ public partial class PostGrabActionEditor : FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "No Template Selected",
-                Content = "Select a template from the list first.",
-                CloseButtonText = "OK"
+                Title = "未選取範本",
+                Content = "請先從清單中選取範本。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -305,10 +305,10 @@ public partial class PostGrabActionEditor : FluentWindow
 
         Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Delete Template",
-            Content = $"Delete template '{selected.Name}'?",
-            PrimaryButtonText = "Yes",
-            CloseButtonText = "No"
+            Title = "刪除範本",
+            Content = $"要刪除範本「{selected.Name}」嗎？",
+            PrimaryButtonText = "是",
+            CloseButtonText = "否"
         }.ShowDialogAsync();
 
         if (result != Wpf.Ui.Controls.MessageBoxResult.Primary)

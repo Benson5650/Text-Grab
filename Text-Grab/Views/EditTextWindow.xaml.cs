@@ -49,11 +49,11 @@ namespace Text_Grab;
 
 public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 {
-    private const string EditTextWindowTitle = "Edit Text";
+    private const string EditTextWindowTitle = "文字編輯";
     private const double SpreadsheetDefaultColumnWidth = 120;
     private const double HorizontalWheelScrollStep = 48;
     private const int WmMouseHWheel = 0x020E;
-    private const string SaveDocumentFilter = "Spreadsheet documents (*.csv;*.tsv;*.tab)|*.csv;*.tsv;*.tab|Markdown documents (*.md;*.markdown)|*.md;*.markdown|Text documents (*.txt)|*.txt|All files (*.*)|*.*";
+    private const string SaveDocumentFilter = "試算表文件 (*.csv;*.tsv;*.tab)|*.csv;*.tsv;*.tab|Markdown 文件 (*.md;*.markdown)|*.md;*.markdown|文字文件 (*.txt)|*.txt|所有檔案 (*.*)|*.*";
     #region Fields
 
     public static RoutedCommand DeleteAllSelectionCmd = new();
@@ -311,7 +311,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         }
         catch (Exception ex)
         {
-            PassedTextControl.AppendText($"Failed to read directory: {ex.Message}{Environment.NewLine}");
+            PassedTextControl.AppendText($"讀取資料夾失敗：{ex.Message}{Environment.NewLine}");
         }
 
         if (files is null)
@@ -321,7 +321,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
         if (imageFiles.Count == 0)
         {
-            PassedTextControl.AppendText($"{folderPath} contains no images or PDFs");
+            PassedTextControl.AppendText($"{folderPath} 中沒有圖片或 PDF");
             return;
         }
 
@@ -351,32 +351,32 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             PassedTextControl.AppendText(folderPath);
             PassedTextControl.AppendText(Environment.NewLine);
-            PassedTextControl.AppendText($"{imageFiles.Count} files found");
+            PassedTextControl.AppendText($"找到 {imageFiles.Count} 個檔案");
 
             if (!string.IsNullOrEmpty(tesseractLanguageTag))
             {
                 PassedTextControl.AppendText(Environment.NewLine);
-                PassedTextControl.AppendText($"Using {tesseractLanguageTag} from Tesseract.");
+                PassedTextControl.AppendText($"使用 Tesseract 的 {tesseractLanguageTag}。");
                 PassedTextControl.AppendText(Environment.NewLine);
-                PassedTextControl.AppendText("Tesseract can only run single threaded,");
+                PassedTextControl.AppendText("Tesseract 只能以單執行緒執行，");
                 PassedTextControl.AppendText(Environment.NewLine);
-                PassedTextControl.AppendText("May be slower if processing many images");
+                PassedTextControl.AppendText("處理大量圖片時可能會比較慢");
                 PassedTextControl.AppendText(Environment.NewLine);
             }
             else
             {
                 PassedTextControl.AppendText(Environment.NewLine);
-                PassedTextControl.AppendText($"Using {selectedLanguage.DisplayName} from Windows.");
+                PassedTextControl.AppendText($"使用 Windows 的 {selectedLanguage.DisplayName}。");
                 PassedTextControl.AppendText(Environment.NewLine);
             }
 
             if (options.GrabTemplate is GrabTemplate headerTemplate)
             {
-                PassedTextControl.AppendText($"Using template: {headerTemplate.Name}");
+                PassedTextControl.AppendText($"使用範本：{headerTemplate.Name}");
                 PassedTextControl.AppendText(Environment.NewLine);
             }
 
-            PassedTextControl.AppendText("Press Escape to cancel");
+            PassedTextControl.AppendText("按 Esc 取消");
             PassedTextControl.AppendText(Environment.NewLine);
             PassedTextControl.AppendText(Environment.NewLine);
         }
@@ -400,14 +400,14 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             if (options.OutputFooter)
             {
                 PassedTextControl.AppendText(Environment.NewLine);
-                PassedTextControl.AppendText($"----- COMPLETED OCR OF {imageFiles.Count} files");
+                PassedTextControl.AppendText($"----- 已完成 {imageFiles.Count} 個檔案的 OCR");
             }
         }
         catch (OperationCanceledException)
         {
             PassedTextControl.AppendText(Environment.NewLine);
             int countCompleted = ocrFileResults.Where(r => r.OcrResult is not null).Count();
-            PassedTextControl.AppendText($"----- CANCELLED OCR OF {ocrFileResults.Count - countCompleted}, Completed {countCompleted} files");
+            PassedTextControl.AppendText($"----- 已取消 {ocrFileResults.Count - countCompleted} 個檔案的 OCR，已完成 {countCompleted} 個檔案");
         }
         finally
         {
@@ -422,7 +422,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             PassedTextControl.AppendText(Environment.NewLine);
             PassedTextControl.AppendText($"----- from {folderPath}");
             PassedTextControl.AppendText(Environment.NewLine);
-            PassedTextControl.AppendText($"----- and took {stopwatch.Elapsed:c}");
+            PassedTextControl.AppendText($"----- 耗時 {stopwatch.Elapsed:c}");
         }
         PassedTextControl.ScrollToEnd();
 
@@ -2671,7 +2671,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             {
                 MenuItem mi = new()
                 {
-                    Header = "no suggestions",
+                    Header = "沒有建議",
                     IsEnabled = false
                 };
                 PassedTextControl.ContextMenu.Items.Insert(cmdIndex, mi);
@@ -2682,7 +2682,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             cmdIndex++;
             MenuItem ignoreAllMI = new()
             {
-                Header = "Ignore All",
+                Header = "全部忽略",
                 Command = System.Windows.Documents.EditingCommands.IgnoreSpellingError,
                 CommandTarget = PassedTextControl
             };
@@ -3048,9 +3048,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Audio Transcription Unavailable",
-                Content = "Audio transcription isn't available on this device.",
-                CloseButtonText = "OK"
+                Title = "無法使用音訊轉錄",
+                Content = "此裝置無法使用音訊轉錄。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -3078,7 +3078,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             // in the middle of the stream. AppendText still works while read-only.
             PassedTextControl.IsReadOnly = true;
             TranscriptionCancelButton.IsEnabled = true;
-            TranscriptionStatusText.Text = multiple ? "Transcribing audio files…" : "Transcribing audio…";
+            TranscriptionStatusText.Text = multiple ? "正在轉錄音訊檔案…" : "正在轉錄音訊…";
             TranscriptionProgressBar.Visibility = Visibility.Collapsed;
             TranscriptionProgressBar.Value = 0;
             TranscriptionStatusBar.Visibility = Visibility.Visible;
@@ -3106,8 +3106,8 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                     TranscriptionProgressBar.Visibility = Visibility.Visible;
                     TranscriptionProgressBar.Value = overall * 100;
                     TranscriptionStatusText.Text = multiple
-                        ? $"Transcribing audio files… ({fileIndex + 1}/{audioFiles.Count}) {fraction:P0}"
-                        : $"Transcribing audio… {fraction:P0}";
+                        ? $"正在轉錄音訊檔案… ({fileIndex + 1}/{audioFiles.Count}) {fraction:P0}"
+                        : $"正在轉錄音訊… {fraction:P0}";
                     overallProgress?.Report(overall);
                 });
 
@@ -3117,7 +3117,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                     clipProgress: clipProgress, cancellationToken);
 
                 if (string.IsNullOrWhiteSpace(transcription))
-                    AppendTranscriptionText("(no speech recognized)");
+                    AppendTranscriptionText("（未辨識到語音）");
 
                 // Blank line between files (and after the last, trimmed on sync).
                 AppendTranscriptionText(Environment.NewLine + Environment.NewLine);
@@ -3159,9 +3159,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             if (IsLoaded)
                 await new Wpf.Ui.Controls.MessageBox
                 {
-                    Title = "Audio Transcription Failed",
+                    Title = "音訊轉錄失敗",
                     Content = errorMessage,
-                    CloseButtonText = "OK"
+                    CloseButtonText = "確定"
                 }.ShowDialogAsync();
         }
         else if (!cancelled && DefaultSettings.NotifyOnTranscriptionComplete)
@@ -5217,11 +5217,11 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         PendingFileCloseAction closeButtonAction = PendingFileCloseAction.Cancel;
         Wpf.Ui.Controls.ContentDialog promptDialog = new(PendingFileCloseDialogHost)
         {
-            Title = $"Save changes to {fileName}?",
-            Content = "You have pending edits. Save the file, discard the changes, or keep the current version in Text Grab history.",
-            PrimaryButtonText = "Save",
+            Title = $"要儲存對 {fileName} 的變更嗎？",
+            Content = "尚有未儲存的修改。你可以儲存檔案、捨棄變更，或將目前版本保留在 Text Grab 記錄中。",
+            PrimaryButtonText = "儲存",
             SecondaryButtonText = "Don't Save",
-            CloseButtonText = "Save to History",
+            CloseButtonText = "儲存至記錄",
             DefaultButton = Wpf.Ui.Controls.ContentDialogButton.Primary,
         };
 
@@ -5575,7 +5575,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             MenuItem searchItem = new()
             {
-                Header = $"Search with {searcher.Name}...",
+                Header = $"使用 {searcher.Name} 搜尋...",
                 Command = WebSearchCmd,
                 CommandParameter = searcher,
             };
@@ -5616,9 +5616,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Did not split lines",
-                Content = "No text selected",
-                CloseButtonText = "OK"
+                Title = "未分割行",
+                Content = "未選取文字",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -5638,9 +5638,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Did not split lines",
-                Content = "No text selected",
-                CloseButtonText = "OK"
+                Title = "未分割行",
+                Content = "未選取文字",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
@@ -5793,7 +5793,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                 .Count();
 
             BottomBarText.Text =
-                $"Rows {rowCount}, Cols {columnCount}, Selected {SpreadsheetDataGrid.SelectedCells.Count} cells ({selectedRowCount} rows x {selectedColumnCount} cols)";
+                $"{rowCount} 列、{columnCount} 欄；已選取 {SpreadsheetDataGrid.SelectedCells.Count} 個儲存格（{selectedRowCount} 列 × {selectedColumnCount} 欄）";
             return;
         }
 
@@ -5895,7 +5895,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         else if (DefaultSettings.EtwShowCharDetails && selectedText.Length > 1)
         {
             CharDetailsButtonText.Text = $"{selectedText.Length} chars";
-            CharDetailsButton.ToolTip = "Click to see character details";
+            CharDetailsButton.ToolTip = "按一下查看字元詳細資訊";
             CharDetailsButton.Visibility = Visibility.Visible;
         }
         else
@@ -5935,7 +5935,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                 similarButton.Text = similarCount == 1 ? "1 similar" : $"{similarCount} similar";
             }
             string levelLabel = ExtractedPattern.GetLevelLabel(currentPrecisionLevel);
-            SimilarMatchesButton.ToolTip = $"Click to Find and Replace with: {regexPattern}\n(Precision: {levelLabel})\nScroll mouse wheel to adjust precision";
+            SimilarMatchesButton.ToolTip = $"按一下以尋找並取代為：{regexPattern}\n（精確度：{levelLabel}）\n滾動滑鼠滾輪可調整精確度";
             SimilarMatchesButton.Visibility = similarCount > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
         else
@@ -5961,7 +5961,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                     : $"Regex: {regexPattern}";
             }
             string levelLabel = ExtractedPattern.GetLevelLabel(currentPrecisionLevel);
-            RegexPatternButton.ToolTip = $"Click to Find and Replace with: {regexPattern}\n(Precision: {levelLabel})\nScroll mouse wheel to adjust precision";
+            RegexPatternButton.ToolTip = $"按一下以尋找並取代為：{regexPattern}\n（精確度：{levelLabel}）\n滾動滑鼠滾輪可調整精確度";
             RegexPatternButton.Visibility = Visibility.Visible;
         }
         else
@@ -6133,7 +6133,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             // Show details for multiple characters in one multi-line TextBox
             StringBuilder allDetails = new();
-            allDetails.AppendLine($"Character Details ({selectedText.Length} characters)");
+            allDetails.AppendLine($"字元詳細資訊（{selectedText.Length} 個字元）");
             allDetails.AppendLine();
 
             // Limit to first 10 characters to avoid huge popup
@@ -6391,7 +6391,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
             // Set dynamic header text for TranslateToSystemLanguageMenuItem
             string systemLanguage = LanguageUtilities.GetSystemLanguageForTranslation();
-            TranslateToSystemLanguageMenuItem.Header = $"Translate to {systemLanguage}";
+            TranslateToSystemLanguageMenuItem.Header = $"翻譯為 {systemLanguage}";
 
             NotifyOnLocalAiCompleteMenuItem.IsChecked = DefaultSettings.NotifyOnLocalAiComplete;
             SendLocalAiResultToNewWindowMenuItem.IsChecked = DefaultSettings.SendLocalAiResultToNewWindow;
@@ -6978,7 +6978,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         catch (Exception ex)
         {
             Debug.WriteLine($"Summarize exception: {ex.Message}");
-            failure = WinAiGenerationResult.Failed(WinAiFailure.ModelError, $"Summarizing failed: {ex.Message}");
+            failure = WinAiGenerationResult.Failed(WinAiFailure.ModelError, $"摘要失敗：{ex.Message}");
         }
         finally
         {
@@ -6989,9 +6989,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Summarize Failed",
-                Content = summaryFailure.Message ?? "The text could not be summarized.",
-                CloseButtonText = "OK"
+                Title = "摘要失敗",
+                Content = summaryFailure.Message ?? "無法摘要這段文字。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         else if (resultUnchanged)
@@ -7002,7 +7002,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
     private async void MeetingNotesMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        SetToLoading("Writing meeting notes...");
+        SetToLoading("正在撰寫會議記錄...");
 
         WinAiGenerationResult? failure = null;
         bool resultUnchanged = false;
@@ -7019,12 +7019,12 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             if (result.Text is null)
                 failure = result;
             else
-                resultUnchanged = !DeliverLocalAiResult("Meeting notes", sourceText, result.Text);
+                resultUnchanged = !DeliverLocalAiResult("會議記錄", sourceText, result.Text);
         }
         catch (Exception ex)
         {
             Debug.WriteLine($"Meeting notes exception: {ex.Message}");
-            failure = WinAiGenerationResult.Failed(WinAiFailure.ModelError, $"Meeting notes failed: {ex.Message}");
+            failure = WinAiGenerationResult.Failed(WinAiFailure.ModelError, $"會議記錄撰寫失敗：{ex.Message}");
         }
         finally
         {
@@ -7035,14 +7035,14 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Meeting Notes Failed",
-                Content = notesFailure.Message ?? "The text could not be written up as meeting notes.",
-                CloseButtonText = "OK"
+                Title = "會議記錄撰寫失敗",
+                Content = notesFailure.Message ?? "無法將這段文字整理為會議記錄。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         else if (resultUnchanged)
         {
-            await ShowLocalAiResultUnchangedAsync("Meeting notes");
+            await ShowLocalAiResultUnchangedAsync("會議記錄");
         }
     }
 
@@ -7067,8 +7067,8 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             _ = new Wpf.Ui.Controls.MessageBox
             {
                 Title = ex.Message,
-                Content = "An error occurred while trying to open a new window. Please try again.",
-                CloseButtonText = "OK"
+                Content = "開啟新視窗時發生錯誤，請再試一次。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return null;
         }
@@ -7127,9 +7127,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
     {
         await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "No Changes",
-            Content = $"{taskDescription} finished, but the result is the same as the original text, so nothing was changed.",
-            CloseButtonText = "OK"
+            Title = "沒有變更",
+            Content = $"{taskDescription} 已完成，但結果與原文相同，因此沒有任何變更。",
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
     }
 
@@ -7234,9 +7234,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             Debug.WriteLine($"Restarting the Local LLM failed: {ex.Message}");
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Restart Local LLM Failed",
-                Content = $"The Local LLM could not be restarted: {ex.Message}",
-                CloseButtonText = "OK"
+                Title = "重新啟動本機 LLM 失敗",
+                Content = $"無法重新啟動本機 LLM：{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         finally
@@ -7279,7 +7279,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         bool resultChanged;
         try
         {
-            resultChanged = await PerformLocalAiTransformAsync("Convert to Table", text => WindowsAiUtilities.TextToTable(text), EtwEditorMode.Spreadsheet);
+            resultChanged = await PerformLocalAiTransformAsync("轉換為表格", text => WindowsAiUtilities.TextToTable(text), EtwEditorMode.Spreadsheet);
         }
         finally
         {
@@ -7287,7 +7287,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         }
 
         if (!resultChanged)
-            await ShowLocalAiResultUnchangedAsync("Convert to Table");
+            await ShowLocalAiResultUnchangedAsync("轉換為表格");
     }
 
     private async void TranslateMenuItem_Click(object sender, RoutedEventArgs e)
@@ -7331,7 +7331,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
     private async Task PerformTranslationAsync(string targetLanguage)
     {
-        SetToLoading($"Translating to {targetLanguage}...");
+        SetToLoading($"正在翻譯為 {targetLanguage}...");
 
         // Captured from inside the transform so a failure can be reported after the text is applied
         // instead of silently putting the original text back.
@@ -7387,7 +7387,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         }
         catch (Exception ex)
         {
-            failedResult = new TranslationResult(string.Empty, TranslationFailure.ModelError, $"Translation failed: {ex.Message}");
+            failedResult = new TranslationResult(string.Empty, TranslationFailure.ModelError, $"翻譯失敗：{ex.Message}");
         }
         finally
         {
@@ -7398,18 +7398,18 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = failure.Failure is TranslationFailure.NotNeeded ? "Nothing to Translate" : "Translation Failed",
-                Content = failure.Message ?? "The text could not be translated.",
-                CloseButtonText = "OK"
+                Title = failure.Failure is TranslationFailure.NotNeeded ? "沒有可翻譯的內容" : "翻譯失敗",
+                Content = failure.Message ?? "無法翻譯這段文字。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
         else if (resultUnchanged)
         {
-            await ShowLocalAiResultUnchangedAsync($"Translation to {targetLanguage}");
+            await ShowLocalAiResultUnchangedAsync($"翻譯為 {targetLanguage}");
         }
         else if (resultWindowId is Guid windowId)
         {
-            NotifyLocalAiComplete($"Translation to {targetLanguage}", windowId);
+            NotifyLocalAiComplete($"翻譯為 {targetLanguage}", windowId);
         }
     }
 
@@ -7421,14 +7421,14 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "No Text",
-                Content = "Please enter or select text to extract a regex pattern from.",
-                CloseButtonText = "OK"
+                Title = "沒有文字",
+                Content = "請輸入或選取文字，以便擷取規則運算式。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
 
-        SetToLoading("Extracting RegEx pattern...");
+        SetToLoading("正在擷取規則運算式...");
 
         WinAiGenerationResult extraction;
         try
@@ -7440,9 +7440,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             Debug.WriteLine($"Regex extraction exception: {ex.Message}");
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Error",
-                Content = $"An error occurred while extracting regex: {ex.Message}",
-                CloseButtonText = "OK"
+                Title = "錯誤",
+                Content = $"擷取規則運算式時發生錯誤：{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             SetToLoaded();
             return;
@@ -7456,14 +7456,14 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             // guess about what went wrong.
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Extraction Failed",
-                Content = extraction.Message ?? "Failed to extract a regex pattern.",
-                CloseButtonText = "OK"
+                Title = "擷取失敗",
+                Content = extraction.Message ?? "無法擷取規則運算式。",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
             return;
         }
 
-        NotifyLocalAiComplete("Extract RegEx", WindowId);
+        NotifyLocalAiComplete("擷取規則運算式", WindowId);
 
         // Clean up any model artifacts like <\/PRED> tags
         regexPattern = regexPattern.Replace("<\\/PRED>", "").Replace("</PRED>", "").Trim();
@@ -7487,10 +7487,10 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         // Show message box with Copy and Cancel buttons
         Wpf.Ui.Controls.MessageBoxResult result = await new Wpf.Ui.Controls.MessageBox
         {
-            Title = "RegEx Pattern Extracted",
+            Title = "已擷取規則運算式",
             Content = explanationTextBox,
-            PrimaryButtonText = "Copy",
-            CloseButtonText = "Cancel"
+            PrimaryButtonText = "複製",
+            CloseButtonText = "取消"
         }.ShowDialogAsync();
 
         if (result == Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -7504,9 +7504,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
                 Debug.WriteLine($"Failed to copy regex to clipboard: {ex.Message}");
                 await new Wpf.Ui.Controls.MessageBox
                 {
-                    Title = "Copy Failed",
-                    Content = "Failed to copy regex pattern to clipboard.",
-                    CloseButtonText = "OK"
+                    Title = "複製失敗",
+                    Content = "無法將規則運算式複製到剪貼簿。",
+                    CloseButtonText = "確定"
                 }.ShowDialogAsync();
             }
         }
@@ -7570,15 +7570,15 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             string reason = source switch
             {
-                LiveCaptureSource.SystemAudio => "Couldn't capture system audio. Make sure a playback device is active.",
-                LiveCaptureSource.MicrophoneAndSystemAudio => "Couldn't start microphone and system audio capture. Make sure a microphone is connected, Text Grab has microphone access in Windows privacy settings, and a playback device is active.",
-                _ => "Couldn't start microphone capture. Make sure a microphone is connected and that Text Grab has microphone access in Windows privacy settings.",
+                LiveCaptureSource.SystemAudio => "無法擷取系統音訊。請確認播放裝置已啟用。",
+                LiveCaptureSource.MicrophoneAndSystemAudio => "無法開始擷取麥克風與系統音訊。請確認已連接麥克風、Text Grab 在 Windows 隱私權設定中具有麥克風存取權，且播放裝置已啟用。",
+                _ => "無法開始擷取麥克風。請確認已連接麥克風，且 Text Grab 在 Windows 隱私權設定中具有麥克風存取權。",
             };
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Couldn't Start Transcription",
+                Title = "無法開始轉錄",
                 Content = reason,
-                CloseButtonText = "OK"
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -7713,7 +7713,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
         submenu.Items.Add(new Separator());
 
-        MenuItem moreItem = new() { Header = "More models..." };
+        MenuItem moreItem = new() { Header = "更多模型..." };
         moreItem.Click += MoreModelsMenuItem_Click;
         submenu.Items.Add(moreItem);
     }
@@ -7754,9 +7754,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
             Debug.WriteLine($"Transcription model download failed: {ex}");
             await new Wpf.Ui.Controls.MessageBox
             {
-                Title = "Download failed",
-                Content = $"Couldn't download the \"{WhisperModelInfo.DisplayName(choice)}\" model:\n{ex.Message}",
-                CloseButtonText = "OK"
+                Title = "下載失敗",
+                Content = $"無法下載「{WhisperModelInfo.DisplayName(choice)}」模型：\n{ex.Message}",
+                CloseButtonText = "確定"
             }.ShowDialogAsync();
         }
     }
@@ -7983,9 +7983,9 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
 
         Wpf.Ui.Controls.MessageBox messageBox = new()
         {
-            Title = "Regex Pattern Explanation",
+            Title = "規則運算式說明",
             Content = explanation,
-            CloseButtonText = "Close"
+            CloseButtonText = "關閉"
         };
         _ = messageBox.ShowDialogAsync();
     }
@@ -8057,7 +8057,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         MenuItem? existingUsePatternItem = null;
         foreach (object? item in contextMenu.Items)
         {
-            if (item is MenuItem mi && mi.Header?.ToString() == "Use Pattern")
+            if (item is MenuItem mi && mi.Tag is string tag && tag == "UsePattern")
             {
                 existingUsePatternItem = mi;
                 break;
@@ -8070,7 +8070,8 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         // make a context menu item for "use this pattern"
         MenuItem usePatternMenuItem = new()
         {
-            Header = "Use Pattern"
+            Header = "使用模式",
+            Tag = "UsePattern"
         };
 
         // add all patterns from regex manager as menu items as children to the new "use this pattern" item
@@ -8080,7 +8081,7 @@ public partial class EditTextWindow : Wpf.Ui.Controls.FluentWindow
         {
             MenuItem noPatternItem = new()
             {
-                Header = "No saved patterns",
+                Header = "沒有已儲存的規則運算式",
                 IsEnabled = false
             };
             usePatternMenuItem.Items.Add(noPatternItem);

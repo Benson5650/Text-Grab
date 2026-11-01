@@ -30,7 +30,7 @@ public partial class RegexEditorDialog : FluentWindow
         PatternTextBox.Text = regexToEdit.Pattern;
         DescriptionTextBox.Text = regexToEdit.Description;
 
-        Title = "Edit Regex Pattern";
+        Title = "編輯規則運算式";
         ValidateInput(null, null);
     }
 
@@ -43,13 +43,13 @@ public partial class RegexEditorDialog : FluentWindow
         if (string.IsNullOrWhiteSpace(NameTextBox.Text))
         {
             isValid = false;
-            errorMessage = "Name is required";
+            errorMessage = "必須輸入名稱";
         }
         // Validate pattern
         else if (string.IsNullOrWhiteSpace(PatternTextBox.Text))
         {
             isValid = false;
-            errorMessage = "Pattern is required";
+            errorMessage = "必須輸入規則運算式";
         }
         else
         {
@@ -61,7 +61,7 @@ public partial class RegexEditorDialog : FluentWindow
             catch (ArgumentException)
             {
                 isValid = false;
-                errorMessage = "Invalid regular expression pattern";
+                errorMessage = "規則運算式無效";
             }
         }
 
@@ -142,54 +142,54 @@ public partial class RegexEditorDialog : FluentWindow
 
     private static List<RegexReferenceCategory> BuildRegexReference() =>
     [
-        new("Character classes",
+        new("字元類別",
         [
-            new(@"\d", "Any digit (0–9)"),
-            new(@"\D", "Any non-digit"),
-            new(@"\w", "Word character: letter, digit, or underscore"),
-            new(@"\W", "Any non-word character"),
-            new(@"\s", "Any whitespace (space, tab, newline)"),
-            new(@"\S", "Any non-whitespace character"),
-            new(".", "Any single character (except newline)"),
-            new("[abc]", "Any one of the listed characters"),
-            new("[^abc]", "Any character NOT listed"),
-            new("[a-z]", "Any character in the range a to z"),
+            new(@"\d", "任一數字（0–9）"),
+            new(@"\D", "任一非數字字元"),
+            new(@"\w", "單字字元：字母、數字或底線"),
+            new(@"\W", "任一非單字字元"),
+            new(@"\s", "任一空白字元（空格、定位字元、換行）"),
+            new(@"\S", "任一非空白字元"),
+            new(".", "任一字元（換行除外）"),
+            new("[abc]", "清單中的任一字元"),
+            new("[^abc]", "清單以外的任一字元"),
+            new("[a-z]", "a 至 z 範圍內的任一字元"),
         ]),
         new("Anchors & boundaries",
         [
-            new("^", "Start of the line/string"),
-            new("$", "End of the line/string"),
-            new(@"\b", "Word boundary (edge of a word)"),
-            new(@"\B", "Not a word boundary"),
+            new("^", "行／字串開頭"),
+            new("$", "行／字串結尾"),
+            new(@"\b", "單字邊界（單字邊緣）"),
+            new(@"\B", "非單字邊界"),
         ]),
         new("Quantifiers",
         [
-            new("*", "Zero or more of the preceding item"),
-            new("+", "One or more of the preceding item"),
-            new("?", "Zero or one (makes it optional)"),
-            new("{3}", "Exactly 3 of the preceding item"),
-            new("{2,}", "2 or more of the preceding item"),
-            new("{2,5}", "Between 2 and 5 of the preceding item"),
-            new("*?", "Lazy: as few as possible (also +? and ??)"),
+            new("*", "前一項目出現零次或多次"),
+            new("+", "前一項目出現一次或多次"),
+            new("?", "零次或一次（設為選用）"),
+            new("{3}", "前一項目恰好出現 3 次"),
+            new("{2,}", "前一項目出現 2 次以上"),
+            new("{2,5}", "前一項目出現 2 到 5 次"),
+            new("*?", "非貪婪：盡可能少（也適用於 +? 和 ??）"),
         ]),
         new("Groups & alternation",
         [
-            new("(...)", "Capture group — remembers the match"),
-            new("(?:...)", "Group without capturing"),
-            new("(?<name>...)", "Named capture group"),
-            new("a|b", "Match either a or b"),
+            new("(...)", "擷取群組－保留符合結果"),
+            new("(?:...)", "不擷取的群組"),
+            new("(?<name>...)", "具名擷取群組"),
+            new("a|b", "符合 a 或 b"),
         ]),
-        new("Lookaround (match context without consuming it)",
+        new("環視（比對上下文但不消耗文字）",
         [
-            new("(?=...)", "Lookahead: followed by ... (text after a match)"),
-            new("(?!...)", "Negative lookahead: NOT followed by ..."),
-            new("(?<=...)", "Lookbehind: preceded by ... (text before a match)"),
-            new("(?<!...)", "Negative lookbehind: NOT preceded by ..."),
+            new("(?=...)", "向前檢查：後面接著……（符合項目後的文字）"),
+            new("(?!...)", "負向向前檢查：後面不接著……"),
+            new("(?<=...)", "向後檢查：前面接著……（符合項目前的文字）"),
+            new("(?<!...)", "負向向後檢查：前面不接著……"),
         ]),
         new("Escapes & literals",
         [
-            new(@"\.", "A literal dot (escape special characters with \\)"),
-            new(@"\\", "A literal backslash"),
+            new(@"\.", "句點字元（使用 \\ 跳脫特殊字元）"),
+            new(@"\\", "反斜線字元"),
             new(@"\n", "Newline"),
             new(@"\t", "Tab"),
         ]),

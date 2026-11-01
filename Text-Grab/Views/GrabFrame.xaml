@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     x:Name="GrabFrameWindow"
-    Title="Grab Frame"
+    Title="擷取框"
     Width="800"
     Height="450"
     MinWidth="150"
@@ -110,127 +110,127 @@
                     VerticalAlignment="Center"
                     ClipToBounds="True"
                     WindowChrome.IsHitTestVisibleInChrome="True">
-                    <MenuItem Header="File" SubmenuOpened="MenuItem_SubmenuOpened">
+                    <MenuItem Header="檔案" SubmenuOpened="MenuItem_SubmenuOpened">
                         <MenuItem
                             x:Name="AutoOcrCheckBox"
                             AutomationProperties.AutomationId="GrabFrame.Menu.AutoOcr"
                             Click="AutoOcrCheckBox_Click"
-                            Header="Auto Start OCR"
+                            Header="自動開始 OCR"
                             IsCheckable="True"
                             IsChecked="True" />
                         <MenuItem
                             x:Name="AlwaysUpdateEtwCheckBox"
                             AutomationProperties.AutomationId="GrabFrame.Menu.UpdateEditText"
-                            Header="Auto Update Content in Edit Text Window"
+                            Header="自動更新文字編輯視窗中的內容"
                             IsCheckable="True"
                             IsChecked="True" />
                         <MenuItem
                             x:Name="ReadBarcodesMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.ReadBarcodes"
                             Checked="ReadBarcodesMenuItem_Checked"
-                            Header="Try to read barcodes and QR Codes"
+                            Header="嘗試讀取條碼與 QR Code"
                             IsCheckable="True"
                             Unchecked="ReadBarcodesMenuItem_Checked" />
-                        <MenuItem Header="Word Grouping">
+                        <MenuItem Header="文字分組">
                             <MenuItem
                                 x:Name="WordGroupingWordMenuItem"
                                 Click="WordGroupingMenuItem_Click"
-                                Header="Word"
+                                Header="字詞"
                                 IsCheckable="True"
                                 Tag="Word" />
                             <MenuItem
                                 x:Name="WordGroupingLineMenuItem"
                                 Click="WordGroupingMenuItem_Click"
-                                Header="Line"
+                                Header="行"
                                 IsCheckable="True"
                                 Tag="Line" />
                             <MenuItem
                                 x:Name="WordGroupingParagraphMenuItem"
                                 Click="WordGroupingMenuItem_Click"
-                                Header="Paragraph"
+                                Header="段落"
                                 IsCheckable="True"
                                 Tag="Paragraph" />
                             <MenuItem
                                 x:Name="WordGroupingWindowMenuItem"
                                 Click="WordGroupingMenuItem_Click"
-                                Header="Window"
+                                Header="視窗"
                                 IsCheckable="True"
                                 Tag="Window" />
                         </MenuItem>
                         <MenuItem
                             x:Name="IsTopmostMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.Topmost"
-                            Header="Keep Grab Frame On Top"
+                            Header="讓擷取框保持最上層"
                             IsCheckable="True"
                             IsChecked="{Binding Topmost, ElementName=GrabFrameWindow, Mode=TwoWay}" />
                         <Separator />
-                        <MenuItem x:Name="TranslationMenuItem" Header="Translation to...">
+                        <MenuItem x:Name="TranslationMenuItem" Header="翻譯為...">
                             <MenuItem
                                 x:Name="EnableTranslationMenuItem"
                                 AutomationProperties.AutomationId="GrabFrame.Menu.EnableTranslation"
                                 Click="EnableTranslationMenuItem_Click"
-                                Header="Enable Real-time Translation"
+                                Header="啟用即時翻譯"
                                 IsCheckable="True" />
                             <Separator />
-                            <MenuItem Header="Target Language">
+                            <MenuItem Header="目標語言">
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="English"
+                                    Header="英文"
                                     IsCheckable="True"
                                     Tag="English" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Spanish"
+                                    Header="西班牙文"
                                     IsCheckable="True"
                                     Tag="Spanish" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="French"
+                                    Header="法文"
                                     IsCheckable="True"
                                     Tag="French" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="German"
+                                    Header="德文"
                                     IsCheckable="True"
                                     Tag="German" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Italian"
+                                    Header="義大利文"
                                     IsCheckable="True"
                                     Tag="Italian" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Portuguese"
+                                    Header="葡萄牙文"
                                     IsCheckable="True"
                                     Tag="Portuguese" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Russian"
+                                    Header="俄文"
                                     IsCheckable="True"
                                     Tag="Russian" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Japanese"
+                                    Header="日文"
                                     IsCheckable="True"
                                     Tag="Japanese" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Chinese (Simplified)"
+                                    Header="簡體中文"
                                     IsCheckable="True"
                                     Tag="Chinese (Simplified)" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Korean"
+                                    Header="韓文"
                                     IsCheckable="True"
                                     Tag="Korean" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Arabic"
+                                    Header="阿拉伯文"
                                     IsCheckable="True"
                                     Tag="Arabic" />
                                 <MenuItem
                                     Click="TranslationLanguageMenuItem_Click"
-                                    Header="Hindi"
+                                    Header="印地文"
                                     IsCheckable="True"
                                     Tag="Hindi" />
                             </MenuItem>
@@ -238,20 +238,20 @@
                         <Separator />
                         <MenuItem
                             Command="{x:Static local:GrabFrame.PasteCommand}"
-                            Header="Paste Image"
+                            Header="貼上圖片"
                             InputGestureText="Ctrl + Shift + V" />
                         <MenuItem
                             Click="OpenImageMenuItem_Click"
-                            Header="Open Image or PDF..."
+                            Header="開啟圖片或 PDF..."
                             InputGestureText="Ctrl + O" />
-                        <MenuItem Click="CaptureFromCameraMenuItem_Click" Header="Capture from _Camera..." />
-                        <MenuItem Click="OpenGrabFrameFileMenuItem_Click" Header="Open Grab Frame File..." />
+                        <MenuItem Click="CaptureFromCameraMenuItem_Click" Header="從相機擷取..." />
+                        <MenuItem Click="OpenGrabFrameFileMenuItem_Click" Header="開啟擷取框檔案..." />
                         <MenuItem
                             Click="SaveGrabFrameFileMenuItem_Click"
-                            Header="Save Grab Frame File..."
+                            Header="儲存擷取框檔案..."
                             InputGestureText="Ctrl + S" />
-                        <MenuItem x:Name="OpenRecentGrabsMenuItem" Header="Recent Grabs" />
-                        <MenuItem x:Name="OpenRecentPdfsMenuItem" Header="Recent PDFs" />
+                        <MenuItem x:Name="OpenRecentGrabsMenuItem" Header="最近擷取" />
+                        <MenuItem x:Name="OpenRecentPdfsMenuItem" Header="最近的 PDF" />
                         <Separator />
                         <MenuItem
                             Name="GrabMenuItem"
@@ -263,115 +263,115 @@
                             Name="GrabTrimSingleMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.GrabSingleLine"
                             Command="{x:Static local:GrabFrame.GrabTrimCommand}"
-                            Header="Grab text as Single Line"
+                            Header="將擷取文字合併為單行"
                             InputGestureText="Ctrl + Shift + G" />
                         <Separator />
                         <MenuItem
                             Name="ManageGrabTemplatesMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.ManageTemplates"
                             Click="ManageGrabTemplates_Click"
-                            Header="Manage Grab _Templates..." />
+                            Header="管理擷取範本..." />
                         <MenuItem
                             Name="SettingsMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.OpenSettings"
                             Click="SettingsBTN_Click"
-                            Header="Text Grab Settings" />
+                            Header="Text Grab 設定" />
                         <MenuItem
                             Name="CloseMenuItem"
                             AutomationProperties.AutomationId="GrabFrame.Menu.Close"
                             Click="OnCloseButtonClick"
-                            Header="Close"
+                            Header="關閉"
                             InputGestureText="Alt + F4" />
                     </MenuItem>
-                    <MenuItem Header="Edit">
+                    <MenuItem Header="編輯">
                         <MenuItem
                             Name="RedoMenuItem"
                             Command="{x:Static local:GrabFrame.RedoCommand}"
-                            Header="Redo"
+                            Header="重做"
                             InputGestureText="Ctrl + Y" />
                         <MenuItem
                             Name="UndoMenuItem"
                             Command="{x:Static local:GrabFrame.UndoCommand}"
-                            Header="Undo"
+                            Header="復原"
                             InputGestureText="Ctrl + Z" />
                         <MenuItem
                             Name="SelectAllMenuItem"
                             Click="SelectAllWordBorders"
-                            Header="Select All"
+                            Header="全選"
                             InputGestureText="Ctrl + A" />
                         <MenuItem
                             Name="AddEditOcrMenuItem"
-                            Header="Add, move, or Resize lines"
-                            InputGestureText="Hold Ctrl"
+                            Header="新增、移動或調整行的大小"
+                            InputGestureText="按住 Ctrl"
                             IsCheckable="True" />
                         <Separator />
-                        <MenuItem Header="Edit Image">
+                        <MenuItem Header="編輯圖片">
                             <MenuItem
                                 Name="InvertColorsMI"
                                 Click="InvertColorsMI_Click"
-                                Header="Invert Colors" />
+                                Header="反轉色彩" />
                             <MenuItem
                                 Name="AutoContrastMI"
                                 Click="AutoContrastMI_Click"
-                                Header="Increase Contrast (Sigmoid)" />
+                                Header="增加對比（Sigmoid）" />
                             <MenuItem
                                 Name="BrightenMI"
                                 Click="BrightenMI_Click"
-                                Header="Brighten" />
+                                Header="變亮" />
                             <MenuItem
                                 Name="DarkenMI"
                                 Click="DarkenMI_Click"
-                                Header="Darken" />
+                                Header="變暗" />
                             <MenuItem
                                 Name="GrayscaleMI"
                                 Click="GrayscaleMI_Click"
-                                Header="Grayscale" />
+                                Header="灰階" />
                         </MenuItem>
                         <MenuItem
                             Click="RefreshBTN_Click"
-                            Header="Refresh Grab Frame OCR Results"
+                            Header="重新整理擷取框 OCR 結果"
                             InputGestureText="(Ctrl + R)" />
                         <MenuItem
                             Checked="AspectRationMI_Checked"
-                            Header="Maintain Aspect Ratio"
+                            Header="維持長寬比"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=AspectRationMI, Mode=TwoWay}"
                             Unchecked="AspectRationMI_Checked" />
                         <MenuItem
                             Click="FreezeToggleButton_Click"
-                            Header="Freeze Image In Frame"
+                            Header="凍結框內圖片"
                             InputGestureText="F"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=FreezeToggleButton, Mode=TwoWay}" />
                         <MenuItem
                             Click="TableToggleButton_Click"
-                            Header="Analyze as a Table"
+                            Header="分析為表格"
                             InputGestureText="T"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=TableToggleButton, Mode=TwoWay}" />
-                        <MenuItem x:Name="EditTableMenuItem" Header="Table">
+                        <MenuItem x:Name="EditTableMenuItem" Header="表格">
                             <MenuItem
                                 x:Name="AddTableRowMenuItem"
                                 Click="AddTableRowMenuItem_Click"
-                                Header="Add Row" />
+                                Header="新增資料列" />
                             <MenuItem
                                 x:Name="AddTableColumnMenuItem"
                                 Click="AddTableColumnMenuItem_Click"
-                                Header="Add Column" />
+                                Header="新增欄" />
                             <Separator />
                             <MenuItem
                                 x:Name="CancelTablePlacementMenuItem"
                                 Click="CancelTablePlacement_Click"
-                                Header="Cancel Placement" />
+                                Header="取消放置" />
                         </MenuItem>
                         <MenuItem
                             Click="EditToggleButton_Click"
-                            Header="Allow recognized words to be edited"
+                            Header="允許編輯辨識出的文字"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=EditToggleButton, Mode=TwoWay}" />
                         <MenuItem
                             Click="EditTextBTN_Click"
-                            Header="Send results to an Edit Text Window"
+                            Header="將結果傳送至文字編輯視窗"
                             InputGestureText="E"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=EditTextToggleButton, Mode=TwoWay}" />
@@ -379,132 +379,132 @@
                         <MenuItem
                             x:Name="InvertSelectionMenuItem"
                             Click="InvertSelection"
-                            Header="Invert Selection"
+                            Header="反轉選取"
                             InputGestureText="Ctrl + I" />
                         <MenuItem
                             Command="{x:Static local:GrabFrame.MergeWordsCommand}"
-                            Header="Merge Word Borders"
+                            Header="合併文字邊界"
                             InputGestureText="Ctrl + M" />
                         <MenuItem
                             Command="{x:Static local:GrabFrame.DeleteWordsCommand}"
-                            Header="_Delete selected words"
+                            Header="刪除選取文字"
                             InputGestureText="Del" />
                         <Separator />
                     </MenuItem>
-                    <MenuItem Header="View">
+                    <MenuItem Header="檢視">
                         <ui:MenuItem
                             x:Name="NoScrollBehaviorMenuItem"
                             Click="ScrollBehaviorMenuItem_Click"
-                            Header="Scroll does nothing"
+                            Header="捲動不執行動作"
                             IsCheckable="True"
                             Tag="None" />
                         <MenuItem
                             x:Name="ResizeScrollMenuItem"
                             Click="ScrollBehaviorMenuItem_Click"
-                            Header="Scroll resizes Grab Frame"
+                            Header="捲動以調整擷取框大小"
                             IsCheckable="True"
                             Tag="Resize" />
                         <MenuItem
                             x:Name="ZoomScrollMenuItem"
                             Click="ScrollBehaviorMenuItem_Click"
-                            Header="Scroll Zooms Grab Frame (preview)"
+                            Header="捲動以縮放擷取框（預覽）"
                             IsCheckable="True"
                             Tag="Zoom" />
                         <MenuItem
                             x:Name="ZoomWhenFrozenScrollMenuItem"
                             Click="ScrollBehaviorMenuItem_Click"
-                            Header="Zoom when frozen"
+                            Header="凍結時縮放"
                             IsCheckable="True"
                             Tag="ZoomWhenFrozen" />
                         <Separator />
                         <MenuItem
                             x:Name="ScaleUpMenuItem"
                             Click="ScaleUpMenuItem_Click"
-                            Header="Scale Up" />
+                            Header="放大" />
                         <MenuItem
                             x:Name="ScaleDownMenuItem"
                             Click="ScaleDownMenuItem_Click"
-                            Header="Scale Down" />
+                            Header="縮小" />
                         <Separator />
                         <MenuItem
                             x:Name="ResetViewMenuItem"
                             Click="ResetViewMenuItem_Click"
-                            Header="Reset View"
-                            InputGestureText="Middle Click" />
+                            Header="重設檢視"
+                            InputGestureText="按滑鼠中鍵" />
                         <Separator />
                         <MenuItem
                             x:Name="ShowWordBordersMenuItem"
                             Click="ShowWordBordersMenuItem_Click"
-                            Header="Show Word Borders"
+                            Header="顯示文字邊界"
                             IsCheckable="True"
                             IsChecked="True" />
-                        <MenuItem x:Name="FrameBorderMenuItem" Header="Frame Border">
+                        <MenuItem x:Name="FrameBorderMenuItem" Header="擷取框邊界">
                             <MenuItem
                                 x:Name="BorderStyleThemeMenuItem"
                                 Click="BorderStyleMenuItem_Click"
-                                Header="Theme (default)"
+                                Header="佈景主題（預設）"
                                 IsCheckable="True"
                                 Tag="Theme" />
                             <MenuItem
                                 x:Name="BorderStyleHighContrastMenuItem"
                                 Click="BorderStyleMenuItem_Click"
-                                Header="High contrast (black &amp; white)"
+                                Header="高對比（黑白）"
                                 IsCheckable="True"
                                 Tag="HighContrast" />
                             <Separator />
-                            <MenuItem x:Name="BorderColorMenuItem" Header="Pick a color">
+                            <MenuItem x:Name="BorderColorMenuItem" Header="選擇色彩">
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Teal"
+                                    Header="藍綠色"
                                     IsCheckable="True"
                                     Tag="#2A767E" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Red"
+                                    Header="紅色"
                                     IsCheckable="True"
                                     Tag="#E03B3B" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Orange"
+                                    Header="橘色"
                                     IsCheckable="True"
                                     Tag="#E0781E" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Yellow"
+                                    Header="黃色"
                                     IsCheckable="True"
                                     Tag="#E0C81E" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Green"
+                                    Header="綠色"
                                     IsCheckable="True"
                                     Tag="#3BB143" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Blue"
+                                    Header="藍色"
                                     IsCheckable="True"
                                     Tag="#2A7EE0" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Purple"
+                                    Header="紫色"
                                     IsCheckable="True"
                                     Tag="#8A5CD1" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="White"
+                                    Header="白色"
                                     IsCheckable="True"
                                     Tag="#FFFFFF" />
                                 <MenuItem
                                     Click="BorderColorMenuItem_Click"
-                                    Header="Black"
+                                    Header="黑色"
                                     IsCheckable="True"
                                     Tag="#000000" />
                             </MenuItem>
                         </MenuItem>
-                        <MenuItem Header="Overlay Opacity">
+                        <MenuItem Header="覆疊不透明度">
                             <MenuItem
                                 x:Name="OverlayOpacityOffMenuItem"
                                 Click="OverlayOpacityMenuItem_Click"
-                                Header="Off"
+                                Header="關閉"
                                 IsCheckable="True"
                                 Tag="0" />
                             <MenuItem
@@ -519,18 +519,18 @@
                         <MenuItem
                             x:Name="CloseOnGrabMenuItem"
                             Click="CloseOnGrabMenuItem_Click"
-                            Header="Close Frame on Grab"
+                            Header="擷取時關閉擷取框"
                             IsCheckable="True" />
                     </MenuItem>
                     <MenuItem Header="_Help">
                         <MenuItem
                             x:Name="ContactMenuItem"
                             Click="ContactMenuItem_Click"
-                            Header="_Contact The Developer..." />
+                            Header="聯絡開發者..." />
                         <MenuItem
                             x:Name="RateAndReview"
                             Click="RateAndReview_Click"
-                            Header="_Rate and Review..." />
+                            Header="評分與評論..." />
                         <MenuItem
                             x:Name="FeedbackMenuItem"
                             Click="FeedbackMenuItem_Click"
@@ -570,7 +570,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="13"
-                        Text="Grab Frame">
+                        Text="擷取框">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Style.Triggers>
@@ -601,7 +601,7 @@
                         Height="32"
                         Margin="0,-2,0,0"
                         AutomationProperties.AutomationId="GrabFrame.MinimizeButton"
-                        AutomationProperties.Name="Minimize"
+                        AutomationProperties.Name="最小化"
                         Click="OnMinimizeButtonClick"
                         Style="{StaticResource TitleBarButtonStyle}">
                         <TextBlock FontFamily="Segoe MDL2 Assets" Text="" />
@@ -612,7 +612,7 @@
                         Height="32"
                         Margin="0,-2,0,0"
                         AutomationProperties.AutomationId="GrabFrame.RestoreButton"
-                        AutomationProperties.Name="Restore"
+                        AutomationProperties.Name="還原"
                         Click="OnRestoreButtonClick"
                         Style="{StaticResource TitleBarButtonStyle}">
                         <TextBlock
@@ -626,7 +626,7 @@
                         Height="32"
                         Margin="0,-2,0,0"
                         AutomationProperties.AutomationId="GrabFrame.CloseButton"
-                        AutomationProperties.Name="Close"
+                        AutomationProperties.Name="關閉"
                         Click="OnCloseButtonClick"
                         Style="{StaticResource TitleBarCloseButtonStyle}">
                         <TextBlock FontFamily="Segoe MDL2 Assets" Text="" />
@@ -646,7 +646,7 @@
                     <controls:ZoomBorder
                         x:Name="MainZoomBorder"
                         AutomationProperties.AutomationId="GrabFrame.ZoomSurface"
-                        AutomationProperties.Name="Capture image zoom and pan surface">
+                        AutomationProperties.Name="擷取影像縮放與平移區域">
                         <Viewbox Name="CanvasViewBox">
                             <Grid>
                                 <Image
@@ -661,7 +661,7 @@
                                     x:Name="PdfTextCanvas"
                                     Margin="0"
                                     AutomationProperties.AutomationId="GrabFrame.PdfTextCanvas"
-                                    AutomationProperties.Name="PDF text overlay"
+                                    AutomationProperties.Name="PDF 文字覆疊"
                                     ClipToBounds="True"
                                     ContextMenu="{Binding ContextMenu, ElementName=RectanglesCanvas}"
                                     MouseDown="RectanglesCanvas_MouseDown"
@@ -671,7 +671,7 @@
                                     x:Name="RectanglesCanvas"
                                     Margin="0"
                                     AutomationProperties.AutomationId="GrabFrame.WordBordersCanvas"
-                                    AutomationProperties.Name="Recognized word borders"
+                                    AutomationProperties.Name="辨識文字邊界"
                                     Background="Transparent"
                                     Focusable="True"
                                     IsHitTestVisible="True"
@@ -682,47 +682,47 @@
                                         <ContextMenu>
                                             <MenuItem
                                                 Command="{x:Static local:GrabFrame.PasteCommand}"
-                                                Header="Paste Image"
+                                                Header="貼上圖片"
                                                 InputGestureText="Ctrl + Shift + V" />
                                             <MenuItem
                                                 Click="OpenImageMenuItem_Click"
-                                                Header="Open Image or PDF..."
+                                                Header="開啟圖片或 PDF..."
                                                 InputGestureText="Ctrl + O" />
-                                            <MenuItem Click="CaptureFromCameraMenuItem_Click" Header="Capture from _Camera..." />
+                                            <MenuItem Click="CaptureFromCameraMenuItem_Click" Header="從相機擷取..." />
                                             <Separator />
                                             <MenuItem
                                                 x:Name="CopyText"
                                                 Click="CopyText_Click"
-                                                Header="Copy Text" />
+                                                Header="複製文字" />
                                             <Separator />
                                             <MenuItem
                                                 x:Name="AspectRationMI"
                                                 Checked="AspectRationMI_Checked"
-                                                Header="Maintain Aspect Ratio"
+                                                Header="維持長寬比"
                                                 IsCheckable="True"
                                                 IsChecked="True"
                                                 Unchecked="AspectRationMI_Checked" />
                                             <MenuItem
                                                 x:Name="FreezeMI"
                                                 Click="FreezeMI_Click"
-                                                Header="Toggle Freeze"
+                                                Header="切換凍結"
                                                 InputGestureText="F" />
                                             <Separator />
                                             <MenuItem
                                                 x:Name="TryToNumberMenuItem"
                                                 Click="TryToNumberMenuItem_Click"
-                                                Header="Try To Make _Numbers" />
+                                                Header="嘗試轉換為數字" />
                                             <MenuItem
                                                 x:Name="TryToAlphaMenuItem"
                                                 Click="TryToAlphaMenuItem_Click"
-                                                Header="Try To Make _Letters" />
+                                                Header="嘗試轉換為字母" />
                                             <MenuItem
                                                 Command="{x:Static local:GrabFrame.MergeWordsCommand}"
-                                                Header="Merge Word Borders"
+                                                Header="合併文字邊界"
                                                 InputGestureText="Ctrl + M" />
                                             <MenuItem
                                                 Command="{x:Static local:GrabFrame.DeleteWordsCommand}"
-                                                Header="_Delete selected words"
+                                                Header="刪除選取文字"
                                                 InputGestureText="Del" />
                                         </ContextMenu>
                                     </Canvas.ContextMenu>
@@ -769,13 +769,13 @@
                                 x:Name="TablePlacementInstructionsTextBlock"
                                 Margin="0,0,12,0"
                                 VerticalAlignment="Center"
-                                Text="Click to place a table divider." />
+                                Text="按一下以放置表格分隔線。" />
                             <Button
                                 x:Name="CancelTablePlacementButton"
                                 MinWidth="72"
                                 AutomationProperties.AutomationId="GrabFrame.CancelTablePlacementButton"
                                 Click="CancelTablePlacement_Click"
-                                Content="Cancel" />
+                                Content="取消" />
                         </StackPanel>
                     </Border>
                     <Border
@@ -821,7 +821,7 @@
                                     FontSize="12"
                                     FontWeight="SemiBold"
                                     Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
-                                    Text="Translating..." />
+                                    Text="翻譯中…" />
                                 <ProgressBar
                                     x:Name="TranslationProgressBar"
                                     Height="6"
@@ -848,7 +848,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Click="CancelTranslationButton_Click"
-                                ToolTip="Cancel translation">
+                                ToolTip="取消翻譯">
                                 <ui:SymbolIcon
                                     FontSize="16"
                                     Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
@@ -896,7 +896,7 @@
                                     FontSize="12"
                                     FontWeight="SemiBold"
                                     Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
-                                    Text="Speaking..." />
+                                    Text="朗讀中…" />
                                 <ProgressBar Height="6" IsIndeterminate="True" />
                             </StackPanel>
                             <Button
@@ -911,7 +911,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Click="StopSpeakingButton_Click"
-                                ToolTip="Stop speaking">
+                                ToolTip="停止朗讀">
                                 <ui:SymbolIcon
                                     FontSize="16"
                                     Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
@@ -971,7 +971,7 @@
                         Grid.Column="0"
                         Margin="0,0,6,0"
                         VerticalAlignment="Center"
-                        Text="Template Name:" />
+                        Text="範本名稱：" />
                     <TextBox
                         x:Name="TemplateNameBox"
                         Grid.Column="1"
@@ -982,8 +982,8 @@
                         Grid.Column="2"
                         Margin="8,0,6,0"
                         VerticalAlignment="Center"
-                        Text="Output (type { to pick):"
-                        ToolTip="Type { to insert a region chip. Plain text is also supported." />
+                        Text="輸出（輸入 { 以選取）："
+                        ToolTip="輸入 { 可插入區域標記，也支援純文字。" />
                     <controls:InlinePickerRichTextBox
                         x:Name="TemplateOutputBox"
                         Grid.Column="3"
@@ -992,72 +992,72 @@
                         AcceptsTab="True"
                         AutomationProperties.AutomationId="GrabFrame.TemplateOutput"
                         TextChanged="TemplateOutputBox_TextChanged"
-                        ToolTip="Type { to open the region picker. Plain text also supported." />
+                        ToolTip="輸入 { 可開啟區域選擇器，也支援純文字。" />
                     <Button
                         Grid.Column="4"
                         Margin="8,0,4,0"
                         Padding="8,4"
                         Click="SaveTemplateSave_Click"
-                        Content="Save Template" />
+                        Content="儲存範本" />
                     <Button
                         Grid.Column="5"
                         Padding="8,4"
                         Click="SaveTemplateCancel_Click"
-                        Content="Cancel" />
+                        Content="取消" />
                 </Grid>
             </Border>
 
             <Border Grid.Row="3" Background="{ui:ThemeResource ApplicationBackgroundBrush}">
                 <Border.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Show Toolbar Buttons" IsEnabled="False" />
+                        <MenuItem Header="顯示工具列按鈕" IsEnabled="False" />
                         <Separator />
                         <MenuItem
                             x:Name="ShowRefreshToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Re-OCR / OCR Frame"
+                            Header="重新執行 OCR／辨識擷取框"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Refresh" />
                         <MenuItem
                             x:Name="ShowFreezeToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Freeze"
+                            Header="凍結"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Freeze" />
                         <MenuItem
                             x:Name="ShowTableToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Analyze as Table"
+                            Header="分析為表格"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Table" />
                         <MenuItem
                             x:Name="ShowTranslateToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Translate"
+                            Header="翻譯"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Translate" />
                         <MenuItem
                             x:Name="ShowSpeakToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Speak"
+                            Header="朗讀"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Speak" />
                         <MenuItem
                             x:Name="ShowEditTextToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Edit Text Window"
+                            Header="文字編輯視窗"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="EditText" />
                         <MenuItem
                             x:Name="ShowTemplateToolMenuItem"
                             Click="ToggleBottomBarToolMenuItem_Click"
-                            Header="Grab Template"
+                            Header="擷取範本"
                             IsCheckable="True"
                             IsChecked="True"
                             Tag="Template" />
@@ -1084,7 +1084,7 @@
                         Margin="0,0,6,0"
                         VerticalAlignment="Center"
                         AutomationProperties.AutomationId="GrabFrame.Search"
-                        PlaceholderText="Search For Text..."
+                        PlaceholderText="搜尋文字..."
                         SearchChanged="SearchBar_SearchChanged"
                         ShowExactMatchToggle="True" />
 
@@ -1107,12 +1107,12 @@
                                     AutomationProperties.AutomationId="GrabFrame.SearchMatchCount"
                                     Text="Matches: 0" />
                             </MenuItem.Header>
-                            <MenuItem Click="HandleDelete" Header="Delete Selected" />
+                            <MenuItem Click="HandleDelete" Header="刪除選取項目" />
                             <Separator />
                             <MenuItem
                                 Name="EditMatchesMenuItem"
                                 Click="EditMatchesMenuItem_Click"
-                                Header="Edit Matches in New Window" />
+                                Header="在新視窗編輯比對結果" />
                         </MenuItem>
                     </Menu>
 
@@ -1122,7 +1122,7 @@
                         MinWidth="60"
                         Padding="8,0"
                         AutomationProperties.AutomationId="GrabFrame.Language"
-                        AutomationProperties.Name="OCR language"
+                        AutomationProperties.Name="OCR 語言"
                         Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
                         PreviewMouseDown="LanguagesComboBox_MouseDown"
                         SelectionChanged="LanguagesComboBox_SelectionChanged">
@@ -1154,9 +1154,9 @@
                                 Height="30"
                                 Padding="0"
                                 AutomationProperties.AutomationId="GrabFrame.PreviousPageButton"
-                                AutomationProperties.Name="Previous PDF page"
+                                AutomationProperties.Name="上一頁 PDF"
                                 Click="PreviousPdfPageButton_Click"
-                                ToolTip="Previous PDF page">
+                                ToolTip="上一頁 PDF">
                                 <ui:SymbolIcon Symbol="ChevronLeft24" />
                             </Button>
                             <TextBlock
@@ -1172,9 +1172,9 @@
                                 Margin="6,0,0,0"
                                 Padding="0"
                                 AutomationProperties.AutomationId="GrabFrame.NextPageButton"
-                                AutomationProperties.Name="Next PDF page"
+                                AutomationProperties.Name="下一頁 PDF"
                                 Click="NextPdfPageButton_Click"
-                                ToolTip="Next PDF page">
+                                ToolTip="下一頁 PDF">
                                 <ui:SymbolIcon Symbol="ChevronRight24" />
                             </Button>
                         </StackPanel>
@@ -1184,21 +1184,21 @@
                             Height="30"
                             Margin="0"
                             AutomationProperties.AutomationId="GrabFrame.RefreshButton"
-                            AutomationProperties.Name="Refresh OCR results"
+                            AutomationProperties.Name="重新整理 OCR 結果"
                             ButtonSymbol="ArrowClockwise24"
-                            ButtonText="Re-OCR Frame"
+                            ButtonText="重新辨識擷取框"
                             Click="RefreshBTN_Click"
                             IsSymbol="True"
-                            ToolTip="Re-OCR Frame (Ctrl + R)" />
+                            ToolTip="重新辨識擷取框 (Ctrl + R)" />
                         <controls:CollapsibleButton
                             x:Name="OcrFrameBTN"
                             Margin="0"
                             AutomationProperties.AutomationId="GrabFrame.OcrButton"
-                            AutomationProperties.Name="Run OCR"
+                            AutomationProperties.Name="執行 OCR"
                             ButtonSymbol="ScanText24"
-                            ButtonText="OCR Frame"
+                            ButtonText="辨識擷取框"
                             Click="RefreshBTN_Click"
-                            ToolTip="OCR Frame (Ctrl + R)"
+                            ToolTip="辨識擷取框 (Ctrl + R)"
                             Visibility="Collapsed" />
 
                         <ToggleButton
@@ -1207,10 +1207,10 @@
                             Height="30"
                             Margin="6,0,0,0"
                             AutomationProperties.AutomationId="GrabFrame.FreezeToggle"
-                            AutomationProperties.Name="Freeze image in frame"
+                            AutomationProperties.Name="凍結框內圖片"
                             Click="FreezeToggleButton_Click"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="(F) Freeze the content within Grab Frame">
+                            ToolTip="(F) 凍結擷取框中的內容">
                             <ui:SymbolIcon Symbol="Pause24" />
                         </ToggleButton>
 
@@ -1220,25 +1220,25 @@
                             Height="30"
                             Margin="6,0,0,0"
                             AutomationProperties.AutomationId="GrabFrame.TableToggle"
-                            AutomationProperties.Name="Analyze as table"
+                            AutomationProperties.Name="分析為表格"
                             Click="TableToggleButton_Click"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="(T) Analyze content as tables">
+                            ToolTip="(T) 將內容分析為表格">
                             <ToggleButton.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem
                                         x:Name="TableToggleAddRowMenuItem"
                                         Click="AddTableRowMenuItem_Click"
-                                        Header="Add Row" />
+                                        Header="新增資料列" />
                                     <MenuItem
                                         x:Name="TableToggleAddColumnMenuItem"
                                         Click="AddTableColumnMenuItem_Click"
-                                        Header="Add Column" />
+                                        Header="新增欄" />
                                     <Separator />
                                     <MenuItem
                                         x:Name="TableToggleCancelPlacementMenuItem"
                                         Click="CancelTablePlacement_Click"
-                                        Header="Cancel Placement" />
+                                        Header="取消放置" />
                                 </ContextMenu>
                             </ToggleButton.ContextMenu>
                             <ui:SymbolIcon Symbol="Table24" />
@@ -1250,10 +1250,10 @@
                             Height="30"
                             Margin="6,0,0,0"
                             AutomationProperties.AutomationId="GrabFrame.TranslateToggle"
-                            AutomationProperties.Name="Enable translation"
+                            AutomationProperties.Name="啟用翻譯"
                             Click="TranslateToggleButton_Click"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="Enable real-time translation">
+                            ToolTip="啟用即時翻譯">
                             <ui:SymbolIcon Symbol="LocalLanguage24" />
                         </ToggleButton>
 
@@ -1263,10 +1263,10 @@
                             Height="30"
                             Margin="6,0,0,0"
                             AutomationProperties.AutomationId="GrabFrame.SpeakToggle"
-                            AutomationProperties.Name="Speak results"
+                            AutomationProperties.Name="朗讀結果"
                             Click="SpeakToggleButton_Click"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="Speak grabbed text aloud">
+                            ToolTip="朗讀擷取的文字">
                             <ui:SymbolIcon Symbol="Speaker224" />
                         </ToggleButton>
 
@@ -1275,11 +1275,11 @@
                             Margin="6,0,0,0"
                             Padding="7,4"
                             AutomationProperties.AutomationId="GrabFrame.EditWordsToggle"
-                            AutomationProperties.Name="Edit recognized words"
+                            AutomationProperties.Name="編輯辨識出的文字"
                             Click="EditToggleButton_Click"
                             IsChecked="True"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="Edit individual words in Grab Frame"
+                            ToolTip="編輯擷取框中的個別文字"
                             Visibility="Collapsed">
                             <TextBlock FontFamily="Segoe MDL2 Assets">
                                 
@@ -1293,11 +1293,11 @@
                             Margin="6,0,0,0"
                             d:IsChecked="True"
                             AutomationProperties.AutomationId="GrabFrame.SendToEditTextToggle"
-                            AutomationProperties.Name="Send results to Edit Text Window"
+                            AutomationProperties.Name="將結果傳送至文字編輯視窗"
                             Click="EditTextBTN_Click"
                             IsChecked="False"
                             Style="{StaticResource ToggleSymbolButton}"
-                            ToolTip="(E) Edit individual words in Grab Frame">
+                            ToolTip="(E) 編輯擷取框中的個別文字">
                             <ui:SymbolIcon Symbol="Window24" />
                         </ToggleButton>
 
@@ -1305,12 +1305,12 @@
                             x:Name="SettingsBTN"
                             Margin="6,0,0,0"
                             AutomationProperties.AutomationId="GrabFrame.SettingsButton"
-                            AutomationProperties.Name="Settings"
+                            AutomationProperties.Name="設定"
                             ButtonSymbol="Settings24"
-                            ButtonText="Settings"
+                            ButtonText="設定"
                             Click="SettingsBTN_Click"
                             IsSymbol="True"
-                            ToolTip="Open Text Grab Settings"
+                            ToolTip="開啟 Text Grab 設定"
                             Visibility="Collapsed" />
 
                         <ui:DropDownButton
@@ -1319,7 +1319,7 @@
                             Height="30"
                             Margin="6,0,0,0"
                             Padding="0"
-                            ToolTip="Select or create a Grab Template">
+                            ToolTip="選取或建立擷取範本">
                             <ui:DropDownButton.Content>
                                 <ui:SymbolIcon Symbol="DocumentSave24" />
                             </ui:DropDownButton.Content>
@@ -1336,24 +1336,24 @@
                         Margin="0"
                         AutomationProperties.AutomationId="GrabFrame.GrabButton"
                         ButtonSymbol="Copy24"
-                        ButtonText="Grab"
+                        ButtonText="擷取"
                         Command="{x:Static local:GrabFrame.GrabCommand}"
-                        ToolTip="Grab text in the Grab Frame">
+                        ToolTip="擷取擷取框中的文字">
                         <controls:CollapsibleButton.ContextMenu>
                             <ContextMenu Opened="GrabButtonContextMenu_Opened">
                                 <MenuItem
                                     AutomationProperties.AutomationId="GrabFrame.GrabMultiplePagesMenuItem"
                                     Click="GrabMultiplePagesMenuItem_Click"
-                                    Header="Grab multiple pages..."
+                                    Header="擷取多個頁面..."
                                     Tag="GrabMultiplePages"
-                                    ToolTip="Apply the current region and table settings to a range of pages of the open PDF" />
+                                    ToolTip="將目前的區域與表格設定套用至開啟中 PDF 的多個頁面" />
                                 <MenuItem
                                     AutomationProperties.AutomationId="GrabFrame.IgnoreRepeatedHeadersFootersMenuItem"
                                     Click="IgnoreRepeatedHeadersFootersMenuItem_Click"
-                                    Header="Ignore repeated headers and footers"
+                                    Header="忽略重複的頁首與頁尾"
                                     IsCheckable="True"
                                     Tag="IgnoreRepeatedHeadersFooters"
-                                    ToolTip="When grabbing multiple pages, drop text that sits in the same place on page after page with the same (or numbered) text, like running headers and page numbers" />
+                                    ToolTip="擷取多個頁面時，略過每頁相同位置出現的相同（或編號）文字，例如通用頁首與頁碼" />
                             </ContextMenu>
                         </controls:CollapsibleButton.ContextMenu>
                     </controls:CollapsibleButton>

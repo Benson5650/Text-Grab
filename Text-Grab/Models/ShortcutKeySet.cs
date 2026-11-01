@@ -16,6 +16,8 @@ public class ShortcutKeySet : IEquatable<ShortcutKeySet>
     public bool IsEnabled { get; set; } = false;
 
     public string Name { get; set; } = "EmptyName";
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string DisplayName => UiText.Get(Name);
 
     public ShortcutKeyActions Action { get; set; } = ShortcutKeyActions.None;
 

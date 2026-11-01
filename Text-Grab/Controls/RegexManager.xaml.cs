@@ -154,10 +154,10 @@ public partial class RegexManager : FluentWindow
 
         Wpf.Ui.Controls.MessageBoxResult result = new Wpf.Ui.Controls.MessageBox
         {
-            Title = "Delete Pattern",
-            Content = $"Are you sure you want to delete the pattern '{selectedRegex.Name}'?",
-            PrimaryButtonText = "Delete",
-            CloseButtonText = "Cancel"
+            Title = "刪除規則運算式",
+            Content = $"確定要刪除規則運算式「{selectedRegex.Name}」嗎？",
+            PrimaryButtonText = "刪除",
+            CloseButtonText = "取消"
         }.ShowDialogAsync().Result;
 
         if (result == Wpf.Ui.Controls.MessageBoxResult.Primary)
@@ -217,7 +217,7 @@ public partial class RegexManager : FluentWindow
 
         // Pre-fill the pattern field
         dialog.PatternTextBox.Text = pattern;
-        dialog.NameTextBox.Text = $"Pattern from '{sourceText.MakeStringSingleLine().Truncate(30)}'";
+        dialog.NameTextBox.Text = $"來自「{sourceText.MakeStringSingleLine().Truncate(30)}」的規則運算式";
 
         if (dialog.ShowDialog() == true && dialog.EditedRegex is not null)
         {
@@ -259,7 +259,7 @@ public partial class RegexManager : FluentWindow
 
         if (selected.Kind == PatternKind.SavedRegex && !IsValidRegexPattern(selected.SavedRegex?.Pattern))
         {
-            MatchCountText.Text = "Invalid Pattern";
+            MatchCountText.Text = "無效的規則運算式";
             return;
         }
 
@@ -293,9 +293,9 @@ public partial class RegexManager : FluentWindow
 
         Wpf.Ui.Controls.MessageBox messageBox = new()
         {
-            Title = "Regex Pattern Explanation",
+            Title = "規則運算式說明",
             Content = explanation,
-            CloseButtonText = "Close"
+            CloseButtonText = "關閉"
         };
         _ = messageBox.ShowDialogAsync();
     }
@@ -305,12 +305,12 @@ public partial class RegexManager : FluentWindow
         if (ShowTestToggle.IsChecked == true)
         {
             TestPanel.Visibility = Visibility.Visible;
-            ShowTestToggle.Content = "Hide Test";
+            ShowTestToggle.Content = "隱藏測試";
         }
         else
         {
             TestPanel.Visibility = Visibility.Collapsed;
-            ShowTestToggle.Content = "Show Test";
+            ShowTestToggle.Content = "顯示測試";
         }
     }
 

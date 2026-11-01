@@ -78,7 +78,7 @@ public partial class KeysSettings : Page
                 {
                     shortcut.HasConflictingError = true;
                     shortcut2.HasConflictingError = true;
-                    shortcut2.GoIntoErrorMode("Cannot have two shortcuts that are the same");
+                    shortcut2.GoIntoErrorMode("不能設定兩個相同的快捷鍵");
                     anyMatchingKeys = true;
                     isThisShortcutGood = false;
                 }

@@ -68,7 +68,7 @@ public class FullscreenGrabSelectionStyleTests
     {
         WindowSelectionCandidate candidate = new((nint)1, new Rect(0, 0, 40, 40), string.Empty, 100);
 
-        Assert.Equal("Application", candidate.DisplayAppName);
-        Assert.Equal("Untitled window", candidate.DisplayTitle);
+        Assert.Equal("應用程式", candidate.DisplayAppName);
+        Assert.Equal("未命名視窗", candidate.DisplayTitle);
     }
 }

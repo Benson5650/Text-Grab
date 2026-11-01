@@ -14,113 +14,113 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Edit Text Window Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="文字編輯視窗設定" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Window behavior" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="視窗行為" />
 
         <controls:SettingsCard
-            Description="When opening an empty Edit Text Window, immediately trigger a Fullscreen Grab. The window restores from minimized once text is captured."
-            HeaderText="Launch Fullscreen Grab on startup"
+            Description="開啟空白的文字編輯視窗時，立即啟動全螢幕擷取。擷取到文字後，視窗會從最小化狀態還原。"
+            HeaderText="啟動時開啟全螢幕擷取"
             Icon="{ui:SymbolIcon FullScreenMaximize24}">
             <ui:ToggleSwitch x:Name="EditWindowStartFullscreenCheckBox" AutomationProperties.AutomationId="Settings.EditText.StartFullscreenToggle" Click="EditWindowStartFullscreenCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="The Edit Text Window will stay above all other windows."
-            HeaderText="Keep window always on top"
+            Description="文字編輯視窗會保持在所有視窗最上層。"
+            HeaderText="視窗保持最上層"
             Icon="{ui:SymbolIcon Pin24}">
             <ui:ToggleSwitch x:Name="EditWindowIsOnTopCheckBox" AutomationProperties.AutomationId="Settings.EditText.TopmostToggle" Click="EditWindowIsOnTopCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Wrap long lines of text instead of scrolling horizontally."
-            HeaderText="Enable word wrap"
+            Description="自動折行顯示長文字，不必水平捲動。"
+            HeaderText="啟用自動換行"
             Icon="{ui:SymbolIcon TextWrap24}">
             <ui:ToggleSwitch x:Name="EditWindowIsWordWrapOnCheckBox" AutomationProperties.AutomationId="Settings.EditText.WordWrapToggle" Click="EditWindowIsWordWrapOnCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Remember and restore the Edit Text Window's size and position between sessions."
-            HeaderText="Restore window size and position on startup"
+            Description="在不同工作階段間記住並還原文字編輯視窗的大小與位置。"
+            HeaderText="啟動時還原視窗大小與位置"
             Icon="{ui:SymbolIcon WindowLocationTarget20}">
             <ui:ToggleSwitch x:Name="RestoreEtwPositionsCheckBox" AutomationProperties.AutomationId="Settings.EditText.RestorePositionToggle" Click="RestoreEtwPositionsCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Convert Unix (LF) and classic Mac (CR) line endings to Windows (CRLF) when pasting text."
-            HeaderText="Normalize to Windows line endings on paste"
+            Description="貼上文字時，將 Unix (LF) 與傳統 Mac (CR) 換行格式轉換為 Windows (CRLF)。"
+            HeaderText="貼上時轉換為 Windows 換行格式"
             Icon="{ui:SymbolIcon TextParagraph24}">
             <ui:ToggleSwitch x:Name="EtwNormalizeLineEndingsOnPasteCheckBox" AutomationProperties.AutomationId="Settings.EditText.NormalizeLineEndingsToggle" Click="EtwNormalizeLineEndingsOnPasteCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="Control when red squiggles appear under misspelled words in the Edit Text Window."
-            HeaderText="Spell check"
+            Description="控制文字編輯視窗中拼錯文字下方何時顯示紅色波浪線。"
+            HeaderText="拼字檢查"
             Icon="{ui:SymbolIcon TextGrammarCheckmark24}">
             <StackPanel>
                 <RadioButton
                     x:Name="SpellCheckAutoRadio"
                     AutomationProperties.AutomationId="Settings.EditText.SpellCheck.Auto"
                     Click="SpellCheckModeRadio_Click"
-                    Content="Auto"
+                    Content="自動"
                     GroupName="EtwSpellCheckMode"
                     Tag="Auto" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Turn spell check off automatically for very large documents or content with several long unspaced tokens (GUIDs, app manifests, base64), and on otherwise."
+                    Text="文件非常大，或包含多個很長且沒有空格的字串（GUID、應用程式資訊清單、Base64）時，自動關閉拼字檢查；其他情況則開啟。"
                     TextWrapping="Wrap" />
 
                 <RadioButton
                     x:Name="SpellCheckAlwaysOnRadio"
                     AutomationProperties.AutomationId="Settings.EditText.SpellCheck.AlwaysOn"
                     Click="SpellCheckModeRadio_Click"
-                    Content="Always on"
+                    Content="一律開啟"
                     GroupName="EtwSpellCheckMode"
                     Tag="AlwaysOn" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Always spell check, regardless of the content."
+                    Text="一律進行拼字檢查，不受內容影響。"
                     TextWrapping="Wrap" />
 
                 <RadioButton
                     x:Name="SpellCheckOffRadio"
                     AutomationProperties.AutomationId="Settings.EditText.SpellCheck.Off"
                     Click="SpellCheckModeRadio_Click"
-                    Content="Off"
+                    Content="關閉"
                     GroupName="EtwSpellCheckMode"
                     Tag="Off" />
                 <TextBlock
                     Margin="24,0,0,0"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Never spell check."
+                    Text="永不進行拼字檢查。"
                     TextWrapping="Wrap" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Toolbar and UI" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="工具列與介面" />
 
         <controls:SettingsCard
-            Description="Collapse the bottom bar that contains status text, character info, regex buttons, and the language picker."
-            HeaderText="Hide bottom toolbar"
+            Description="收合底部工具列，其中包含狀態文字、字元資訊、規則運算式按鈕與語言選擇器。"
+            HeaderText="隱藏底部工具列"
             Icon="{ui:SymbolIcon PanelBottom20}">
             <ui:ToggleSwitch x:Name="EditWindowBottomBarIsHiddenCheckBox" AutomationProperties.AutomationId="Settings.EditText.HideBottomBarToggle" Click="EditWindowBottomBarIsHiddenCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Add an OCR language selector control to the bottom bar."
-            HeaderText="Show language picker in toolbar"
+            Description="在底部工具列加入 OCR 語言選擇器。"
+            HeaderText="在工具列顯示語言選擇器"
             Icon="{ui:SymbolIcon LocalLanguage24}">
             <ui:ToggleSwitch x:Name="EtwShowLangPickerCheckBox" AutomationProperties.AutomationId="Settings.EditText.ShowLanguagePickerToggle" Click="EtwShowLangPickerCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Add responsive horizontal padding to the text area (50–160px depending on window width) to improve readability on wider windows."
-            HeaderText="Show text margins"
+            Description="為文字區域加入自適應的水平留白（依視窗寬度調整為 50–160 px），提升寬視窗中的閱讀體驗。"
+            HeaderText="顯示文字邊界"
             Icon="{ui:SymbolIcon AutoFitWidth24}">
             <ui:ToggleSwitch x:Name="EtwUseMarginsCheckBox" AutomationProperties.AutomationId="Settings.EditText.UseMarginsToggle" Click="EtwUseMarginsCheckBox_Click" />
         </controls:SettingsCard>
@@ -128,15 +128,15 @@
         <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Text" />
 
         <controls:SettingsExpander
-            Description="Default font used when opening a new Edit Text Window."
-            HeaderText="Default font"
+            Description="開啟新的文字編輯視窗時使用的預設字型。"
+            HeaderText="預設字型"
             Icon="{ui:SymbolIcon TextFont24}">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock
                         Width="90"
                         VerticalAlignment="Center"
-                        Text="Font family:" />
+                        Text="字型名稱：" />
                     <TextBox
                         x:Name="FontFamilyTextBox"
                         AutomationProperties.AutomationId="Settings.EditText.FontFamily"
@@ -152,7 +152,7 @@
                     <TextBlock
                         Width="90"
                         VerticalAlignment="Center"
-                        Text="Font size:" />
+                        Text="字型大小：" />
                     <Slider
                         x:Name="FontSizeSlider"
                         AutomationProperties.AutomationId="Settings.EditText.FontSize"
@@ -175,100 +175,100 @@
                     <CheckBox
                         x:Name="IsFontBoldCheckBox"
                         Click="IsFontBoldCheckBox_Click"
-                        Content="Bold" />
+                        Content="粗體" />
                     <CheckBox
                         x:Name="IsFontItalicCheckBox"
                         Margin="16,0,0,0"
                         Click="IsFontItalicCheckBox_Click"
-                        Content="Italic" />
+                        Content="斜體" />
                     <CheckBox
                         x:Name="IsFontUnderlineCheckBox"
                         Margin="16,0,0,0"
                         Click="IsFontUnderlineCheckBox_Click"
-                        Content="Underline" />
+                        Content="底線" />
                     <CheckBox
                         x:Name="IsFontStrikeoutCheckBox"
                         Margin="16,0,0,0"
                         Click="IsFontStrikeoutCheckBox_Click"
-                        Content="Strikeout" />
+                        Content="刪除線" />
                 </StackPanel>
             </StackPanel>
         </controls:SettingsExpander>
 
         <controls:SettingsExpander
-            Description="Choose which details appear as clickable buttons in the Edit Text Window status bar."
-            HeaderText="Status bar details"
+            Description="選擇要在文字編輯視窗狀態列中以按鈕顯示的資訊。"
+            HeaderText="狀態列資訊"
             Icon="{ui:SymbolIcon AppsListDetail24}">
             <StackPanel>
                 <CheckBox
                     x:Name="EtwShowWordCountCheckBox"
                     Click="EtwShowWordCountCheckBox_Click"
-                    Content="Show word count" />
+                    Content="顯示字數" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Adds word count alongside the cursor line and column in the status bar (e.g. &quot;Wrds 42, Ln 3, Col 7&quot;)."
+                    Text="在狀態列的游標行與列資訊旁顯示字數（例如「字數 42，行 3，列 7」）。"
                     TextWrapping="Wrap" />
 
                 <CheckBox
                     x:Name="EtwShowCharDetailsCheckBox"
                     Click="EtwShowCharDetailsCheckBox_Click"
-                    Content="Show character details" />
+                    Content="顯示字元資訊" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="For a single selected character, shows its Unicode code point (e.g. U+0041). For a longer selection, shows the character count."
+                    Text="選取單一字元時顯示其 Unicode 碼位（例如 U+0041）；選取多個字元時顯示字元數。"
                     TextWrapping="Wrap" />
 
                 <CheckBox
                     x:Name="EtwShowMatchCountCheckBox"
                     Click="EtwShowMatchCountCheckBox_Click"
-                    Content="Show exact match count" />
+                    Content="顯示完全相符的數量" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Searches the full text for exact copies of the current selection. Click the count to open Find and Replace."
+                    Text="在全文中尋找與目前選取內容完全相同的文字。按一下計數即可開啟「尋找與取代」。"
                     TextWrapping="Wrap" />
 
                 <CheckBox
                     x:Name="EtwShowRegexPatternCheckBox"
                     Click="EtwShowRegexPatternCheckBox_Click"
-                    Content="Show generated regex pattern" />
+                    Content="顯示產生的規則運算式模式" />
                 <TextBlock
                     Margin="24,0,0,6"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Displays a regex pattern derived from the current selection. Scroll the mouse wheel over the button to adjust match precision."
+                    Text="顯示根據目前選取內容產生的規則運算式模式。將滑鼠游標移至按鈕上並滾動滾輪，可調整比對精確度。"
                     TextWrapping="Wrap" />
 
                 <CheckBox
                     x:Name="EtwShowSimilarMatchesCheckBox"
                     Click="EtwShowSimilarMatchesCheckBox_Click"
-                    Content="Show similar text matches" />
+                    Content="顯示相似文字比對數" />
                 <TextBlock
                     Margin="24,0,0,0"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Counts other text that matches the same character-class pattern as the selection. Scroll the mouse wheel over the button to adjust match precision."
+                    Text="統計符合選取內容相同字元類別模式的其他文字。將滑鼠游標移至按鈕上並滾動滾輪，可調整比對精確度。"
                     TextWrapping="Wrap" />
             </StackPanel>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Calculator" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="計算機" />
 
         <controls:SettingsCard
-            Description="Show a right-side panel that evaluates math expressions as you type them in the editor."
+            Description="顯示右側窗格，在您輸入運算式時即時計算結果。"
             HeaderText="Show calculator pane"
             Icon="{ui:SymbolIcon Calculator24}">
             <ui:ToggleSwitch x:Name="CalcShowPaneCheckBox" AutomationProperties.AutomationId="Settings.EditText.CalculatorPaneToggle" Click="CalcShowPaneCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsCard
-            Description="Display expression evaluation errors inline in the calculator pane."
-            HeaderText="Show calculator errors"
+            Description="在計算機窗格中直接顯示運算式錯誤。"
+            HeaderText="顯示計算錯誤"
             Icon="{ui:SymbolIcon ErrorCircle24}">
             <ui:ToggleSwitch x:Name="CalcShowErrorsCheckBox" AutomationProperties.AutomationId="Settings.EditText.CalculatorErrorsToggle" Click="CalcShowErrorsCheckBox_Click" />
         </controls:SettingsCard>

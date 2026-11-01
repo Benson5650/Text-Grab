@@ -26,9 +26,9 @@ public class FileOpenUtilities
             {
                 await new Wpf.Ui.Controls.MessageBox
                 {
-                    Title = "Error",
-                    Content = $"Failed to read {pathOfFileToOpen}",
-                    CloseButtonText = "OK"
+                    Title = "錯誤",
+                    Content = $"讀取 {pathOfFileToOpen} 失敗",
+                    CloseButtonText = "確定"
                 }.ShowDialogAsync();
             }
         }
@@ -60,7 +60,7 @@ public class FileOpenUtilities
         }
         catch (System.Exception ex)
         {
-            System.Windows.Forms.MessageBox.Show($"Failed to open file. {ex.Message}");
+            System.Windows.Forms.MessageBox.Show($"開啟檔案失敗。{ex.Message}");
         }
     }
 }

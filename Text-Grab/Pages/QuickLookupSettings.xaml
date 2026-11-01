@@ -14,13 +14,13 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="20,12,24,40" Orientation="Vertical">
-        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="Quick Simple Lookup Settings" />
+        <TextBlock Style="{StaticResource SettingsPageTitle}" Text="快速查詢設定" />
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Lookup file" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="查詢檔案" />
 
         <controls:SettingsExpander
-            Description="Path to a CSV file with ShortValue and LongValue columns. Leave empty to use a default cache file stored alongside the app."
-            HeaderText="Lookup file location"
+            Description="CSV 檔案路徑，檔案需包含 ShortValue 與 LongValue 欄。留空則使用應用程式所在資料夾中的預設快取檔。"
+            HeaderText="查詢檔案位置"
             Icon="{ui:SymbolIcon DocumentTable24}"
             IsExpanded="True">
             <Grid>
@@ -37,30 +37,30 @@
                     Grid.Column="1"
                     Margin="8,0,0,0"
                     Click="BrowseLookupFileButton_Click"
-                    Content="Browse..."
+                    Content="瀏覽…"
                     AutomationProperties.AutomationId="Settings.QuickLookup.BrowseFileButton" />
             </Grid>
         </controls:SettingsExpander>
 
-        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="Behavior" />
+        <TextBlock Style="{StaticResource SettingsSectionHeader}" Text="行為" />
 
         <controls:SettingsCard
-            Description="Append recent Edit Text Window sessions and Grab Frame captures to the bottom of the lookup grid."
-            HeaderText="Show history in lookup grid"
+            Description="將近期文字編輯視窗工作階段與擷取框擷取結果附加至查詢表格底部。"
+            HeaderText="在查詢表格中顯示歷史記錄"
             Icon="{ui:SymbolIcon History24}">
             <ui:ToggleSwitch x:Name="LookupSearchHistoryCheckBox" AutomationProperties.AutomationId="Settings.QuickLookup.SearchHistoryToggle" Click="LookupSearchHistoryCheckBox_Click" />
         </controls:SettingsCard>
 
         <controls:SettingsExpander
-            Description="After pressing Enter to select, close Quick Lookup and paste into the previously focused app."
-            HeaderText="Paste selected value into the previously focused app"
+            Description="按 Enter 選取後，關閉快速查詢並將內容貼到先前作用中的應用程式。"
+            HeaderText="將選取的值貼到先前作用中的應用程式"
             Icon="{ui:SymbolIcon ClipboardPaste24}">
             <controls:SettingsExpander.SettingsContent>
                 <ui:ToggleSwitch x:Name="TryInsertCheckBox" AutomationProperties.AutomationId="Settings.QuickLookup.InsertToggle" Click="TryInsertCheckBox_Click" />
             </controls:SettingsExpander.SettingsContent>
             <StackPanel>
                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Insert delay (seconds):" />
+                    <TextBlock VerticalAlignment="Center" Text="插入延遲（秒）：" />
                     <Slider
                         x:Name="InsertDelaySlider"
                         AutomationProperties.AutomationId="Settings.QuickLookup.InsertDelay"
@@ -83,7 +83,7 @@
                     Margin="0,4,0,0"
                     FontSize="12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Quick Lookup sends Ctrl+V to the previously focused app after this delay — giving you time to switch windows."
+                    Text="快速查詢會在此延遲時間後，對先前作用中的應用程式送出 Ctrl+V，讓您有時間切換視窗。"
                     TextWrapping="Wrap" />
             </StackPanel>
         </controls:SettingsExpander>

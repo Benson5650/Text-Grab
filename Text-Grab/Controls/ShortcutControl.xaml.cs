@@ -84,7 +84,7 @@ public partial class ShortcutControl : UserControl
             else
                 ButtonsPanel.Visibility = Visibility.Collapsed;
 
-            ShortcutName = _keySet.Name;
+            ShortcutName = _keySet.DisplayName;
 
             KeyLetterTextBlock.Text = _keySet.NonModifierKey.ToString();
             KeySetChanged?.Invoke(this, EventArgs.Empty);
@@ -207,7 +207,7 @@ public partial class ShortcutControl : UserControl
         else
         {
             HasErrorWithKeySet = true;
-            ErrorText.Text = "Need to have at least one modifier and one non-modifier key";
+            ErrorText.Text = "至少需要一個輔助鍵與一個非輔助鍵";
         }
 
         if (string.IsNullOrEmpty(currentSequence) || currentSequence.Equals(previousSequence))

@@ -619,12 +619,12 @@ public static class OcrSourceUtilities
                 }
             }
             else
-                returnString.AppendLine($"----- No Text Extracted{Environment.NewLine}");
+                returnString.AppendLine($"----- 未擷取到文字{Environment.NewLine}");
 
         }
         catch (Exception ex)
         {
-            returnString.AppendLine($"Failed to read {path}: {ex.Message}{Environment.NewLine}");
+            returnString.AppendLine($"讀取 {path} 失敗：{ex.Message}{Environment.NewLine}");
         }
 
         return returnString.ToString();
@@ -638,8 +638,8 @@ public static class OcrSourceUtilities
         await new Wpf.Ui.Controls.MessageBox
         {
             Title = "Text Grab",
-            Content = "Repeat previous fullscreen capture is currently available only for Region and Adjust After selections.",
-            CloseButtonText = "OK"
+            Content = "目前僅在「區域」和「擷取後調整」選取模式下提供重複上次全螢幕擷取。",
+            CloseButtonText = "確定"
         }.ShowDialogAsync();
         return false;
     }

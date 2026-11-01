@@ -194,19 +194,19 @@ public partial class FullscreenGrabSettings : Page
 
         if (count == 0)
         {
-            ActionsCountText.Text = "No actions enabled";
+            ActionsCountText.Text = "未啟用任何動作";
         }
         else if (count == 1)
         {
-            ActionsCountText.Text = $"1 action enabled: {enabledActions.First().ButtonText}";
+            ActionsCountText.Text = $"已啟用 1 個動作：{enabledActions.First().DisplayText}";
         }
         else
         {
-            string actionsList = string.Join(", ", enabledActions.Take(3).Select(a => a.ButtonText));
+            string actionsList = string.Join(", ", enabledActions.Take(3).Select(a => a.DisplayText));
             if (count > 3)
                 actionsList += $", and {count - 3} more";
 
-            ActionsCountText.Text = $"{count} actions enabled: {actionsList}";
+            ActionsCountText.Text = $"已啟用 {count} 個動作：{actionsList}";
         }
     }
 

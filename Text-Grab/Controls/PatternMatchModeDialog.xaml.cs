@@ -44,8 +44,8 @@ public partial class PatternMatchModeDialog : FluentWindow
         if (!isRecognizer)
             return;
 
-        Title = "Pattern Match Options";
-        DialogTitleBar.Title = "Pattern Match Options";
+        Title = "規則運算式符合選項";
+        DialogTitleBar.Title = "規則運算式符合選項";
         PatternNameLabel.Text = $"Pattern: {recognizerName}";
         OutputPanel.Visibility = Visibility.Visible;
     }
@@ -74,14 +74,14 @@ public partial class PatternMatchModeDialog : FluentWindow
         string text = IndicesTextBox.Text.Trim();
         if (string.IsNullOrEmpty(text))
         {
-            ShowIndicesError("At least one index is required.");
+            ShowIndicesError("至少需要一個索引。");
             return false;
         }
 
         string[] parts = text.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         if (parts.Length == 0)
         {
-            ShowIndicesError("At least one index is required.");
+            ShowIndicesError("至少需要一個索引。");
             return false;
         }
 
@@ -89,7 +89,7 @@ public partial class PatternMatchModeDialog : FluentWindow
         {
             if (!int.TryParse(part, out int val) || val < 1)
             {
-                ShowIndicesError($"\"{part}\" is not a valid positive integer.");
+                ShowIndicesError($"\"{part}\" 不是有效的正整數。");
                 return false;
             }
         }
